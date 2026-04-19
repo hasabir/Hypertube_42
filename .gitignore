@@ -1,0 +1,20 @@
+# Environment files
+.env
+.env.*
+
+# Python / Django
+__pycache__/
+*.py[cod]
+*.sqlite3
+
+# Node / Next.js
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/.vercel/
+
+# Logs
+*.log
+
+# OS
+.DS_Store
