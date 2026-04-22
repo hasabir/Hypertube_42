@@ -12,3 +12,8 @@ djangorestframework-simplejwt==5.3.1
 celery==5.3.6
 Pillow==10.2.0
 drf_spectacular
+dj-rest-auth
+django-allauth
+whitenoise
+drf-yasg
+gunicorn
