@@ -1,17 +1,43 @@
-from django.shortcuts import render
-
-# Create your views here.
-from rest_framework.decorators import api_view
+from rest_framework import generics
+from rest_framework.permissions import AllowAny
+from .models import User
+from .serializers import RegisterSerializer
+from rest_framework_simplejwt.tokens import RefreshToken
+from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from .serializers.user_serializer import UserSerializer
+from rest_framework.permissions import IsAuthenticated
 
-@api_view(['POST'])
-def register(request):
-    serializer = UserSerializer(data=request.data)
+# Register API view
+class CreateUserView(generics.CreateAPIView):
+    queryset = User.objects.all()
+    serializer_class = RegisterSerializer
+    permission_classes = (AllowAny,)
 
-    if serializer.is_valid():
-        serializer.save()
-        return Response(serializer.data, status=status.HTTP_201_CREATED)
 
-    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+# register, login, logout, profile CRUD, password reset
+
+from rest_framework_simplejwt.exceptions import TokenError, InvalidToken
+
+class LogoutView(APIView):
+    permission_classes = (IsAuthenticated,)
+
+    def post(self, request):
+        try:
+            refresh_token = request.data.get("refresh")
+            if not refresh_token:
+                return Response(
+                    {"error": "Refresh token required"}, 
+                    status=status.HTTP_400_BAD_REQUEST
+                )
+            token = RefreshToken(refresh_token)
+            token.blacklist()
+            return Response(
+                {"message": "Successfully logged out"}, 
+                status=status.HTTP_205_RESET_CONTENT
+            )
+        except TokenError:
+            return Response(
+                {"error": "Invalid or expired token"}, 
+                status=status.HTTP_400_BAD_REQUEST
+            )

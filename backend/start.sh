@@ -5,6 +5,7 @@ echo "Waiting for database..."
 sleep 5
 
 echo "Running migrations..."
+python manage.py collectstatic --noinput
 python3 manage.py makemigrations --noinput
 python3 manage.py migrate --noinput
 
