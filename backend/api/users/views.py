@@ -8,7 +8,8 @@ from .oauth import GoogleOAuth, GitHubOAuth, FortyTwoOAuth
 from rest_framework import generics
 from rest_framework.permissions import AllowAny
 from .models import User
-from .serializers import RegisterSerializer, ProfileSerializer, PublicProfileSerializer
+from .serializers import (RegisterSerializer, ProfileSerializer,
+                            PublicProfileSerializer, RequestPasswordResetSerializer)
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -17,6 +18,7 @@ from rest_framework.permissions import IsAuthenticated
 from django.shortcuts import redirect as django_redirect
 from rest_framework_simplejwt.exceptions import TokenError, InvalidToken
 
+from .utils import Utils
 # register, login, logout, profile CRUD, password reset
 
 
@@ -89,6 +91,55 @@ class UserProfileView(generics.RetrieveAPIView):
     permission_classes = (IsAuthenticated,)
     queryset = User.objects.all()
     lookup_field = "username"
+    
+
+
+# reset password
+
+class RequestPasswordResetView(generics.GenericAPIView):
+    permission_classes = (AllowAny,)
+
+    def post(self, request):
+        serializer = RequestPasswordResetSerializer(data=request.data, context={'request': request})
+        serializer.is_valid(raise_exception=True)
+        return Response({"message": "Password reset instructions sent to email"}, status=status.HTTP_200_OK)
+
+
+class PasswordResetConfirmView(generics.GenericAPIView):
+    permission_classes = (AllowAny,)
+
+    def get(self, request, uidb64, token):
+        uid = Utils.decode_uid(uidb64)
+        try:
+            user = User.objects.get(id=uid)
+        except (TypeError, ValueError, OverflowError, User.DoesNotExist):
+            return Response({"error": "Invalid reset link."}, status=status.HTTP_400_BAD_REQUEST)
+
+        from django.contrib.auth.tokens import PasswordResetTokenGenerator
+        if not PasswordResetTokenGenerator().check_token(user, token):
+            return Response({"error": "Reset link is invalid or has expired."}, status=status.HTTP_400_BAD_REQUEST)
+
+        return Response({"message": "Link is valid. You can now set a new password."}, status=status.HTTP_200_OK)
+
+    def post(self, request, uidb64, token):
+        uid = Utils.decode_uid(uidb64)
+        try:
+            user = User.objects.get(id=uid)
+        except (TypeError, ValueError, OverflowError, User.DoesNotExist):
+            return Response({"error": "Invalid reset link."}, status=status.HTTP_400_BAD_REQUEST)
+
+        from django.contrib.auth.tokens import PasswordResetTokenGenerator
+        if not PasswordResetTokenGenerator().check_token(user, token):
+            return Response({"error": "Reset link is invalid or has expired."}, status=status.HTTP_400_BAD_REQUEST)
+
+        new_password = request.data.get("new_password")
+        if not new_password or len(new_password) < 8:
+            return Response({"error": "Password must be at least 8 characters."}, status=status.HTTP_400_BAD_REQUEST)
+
+        user.set_password(new_password)
+        user.save()
+        return Response({"message": "Password has been reset successfully."}, status=status.HTTP_200_OK)
+
 
 
 
