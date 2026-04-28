@@ -15,17 +15,29 @@ from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.permissions import IsAuthenticated
 from django.shortcuts import redirect as django_redirect
+from rest_framework_simplejwt.exceptions import TokenError, InvalidToken
+
+# register, login, logout, profile CRUD, password reset
+
 
 # Register API view
 class CreateUserView(generics.CreateAPIView):
     queryset = User.objects.all()
     serializer_class = RegisterSerializer
     permission_classes = (AllowAny,)
+    # return the user data and tokens after registration
+    def create(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        user = serializer.save()
+        tokens = get_tokens_for_user(user)
+        response_data = {
+            "user": RegisterSerializer(user).data,
+            "tokens": tokens
+        }
+        return Response(response_data, status=status.HTTP_201_CREATED)
 
 
-# register, login, logout, profile CRUD, password reset
-
-from rest_framework_simplejwt.exceptions import TokenError, InvalidToken
 
 class LogoutView(APIView):
     permission_classes = (IsAuthenticated,)
@@ -50,6 +62,8 @@ class LogoutView(APIView):
                 status=status.HTTP_400_BAD_REQUEST
             )
 
+
+    
 User = get_user_model()
 
 PROVIDERS = {
