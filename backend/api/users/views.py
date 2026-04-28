@@ -8,7 +8,7 @@ from .oauth import GoogleOAuth, GitHubOAuth, FortyTwoOAuth
 from rest_framework import generics
 from rest_framework.permissions import AllowAny
 from .models import User
-from .serializers import RegisterSerializer
+from .serializers import RegisterSerializer, ProfileSerializer, PublicProfileSerializer
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -62,8 +62,36 @@ class LogoutView(APIView):
                 status=status.HTTP_400_BAD_REQUEST
             )
 
+# GET /api/users/me/  — own profile (read + update)
+class MyProfileView(generics.RetrieveUpdateAPIView):
+    serializer_class = ProfileSerializer
+    permission_classes = (IsAuthenticated,)
 
+
+    # get the profile of the logged in user
+    def get_object(self):
+        return self.request.user
+
+    # patch method to update only some fields of the profile
+    def update(self, request, *args, **kwargs):
+        partial = kwargs.pop('partial', False)
+        instance = self.get_object()
+        serializer = self.get_serializer(instance, data=request.data, partial=partial)
+        if serializer.is_valid(raise_exception=True):
+            self.perform_update(serializer)
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
+
+# GET /api/users/<username>/  — other user's profile 
+class UserProfileView(generics.RetrieveAPIView):
+    serializer_class = PublicProfileSerializer  
+    permission_classes = (IsAuthenticated,)
+    queryset = User.objects.all()
+    lookup_field = "username"
+
+
+
 User = get_user_model()
 
 PROVIDERS = {

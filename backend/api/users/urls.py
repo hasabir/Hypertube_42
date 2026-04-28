@@ -13,4 +13,6 @@ urlpatterns = [
     path('logout/', views.LogoutView.as_view(), name='logout'),
     path('auth/<str:provider>/',          views.OAuthRedirectView.as_view(),  name='oauth_redirect'),
     path('auth/<str:provider>/callback/', views.OAuthCallbackView.as_view(),  name='oauth_callback'),
+    path('me/', views.MyProfileView.as_view(), name='profile'),
+    path('<str:username>/', views.UserProfileView.as_view(), name='profile-detail'),\
 ]

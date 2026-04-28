@@ -1,3 +1,3 @@
 from .user_serializer import UserSerializer
 from .register_serializer import RegisterSerializer
-from .profile_serializer import ProfileSerializer
+from .profile_serializer import ProfileSerializer, PublicProfileSerializer
