@@ -17,3 +17,5 @@ django-allauth
 whitenoise
 drf-yasg
 gunicorn
+requests
+decouple

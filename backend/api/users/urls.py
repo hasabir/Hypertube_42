@@ -11,4 +11,6 @@ urlpatterns = [
     path('login/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('logout/', views.LogoutView.as_view(), name='logout'),
+    path('auth/<str:provider>/',          views.OAuthRedirectView.as_view(),  name='oauth_redirect'),
+    path('auth/<str:provider>/callback/', views.OAuthCallbackView.as_view(),  name='oauth_callback'),
 ]

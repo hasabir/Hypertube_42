@@ -1,0 +1,66 @@
+.
+├── backend
+│   ├── api
+│   │   ├── __pycache__
+│   │   │   ├...
+│   │   ├── urls.py
+│   │   ├── users
+│   │   │   ├── admin.py
+│   │   │   ├── apps.py
+│   │   │   ├── __init__.py
+│   │   │   ├── migrations
+│   │   │   │   ├── 0001_initial.py
+│   │   │   │   ├── 0002_user_oauth_provider_user_oauth_uid_alter_user_email_and_more.py
+│   │   │   │   ├── __init__.py
+│   │   │   │   └── __pycache__
+│   │   │   │       ├── 0001_initial.cpython-311.pyc
+│   │   │   │       ├── 0002_user_oauth_provider_user_oauth_uid_alter_user_email_and_more.cpython-311.pyc
+│   │   │   │       └── __init__.cpython-311.pyc
+│   │   │   ├── models.py
+│   │   │   ├── oauth.py
+│   │   │   ├── serializers
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── profile_serializer.py
+│   │   │   │   ├── register_serializer.py
+│   │   │   │   └── user_serializer.py
+│   │   │   ├── tests.py
+│   │   │   ├── urls.py
+│   │   │   └── views.py
+│   │   └── views.py
+│   ├── build
+│   │   ├── Dockerfile
+│   │   ├── requirements.txt
+│   │   └── start.sh
+│   ├── config
+│   │   ├── asgi.py
+│   │   ├── __init__.py
+│   │   ├── settings.py
+│   │   ├── urls.py
+│   │   └── wsgi.py
+│   ├── manage.py
+│   ├── media
+│   │   └── media
+│   │       └── avatars
+│   │           └── Screenshot_from_2025-04-14_21-20-02.png
+│   ├── start.sh
+│   └── staticfiles
+├── docker-compose.yml
+├── docs
+│   ├── en.subject.pdf
+│   └── hypertube.markingsheet.pdf
+├── frontend
+│   ├── Dockerfile
+│   ├── jsconfig.json
+│   ├── next.config.mjs
+│   ├── node_modules
+│   ├── package.json
+│   └── src
+│       └── app
+│           ├── globals.css
+│           ├── layout.js
+│           └── page.js
+├── Makefile
+├── README.md
+├── redis
+│   └── Dockerfile
+└── text.txt

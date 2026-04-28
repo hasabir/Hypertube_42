@@ -39,6 +39,9 @@ logs:
 logs-backend:
 	docker-compose logs -f backend
 
+restart_backend:
+	docker-compose restart backend
+
 shell:
 	docker-compose exec backend python manage.py shell
 
