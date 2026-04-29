@@ -330,14 +330,19 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # AUTHENTICATION_BACKENDS = ['users.auth_backends.EmailBackend']
 AUTH_USER_MODEL = 'users.User'  # Commented out - no custom user model
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # For development, prints emails to console
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # For development, prints emails to console
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
-# EMAIL_HOST = os.getenv('Email_HOST')
+EMAIL_HOST = os.getenv('EMAIL_HOST')
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+EMAIL_PORT=587
+EMAIL_USE_TLS=True
+DEFAULT_FROM_EMAIL='hypertube'
+EMAIL_SUBJECT_PREFIX='[Hypertube] '
 # EMAIL_PORT = 465
 # EMAIL_USE_SSL = True
-# EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
 # EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 # DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 # SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
