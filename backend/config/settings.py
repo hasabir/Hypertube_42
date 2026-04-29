@@ -39,17 +39,23 @@ INSTALLED_APPS = [
     # 'daphne',
     # 'channels',
     'corsheaders',
-    'rest_framework',
+    
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
+    'rest_framework',
     'rest_framework_simplejwt',
-    'drf_spectacular',
-    'api.users.apps.UsersConfig',
     'rest_framework_simplejwt.token_blacklist',
+    
+    'drf_spectacular',
+    
+    ''
+    
+    'api.users.apps.UsersConfig',
 ]
 
 
@@ -295,6 +301,16 @@ CORS_ALLOW_HEADERS = [
 ]
 
 
+SWAGER_SETTINGS = {
+    'SECURITY_DEFINITIONS': {
+        'Bearer': {
+            'type': 'apiKey',
+            'name': 'Authorization',
+            'in': 'header'
+        }
+    }
+}
+
 # For serving PDFs and files
 X_FRAME_OPTIONS = 'SAMEORIGIN'  # This allows iframes from same origin
 SECURE_CROSS_ORIGIN_OPENER_POLICY = 'same-origin-allow-popups'
@@ -314,13 +330,14 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # AUTHENTICATION_BACKENDS = ['users.auth_backends.EmailBackend']
 AUTH_USER_MODEL = 'users.User'  # Commented out - no custom user model
 
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # For development, prints emails to console
 
-EMAIL_HOST = os.getenv('Email_HOST')
-EMAIL_PORT = 465
-EMAIL_USE_SSL = True
-EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
-DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = os.getenv('Email_HOST')
+# EMAIL_PORT = 465
+# EMAIL_USE_SSL = True
+# EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+# EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+# DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+# SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')

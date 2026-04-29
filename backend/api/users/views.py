@@ -40,7 +40,8 @@ class CreateUserView(generics.CreateAPIView):
         return Response(response_data, status=status.HTTP_201_CREATED)
 
 
-
+# Logout API view
+# Post /api/users/logout/ with {"refresh": "<refresh_token>"} to blacklist the refresh token
 class LogoutView(APIView):
     permission_classes = (IsAuthenticated,)
 
@@ -65,7 +66,9 @@ class LogoutView(APIView):
             )
 
 # GET /api/users/me/  — own profile (read + update)
+# PATCH /api/users/me/  — update own profile (only provided fields)
 class MyProfileView(generics.RetrieveUpdateAPIView):
+    '''Serializer for the logged in user's profile. GET returns own profile, PATCH updates it.'''
     serializer_class = ProfileSerializer
     permission_classes = (IsAuthenticated,)
 
@@ -96,15 +99,23 @@ class UserProfileView(generics.RetrieveAPIView):
 
 # reset password
 
+
+# POST /api/users/request-password-reset/ with {"email": "<user_email>"} to send reset instructions
 class RequestPasswordResetView(generics.GenericAPIView):
     permission_classes = (AllowAny,)
+    serializer_class = RequestPasswordResetSerializer
 
     def post(self, request):
-        serializer = RequestPasswordResetSerializer(data=request.data, context={'request': request})
+        serializer = self.serializer_class(data=request.data, context={'request': request})
         serializer.is_valid(raise_exception=True)
         return Response({"message": "Password reset instructions sent to email"}, status=status.HTTP_200_OK)
 
 
+
+
+
+# GET /api/users/password-reset/<uidb64>/<token>/ to validate the reset link
+# POST /api/users/password-reset/<uidb64>/<token>/ with {"new_password": "<new_password>"} to set the new password
 class PasswordResetConfirmView(generics.GenericAPIView):
     permission_classes = (AllowAny,)
 
