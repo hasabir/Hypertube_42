@@ -75,18 +75,23 @@ class MyProfileView(generics.RetrieveUpdateAPIView):
 
     # get the profile of the logged in user
     def get_object(self):
-        return self.request.user
-
+        try:
+            return self.request.user
+        except User.DoesNotExist:
+            #! to be added in the future
+            return None
     # patch method to update only some fields of the profile
     def update(self, request, *args, **kwargs):
-        partial = kwargs.pop('partial', False)
-        instance = self.get_object()
-        serializer = self.get_serializer(instance, data=request.data, partial=partial)
-        if serializer.is_valid(raise_exception=True):
-            self.perform_update(serializer)
-            return Response(serializer.data)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    
+        try:
+            partial = kwargs.pop('partial', False)
+            instance = self.get_object()
+            serializer = self.get_serializer(instance, data=request.data, partial=partial)
+            if serializer.is_valid(raise_exception=True):
+                self.perform_update(serializer)
+                return Response(serializer.data)
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        except User.DoesNotExist:
+            return Response({"error": "User not found"}, status=status.HTTP_404_NOT_FOUND)
 
 # GET /api/users/<username>/  — other user's profile 
 class UserProfileView(generics.RetrieveAPIView):
