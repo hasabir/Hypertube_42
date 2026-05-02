@@ -1,0 +1,2 @@
+from .archive_org import search_archive_org
+from .legittorrents import search_legittorrents

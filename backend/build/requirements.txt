@@ -19,3 +19,4 @@ drf-yasg
 gunicorn
 requests
 decouple
+beautifulsoup4
