@@ -54,9 +54,10 @@ INSTALLED_APPS = [
     
     
     'api.users.apps.UsersConfig',
+    'api.movies.apps.MoviesConfig',
 ]
 
-
+APPEND_SLASH=False
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',

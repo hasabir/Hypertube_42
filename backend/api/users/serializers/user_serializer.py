@@ -4,9 +4,9 @@ from django.contrib.auth.tokens import PasswordResetTokenGenerator
 from django.utils.encoding import force_bytes, force_str, DjangoUnicodeDecodeError
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.contrib.auth import get_user_model
-# from django.contrib.sites.shortcuts import  get_current_site
-# from django.urls import reverse
-# from django.conf import settings
+from django.contrib.sites.shortcuts import  get_current_site
+from django.urls import reverse
+from django.conf import settings
 from ..utils import Utils
 
 
@@ -25,7 +25,6 @@ class RequestPasswordResetSerializer(serializers.Serializer):
     #     fields = ['email']
     
     def validate(self, attrs):
-        print("----------------------> Validating email for password reset:", attrs['email'])  # Debug statement
         email = attrs['email']
         user = User.objects.filter(email=email).first()
         if not user:
@@ -37,12 +36,12 @@ class RequestPasswordResetSerializer(serializers.Serializer):
         
         
         #! to be replaced with frontend URL
-        # current_site = get_current_site(request).domain
-        # relative_link = reverse('password-reset-confirm', kwargs={'uidb64': uid64, 'token': token})
-        # absurl = f"http://{current_site}{relative_link}"
+        current_site = get_current_site(request).domain
+        relative_link = reverse('password-reset-confirm', kwargs={'uidb64': uid64, 'token': token})
+        absurl = f"http://{current_site}{relative_link}"
         
         #! this is the fronentd url
-        absurl = f"http://localhost:3000/auth/reset-password?uid={uid64}&token={token}"
+        # absurl = f"http://localhost:3000/auth/reset-password?uid={uid64}&token={token}"
         
         email_body = (
             f"Hello,\n\nYou requested a password reset. "
@@ -56,4 +55,18 @@ class RequestPasswordResetSerializer(serializers.Serializer):
         })
         return attrs
     
+
+class ChangePasswordSerializer(serializers.Serializer):
+    old_password = serializers.CharField(required=True)
+    new_password = serializers.CharField(required=True, min_length=8)
+    def validate(self, attrs):
+        user = self.context['request'].user
+        if not user.check_password(attrs['old_password']):
+            raise serializers.ValidationError("Old password is not correct.")
+        return attrs
+
+class PasswordResetConfirmSerializer(serializers.Serializer):
+    new_password = serializers.CharField(min_length=8, write_only=True)
+    
+
 

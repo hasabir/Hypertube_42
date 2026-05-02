@@ -9,7 +9,9 @@ from rest_framework import generics
 from rest_framework.permissions import AllowAny
 from .models import User
 from .serializers import (RegisterSerializer, ProfileSerializer,
-                            PublicProfileSerializer, RequestPasswordResetSerializer)
+                            PublicProfileSerializer, RequestPasswordResetSerializer,
+                            PasswordResetConfirmSerializer,
+                            ChangePasswordSerializer)
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -78,20 +80,22 @@ class MyProfileView(generics.RetrieveUpdateAPIView):
         try:
             return self.request.user
         except User.DoesNotExist:
-            #! to be added in the future
-            return None
+            return Response({"error": "User not found"}, status=status.HTTP_404_NOT_FOUND)
     # patch method to update only some fields of the profile
     def update(self, request, *args, **kwargs):
         try:
             partial = kwargs.pop('partial', False)
             instance = self.get_object()
             serializer = self.get_serializer(instance, data=request.data, partial=partial)
+            
             if serializer.is_valid(raise_exception=True):
                 self.perform_update(serializer)
                 return Response(serializer.data)
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         except User.DoesNotExist:
             return Response({"error": "User not found"}, status=status.HTTP_404_NOT_FOUND)
+        except Exception as e:
+            return Response({"error": str(e)}, status=status.HTTP_400_BAD_REQUEST)
 
 # GET /api/users/<username>/  — other user's profile 
 class UserProfileView(generics.RetrieveAPIView):
@@ -100,6 +104,32 @@ class UserProfileView(generics.RetrieveAPIView):
     queryset = User.objects.all()
     lookup_field = "username"
     
+
+
+# Change password API view
+
+class ChangePasswordView(generics.UpdateAPIView):
+    serializer_class = ChangePasswordSerializer
+    model = User
+    permission_classes = (IsAuthenticated,)
+
+    def get_object(self, queryset=None):
+        return self.request.user
+
+    def update(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        serializer = self.get_serializer(data=request.data)
+
+        if serializer.is_valid():
+            # Check old password
+            if not self.object.check_password(serializer.data.get("old_password")):
+                return Response({"old_password": ["Wrong password."]}, status=status.HTTP_400_BAD_REQUEST)
+            # Set new password
+            self.object.set_password(serializer.data.get("new_password"))
+            self.object.save()
+            return Response({"message": "Password updated successfully"}, status=status.HTTP_200_OK)
+
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 # reset password
@@ -118,11 +148,11 @@ class RequestPasswordResetView(generics.GenericAPIView):
 
 
 
-
 # GET /api/users/password-reset/<uidb64>/<token>/ to validate the reset link
 # POST /api/users/password-reset/<uidb64>/<token>/ with {"new_password": "<new_password>"} to set the new password
 class PasswordResetConfirmView(generics.GenericAPIView):
     permission_classes = (AllowAny,)
+    serializer_class = PasswordResetConfirmSerializer
 
     def get(self, request, uidb64, token):
         uid = Utils.decode_uid(uidb64)
@@ -149,7 +179,9 @@ class PasswordResetConfirmView(generics.GenericAPIView):
             return Response({"error": "Reset link is invalid or has expired."}, status=status.HTTP_400_BAD_REQUEST)
 
         new_password = request.data.get("new_password")
-        if not new_password or len(new_password) < 8:
+        if not new_password:
+            return Response({"error": "New password is required."}, status=status.HTTP_400_BAD_REQUEST)
+        if len(new_password) < 8:
             return Response({"error": "Password must be at least 8 characters."}, status=status.HTTP_400_BAD_REQUEST)
 
         user.set_password(new_password)

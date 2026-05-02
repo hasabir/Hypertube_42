@@ -22,3 +22,5 @@ web/
 staticfiles/
 .venv/
 .vscode/
+
+text.txt
