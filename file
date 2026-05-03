@@ -1,0 +1,1772 @@
+Waiting for database...
+Running migrations...
+
+0 static files copied to '/app/staticfiles', 196 unmodified.
+No changes detected
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, movies, sessions, token_blacklist, users
+Running migrations:
+  No migrations to apply.
+strating server...
+Performing system checks...
+
+System check identified no issues (0 silenced).
+May 03, 2026 - 11:38:14
+Django version 5.0.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+-----------------------------> title: Laura Betti Josephine Chaplin In 1972 Movie year: 1972
+********* OMDb error for 'Laura Betti Josephine Chaplin In 1972 Movie': Movie not found!
+OMDb result for 'Laura Betti Josephine Chaplin In 1972 Movie': {}
+-----------------------------> title: THE TRAMP ( 1915) Charlie Chaplin, Edna Purviance year: None
+********* OMDb error for 'THE TRAMP ( 1915) Charlie Chaplin, Edna Purviance': Movie not found!
+OMDb result for 'THE TRAMP ( 1915) Charlie Chaplin, Edna Purviance': {}
+-----------------------------> title: THE CHAMPION ( 1915) Charlie Chaplin, Edna Purviance year: None
+********* OMDb error for 'THE CHAMPION ( 1915) Charlie Chaplin, Edna Purviance': Movie not found!
+OMDb result for 'THE CHAMPION ( 1915) Charlie Chaplin, Edna Purviance': {}
+-----------------------------> title: The Floorwalker (Charlie Chaplin) year: None
+********* OMDb error for 'The Floorwalker (Charlie Chaplin)': Movie not found!
+OMDb result for 'The Floorwalker (Charlie Chaplin)': {}
+-----------------------------> title: Charlie Chaplin | O Grande Ditador (The Great Dictator) - 1940 - Legendado year: 2017
+********* OMDb error for 'Charlie Chaplin | O Grande Ditador (The Great Dictator) - 1940 - Legendado': Movie not found!
+OMDb result for 'Charlie Chaplin | O Grande Ditador (The Great Dictator) - 1940 - Legendado': {}
+-----------------------------> title: Shoulder Arms, Chaplin year: 2013
+********* OMDb error for 'Shoulder Arms, Chaplin': Movie not found!
+OMDb result for 'Shoulder Arms, Chaplin': {}
+-----------------------------> title: The Pawnshop (1916) Charlie Chaplin year: None
+********* OMDb error for 'The Pawnshop (1916) Charlie Chaplin': Movie not found!
+OMDb result for 'The Pawnshop (1916) Charlie Chaplin': {}
+-----------------------------> title: The Adventurer (1917) Charlie Chaplin year: None
+********* OMDb error for 'The Adventurer (1917) Charlie Chaplin': Movie not found!
+OMDb result for 'The Adventurer (1917) Charlie Chaplin': {}
+-----------------------------> title: Charlie Chaplin . A Night In The Show (1915, Classic, Silent, Short, Colorized Film noir) year: 1915
+********* OMDb error for 'Charlie Chaplin . A Night In The Show (1915, Classic, Silent, Short, Colorized Film noir)': Movie not found!
+OMDb result for 'Charlie Chaplin . A Night In The Show (1915, Classic, Silent, Short, Colorized Film noir)': {}
+-----------------------------> title: Charlie Chaplin . The Tramp (1915 Restored Silent Short Film Noir Comedy) year: 1915
+********* OMDb error for 'Charlie Chaplin . The Tramp (1915 Restored Silent Short Film Noir Comedy)': Movie not found!
+OMDb result for 'Charlie Chaplin . The Tramp (1915 Restored Silent Short Film Noir Comedy)': {}
+-----------------------------> title: Shanghaied (1916) Charlie Chaplin year: 1916
+********* OMDb error for 'Shanghaied (1916) Charlie Chaplin': Movie not found!
+OMDb result for 'Shanghaied (1916) Charlie Chaplin': {}
+-----------------------------> title: The Immigrant (1917) Charlie Chaplin year: 1917
+********* OMDb error for 'The Immigrant (1917) Charlie Chaplin': Movie not found!
+OMDb result for 'The Immigrant (1917) Charlie Chaplin': {}
+-----------------------------> title: Charlie Chaplin . The Immigrant (1917 Restored, Silent, Short, Film Noir, Comedy) year: 1917
+********* OMDb error for 'Charlie Chaplin . The Immigrant (1917 Restored, Silent, Short, Film Noir, Comedy)': Movie not found!
+OMDb result for 'Charlie Chaplin . The Immigrant (1917 Restored, Silent, Short, Film Noir, Comedy)': {}
+-----------------------------> title: Unknown Chaplin: 3 -- Hidden Treasure year: 1983
+********* OMDb error for 'Unknown Chaplin: 3 -- Hidden Treasure': Movie not found!
+OMDb result for 'Unknown Chaplin: 3 -- Hidden Treasure': {}
+-----------------------------> title: THE FACE ON THE BARROOM FLOOR ( 1914) Charlie Chaplin year: None
+********* OMDb error for 'THE FACE ON THE BARROOM FLOOR ( 1914) Charlie Chaplin': Movie not found!
+OMDb result for 'THE FACE ON THE BARROOM FLOOR ( 1914) Charlie Chaplin': {}
+-----------------------------> title: The Immigrant (1917) Charlie Chaplin year: None
+********* OMDb error for 'The Immigrant (1917) Charlie Chaplin': Movie not found!
+OMDb result for 'The Immigrant (1917) Charlie Chaplin': {}
+-----------------------------> title: The Fireman (1916) Charlie Chaplin year: None
+********* OMDb error for 'The Fireman (1916) Charlie Chaplin': Movie not found!
+OMDb result for 'The Fireman (1916) Charlie Chaplin': {}
+-----------------------------> title: The Rink (1916) Charlie Chaplin year: 1916
+********* OMDb error for 'The Rink (1916) Charlie Chaplin': Movie not found!
+OMDb result for 'The Rink (1916) Charlie Chaplin': {}
+-----------------------------> title: The Vagabond (1915) Charlie Chaplin year: None
+********* OMDb error for 'The Vagabond (1915) Charlie Chaplin': Movie not found!
+OMDb result for 'The Vagabond (1915) Charlie Chaplin': {}
+-----------------------------> title: Laughing Gas (1914) Charlie Chaplin year: 1914
+********* OMDb error for 'Laughing Gas (1914) Charlie Chaplin': Movie not found!
+OMDb result for 'Laughing Gas (1914) Charlie Chaplin': {}
+-----------------------------> title: Laura Betti Josephine Chaplin In 1972 Movie year: 1972
+********* OMDb error for 'Laura Betti Josephine Chaplin In 1972 Movie': Movie not found!
+OMDb result for 'Laura Betti Josephine Chaplin In 1972 Movie': {}
+-----------------------------> title: THE TRAMP ( 1915) Charlie Chaplin, Edna Purviance year: None
+********* OMDb error for 'THE TRAMP ( 1915) Charlie Chaplin, Edna Purviance': Movie not found!
+OMDb result for 'THE TRAMP ( 1915) Charlie Chaplin, Edna Purviance': {}
+-----------------------------> title: THE CHAMPION ( 1915) Charlie Chaplin, Edna Purviance year: None
+********* OMDb error for 'THE CHAMPION ( 1915) Charlie Chaplin, Edna Purviance': Movie not found!
+OMDb result for 'THE CHAMPION ( 1915) Charlie Chaplin, Edna Purviance': {}
+-----------------------------> title: The Floorwalker (Charlie Chaplin) year: None
+********* OMDb error for 'The Floorwalker (Charlie Chaplin)': Movie not found!
+OMDb result for 'The Floorwalker (Charlie Chaplin)': {}
+-----------------------------> title: Charlie Chaplin | O Grande Ditador (The Great Dictator) - 1940 - Legendado year: 2017
+********* OMDb error for 'Charlie Chaplin | O Grande Ditador (The Great Dictator) - 1940 - Legendado': Movie not found!
+OMDb result for 'Charlie Chaplin | O Grande Ditador (The Great Dictator) - 1940 - Legendado': {}
+-----------------------------> title: Shoulder Arms, Chaplin year: 2013
+********* OMDb error for 'Shoulder Arms, Chaplin': Movie not found!
+OMDb result for 'Shoulder Arms, Chaplin': {}
+-----------------------------> title: The Pawnshop (1916) Charlie Chaplin year: None
+********* OMDb error for 'The Pawnshop (1916) Charlie Chaplin': Movie not found!
+OMDb result for 'The Pawnshop (1916) Charlie Chaplin': {}
+-----------------------------> title: The Adventurer (1917) Charlie Chaplin year: None
+********* OMDb error for 'The Adventurer (1917) Charlie Chaplin': Movie not found!
+OMDb result for 'The Adventurer (1917) Charlie Chaplin': {}
+-----------------------------> title: Charlie Chaplin . A Night In The Show (1915, Classic, Silent, Short, Colorized Film noir) year: 1915
+********* OMDb error for 'Charlie Chaplin . A Night In The Show (1915, Classic, Silent, Short, Colorized Film noir)': Movie not found!
+OMDb result for 'Charlie Chaplin . A Night In The Show (1915, Classic, Silent, Short, Colorized Film noir)': {}
+-----------------------------> title: Charlie Chaplin . The Tramp (1915 Restored Silent Short Film Noir Comedy) year: 1915
+********* OMDb error for 'Charlie Chaplin . The Tramp (1915 Restored Silent Short Film Noir Comedy)': Movie not found!
+OMDb result for 'Charlie Chaplin . The Tramp (1915 Restored Silent Short Film Noir Comedy)': {}
+-----------------------------> title: Shanghaied (1916) Charlie Chaplin year: 1916
+********* OMDb error for 'Shanghaied (1916) Charlie Chaplin': Movie not found!
+OMDb result for 'Shanghaied (1916) Charlie Chaplin': {}
+-----------------------------> title: The Immigrant (1917) Charlie Chaplin year: 1917
+********* OMDb error for 'The Immigrant (1917) Charlie Chaplin': Movie not found!
+OMDb result for 'The Immigrant (1917) Charlie Chaplin': {}
+-----------------------------> title: Charlie Chaplin . The Immigrant (1917 Restored, Silent, Short, Film Noir, Comedy) year: 1917
+********* OMDb error for 'Charlie Chaplin . The Immigrant (1917 Restored, Silent, Short, Film Noir, Comedy)': Movie not found!
+OMDb result for 'Charlie Chaplin . The Immigrant (1917 Restored, Silent, Short, Film Noir, Comedy)': {}
+-----------------------------> title: Unknown Chaplin: 3 -- Hidden Treasure year: 1983
+********* OMDb error for 'Unknown Chaplin: 3 -- Hidden Treasure': Movie not found!
+OMDb result for 'Unknown Chaplin: 3 -- Hidden Treasure': {}
+-----------------------------> title: THE FACE ON THE BARROOM FLOOR ( 1914) Charlie Chaplin year: None
+********* OMDb error for 'THE FACE ON THE BARROOM FLOOR ( 1914) Charlie Chaplin': Movie not found!
+OMDb result for 'THE FACE ON THE BARROOM FLOOR ( 1914) Charlie Chaplin': {}
+-----------------------------> title: The Immigrant (1917) Charlie Chaplin year: None
+********* OMDb error for 'The Immigrant (1917) Charlie Chaplin': Movie not found!
+OMDb result for 'The Immigrant (1917) Charlie Chaplin': {}
+-----------------------------> title: The Fireman (1916) Charlie Chaplin year: None
+********* OMDb error for 'The Fireman (1916) Charlie Chaplin': Movie not found!
+OMDb result for 'The Fireman (1916) Charlie Chaplin': {}
+-----------------------------> title: The Rink (1916) Charlie Chaplin year: 1916
+********* OMDb error for 'The Rink (1916) Charlie Chaplin': Movie not found!
+OMDb result for 'The Rink (1916) Charlie Chaplin': {}
+-----------------------------> title: The Vagabond (1915) Charlie Chaplin year: None
+********* OMDb error for 'The Vagabond (1915) Charlie Chaplin': Movie not found!
+OMDb result for 'The Vagabond (1915) Charlie Chaplin': {}
+-----------------------------> title: Laughing Gas (1914) Charlie Chaplin year: 1914
+********* OMDb error for 'Laughing Gas (1914) Charlie Chaplin': Movie not found!
+OMDb result for 'Laughing Gas (1914) Charlie Chaplin': {}
+Performing system checks...
+
+System check identified no issues (0 silenced).
+May 03, 2026 - 11:43:36
+Django version 5.0.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Performing system checks...
+
+System check identified no issues (0 silenced).
+May 03, 2026 - 11:44:15
+Django version 5.0.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Performing system checks...
+
+System check identified no issues (0 silenced).
+May 03, 2026 - 11:44:17
+Django version 5.0.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Performing system checks...
+
+System check identified no issues (0 silenced).
+May 03, 2026 - 11:44:22
+Django version 5.0.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Performing system checks...
+
+System check identified no issues (0 silenced).
+May 03, 2026 - 11:44:24
+Django version 5.0.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Performing system checks...
+
+System check identified no issues (0 silenced).
+May 03, 2026 - 11:44:27
+Django version 5.0.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Performing system checks...
+
+System check identified no issues (0 silenced).
+May 03, 2026 - 11:44:32
+Django version 5.0.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Performing system checks...
+
+System check identified no issues (0 silenced).
+May 03, 2026 - 11:44:40
+Django version 5.0.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Performing system checks...
+
+System check identified no issues (0 silenced).
+May 03, 2026 - 11:44:43
+Django version 5.0.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Performing system checks...
+
+System check identified no issues (0 silenced).
+May 03, 2026 - 11:44:50
+Django version 5.0.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Performing system checks...
+
+System check identified no issues (0 silenced).
+May 03, 2026 - 11:44:54
+Django version 5.0.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+-----------------------------> title: Laura Betti Josephine Chaplin In 1972 Movie
+-----------------------------> title: THE TRAMPCharlie Chaplin, Edna Purviance
+-----------------------------> title: THE CHAMPIONCharlie Chaplin, Edna Purviance
+-----------------------------> title: The Floorwalker
+-----------------------------> title: Charlie Chaplin | O Grande Ditador- 1940 - Legendado
+-----------------------------> title: Shoulder Arms, Chaplin
+-----------------------------> title: The PawnshopCharlie Chaplin
+-----------------------------> title: The AdventurerCharlie Chaplin
+-----------------------------> title: Charlie Chaplin . A Night In The Show
+-----------------------------> title: Charlie Chaplin . The Tramp
+-----------------------------> title: ShanghaiedCharlie Chaplin
+-----------------------------> title: The ImmigrantCharlie Chaplin
+-----------------------------> title: Charlie Chaplin . The Immigrant
+-----------------------------> title: Unknown Chaplin: 3 -- Hidden Treasure
+-----------------------------> title: THE FACE ON THE BARROOM FLOORCharlie Chaplin
+-----------------------------> title: The ImmigrantCharlie Chaplin
+-----------------------------> title: The FiremanCharlie Chaplin
+-----------------------------> title: The RinkCharlie Chaplin
+-----------------------------> title: The VagabondCharlie Chaplin
+-----------------------------> title: Laughing GasCharlie Chaplin
+********* OMDb error for 'Laura Betti Josephine Chaplin In 1972 Movie': Movie not found!
+OMDb result for 'Laura Betti Josephine Chaplin In 1972 Movie': {}
+********* OMDb error for 'THE TRAMP ( 1915) Charlie Chaplin, Edna Purviance': Movie not found!
+OMDb result for 'THE TRAMP ( 1915) Charlie Chaplin, Edna Purviance': {}
+********* OMDb error for 'THE CHAMPION ( 1915) Charlie Chaplin, Edna Purviance': Movie not found!
+OMDb result for 'THE CHAMPION ( 1915) Charlie Chaplin, Edna Purviance': {}
+********* OMDb error for 'The Floorwalker (Charlie Chaplin)': Movie not found!
+OMDb result for 'The Floorwalker (Charlie Chaplin)': {}
+********* OMDb error for 'Charlie Chaplin | O Grande Ditador (The Great Dictator) - 1940 - Legendado': Movie not found!
+OMDb result for 'Charlie Chaplin | O Grande Ditador (The Great Dictator) - 1940 - Legendado': {}
+********* OMDb error for 'Shoulder Arms, Chaplin': Movie not found!
+OMDb result for 'Shoulder Arms, Chaplin': {}
+********* OMDb error for 'The Pawnshop (1916) Charlie Chaplin': Movie not found!
+OMDb result for 'The Pawnshop (1916) Charlie Chaplin': {}
+********* OMDb error for 'The Adventurer (1917) Charlie Chaplin': Movie not found!
+OMDb result for 'The Adventurer (1917) Charlie Chaplin': {}
+********* OMDb error for 'Charlie Chaplin . A Night In The Show (1915, Classic, Silent, Short, Colorized Film noir)': Movie not found!
+OMDb result for 'Charlie Chaplin . A Night In The Show (1915, Classic, Silent, Short, Colorized Film noir)': {}
+********* OMDb error for 'Charlie Chaplin . The Tramp (1915 Restored Silent Short Film Noir Comedy)': Movie not found!
+OMDb result for 'Charlie Chaplin . The Tramp (1915 Restored Silent Short Film Noir Comedy)': {}
+********* OMDb error for 'Shanghaied (1916) Charlie Chaplin': Movie not found!
+OMDb result for 'Shanghaied (1916) Charlie Chaplin': {}
+********* OMDb error for 'The Immigrant (1917) Charlie Chaplin': Movie not found!
+OMDb result for 'The Immigrant (1917) Charlie Chaplin': {}
+********* OMDb error for 'Charlie Chaplin . The Immigrant (1917 Restored, Silent, Short, Film Noir, Comedy)': Movie not found!
+OMDb result for 'Charlie Chaplin . The Immigrant (1917 Restored, Silent, Short, Film Noir, Comedy)': {}
+********* OMDb error for 'Unknown Chaplin: 3 -- Hidden Treasure': Movie not found!
+OMDb result for 'Unknown Chaplin: 3 -- Hidden Treasure': {}
+********* OMDb error for 'THE FACE ON THE BARROOM FLOOR ( 1914) Charlie Chaplin': Movie not found!
+OMDb result for 'THE FACE ON THE BARROOM FLOOR ( 1914) Charlie Chaplin': {}
+********* OMDb error for 'The Immigrant (1917) Charlie Chaplin': Movie not found!
+OMDb result for 'The Immigrant (1917) Charlie Chaplin': {}
+********* OMDb error for 'The Fireman (1916) Charlie Chaplin': Movie not found!
+OMDb result for 'The Fireman (1916) Charlie Chaplin': {}
+********* OMDb error for 'The Rink (1916) Charlie Chaplin': Movie not found!
+OMDb result for 'The Rink (1916) Charlie Chaplin': {}
+********* OMDb error for 'The Vagabond (1915) Charlie Chaplin': Movie not found!
+OMDb result for 'The Vagabond (1915) Charlie Chaplin': {}
+********* OMDb error for 'Laughing Gas (1914) Charlie Chaplin': Movie not found!
+OMDb result for 'Laughing Gas (1914) Charlie Chaplin': {}
+-----------------------------> title: Laura Betti Josephine Chaplin In 1972 Movie
+-----------------------------> title: THE TRAMPCharlie Chaplin, Edna Purviance
+-----------------------------> title: THE CHAMPIONCharlie Chaplin, Edna Purviance
+-----------------------------> title: The Floorwalker
+-----------------------------> title: Charlie Chaplin | O Grande Ditador- 1940 - Legendado
+-----------------------------> title: Shoulder Arms, Chaplin
+-----------------------------> title: The PawnshopCharlie Chaplin
+-----------------------------> title: The AdventurerCharlie Chaplin
+-----------------------------> title: Charlie Chaplin . A Night In The Show
+-----------------------------> title: Charlie Chaplin . The Tramp
+-----------------------------> title: ShanghaiedCharlie Chaplin
+-----------------------------> title: The ImmigrantCharlie Chaplin
+-----------------------------> title: Charlie Chaplin . The Immigrant
+-----------------------------> title: Unknown Chaplin: 3 -- Hidden Treasure
+-----------------------------> title: THE FACE ON THE BARROOM FLOORCharlie Chaplin
+-----------------------------> title: The ImmigrantCharlie Chaplin
+-----------------------------> title: The FiremanCharlie Chaplin
+-----------------------------> title: The RinkCharlie Chaplin
+-----------------------------> title: The VagabondCharlie Chaplin
+-----------------------------> title: Laughing GasCharlie Chaplin
+********* OMDb error for 'Laura Betti Josephine Chaplin In 1972 Movie': Movie not found!
+OMDb result for 'Laura Betti Josephine Chaplin In 1972 Movie': {}
+********* OMDb error for 'THE TRAMP ( 1915) Charlie Chaplin, Edna Purviance': Movie not found!
+OMDb result for 'THE TRAMP ( 1915) Charlie Chaplin, Edna Purviance': {}
+********* OMDb error for 'THE CHAMPION ( 1915) Charlie Chaplin, Edna Purviance': Movie not found!
+OMDb result for 'THE CHAMPION ( 1915) Charlie Chaplin, Edna Purviance': {}
+********* OMDb error for 'The Floorwalker (Charlie Chaplin)': Movie not found!
+OMDb result for 'The Floorwalker (Charlie Chaplin)': {}
+********* OMDb error for 'Charlie Chaplin | O Grande Ditador (The Great Dictator) - 1940 - Legendado': Movie not found!
+OMDb result for 'Charlie Chaplin | O Grande Ditador (The Great Dictator) - 1940 - Legendado': {}
+********* OMDb error for 'Shoulder Arms, Chaplin': Movie not found!
+OMDb result for 'Shoulder Arms, Chaplin': {}
+********* OMDb error for 'The Pawnshop (1916) Charlie Chaplin': Movie not found!
+OMDb result for 'The Pawnshop (1916) Charlie Chaplin': {}
+********* OMDb error for 'The Adventurer (1917) Charlie Chaplin': Movie not found!
+OMDb result for 'The Adventurer (1917) Charlie Chaplin': {}
+********* OMDb error for 'Charlie Chaplin . A Night In The Show (1915, Classic, Silent, Short, Colorized Film noir)': Movie not found!
+OMDb result for 'Charlie Chaplin . A Night In The Show (1915, Classic, Silent, Short, Colorized Film noir)': {}
+********* OMDb error for 'Charlie Chaplin . The Tramp (1915 Restored Silent Short Film Noir Comedy)': Movie not found!
+OMDb result for 'Charlie Chaplin . The Tramp (1915 Restored Silent Short Film Noir Comedy)': {}
+********* OMDb error for 'Shanghaied (1916) Charlie Chaplin': Movie not found!
+OMDb result for 'Shanghaied (1916) Charlie Chaplin': {}
+********* OMDb error for 'The Immigrant (1917) Charlie Chaplin': Movie not found!
+OMDb result for 'The Immigrant (1917) Charlie Chaplin': {}
+********* OMDb error for 'Charlie Chaplin . The Immigrant (1917 Restored, Silent, Short, Film Noir, Comedy)': Movie not found!
+OMDb result for 'Charlie Chaplin . The Immigrant (1917 Restored, Silent, Short, Film Noir, Comedy)': {}
+********* OMDb error for 'Unknown Chaplin: 3 -- Hidden Treasure': Movie not found!
+OMDb result for 'Unknown Chaplin: 3 -- Hidden Treasure': {}
+********* OMDb error for 'THE FACE ON THE BARROOM FLOOR ( 1914) Charlie Chaplin': Movie not found!
+OMDb result for 'THE FACE ON THE BARROOM FLOOR ( 1914) Charlie Chaplin': {}
+********* OMDb error for 'The Immigrant (1917) Charlie Chaplin': Movie not found!
+OMDb result for 'The Immigrant (1917) Charlie Chaplin': {}
+********* OMDb error for 'The Fireman (1916) Charlie Chaplin': Movie not found!
+OMDb result for 'The Fireman (1916) Charlie Chaplin': {}
+********* OMDb error for 'The Rink (1916) Charlie Chaplin': Movie not found!
+OMDb result for 'The Rink (1916) Charlie Chaplin': {}
+********* OMDb error for 'The Vagabond (1915) Charlie Chaplin': Movie not found!
+OMDb result for 'The Vagabond (1915) Charlie Chaplin': {}
+********* OMDb error for 'Laughing Gas (1914) Charlie Chaplin': Movie not found!
+OMDb result for 'Laughing Gas (1914) Charlie Chaplin': {}
+Performing system checks...
+
+System check identified no issues (0 silenced).
+May 03, 2026 - 11:46:06
+Django version 5.0.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Performing system checks...
+
+System check identified no issues (0 silenced).
+May 03, 2026 - 11:46:10
+Django version 5.0.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Performing system checks...
+
+System check identified no issues (0 silenced).
+May 03, 2026 - 11:46:12
+Django version 5.0.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Performing system checks...
+
+System check identified no issues (0 silenced).
+May 03, 2026 - 11:46:14
+Django version 5.0.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Performing system checks...
+
+System check identified no issues (0 silenced).
+May 03, 2026 - 11:46:23
+Django version 5.0.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Performing system checks...
+
+System check identified no issues (0 silenced).
+May 03, 2026 - 11:46:25
+Django version 5.0.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Performing system checks...
+
+System check identified no issues (0 silenced).
+May 03, 2026 - 11:46:31
+Django version 5.0.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Performing system checks...
+
+System check identified no issues (0 silenced).
+May 03, 2026 - 11:46:33
+Django version 5.0.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Performing system checks...
+
+System check identified no issues (0 silenced).
+May 03, 2026 - 11:46:38
+Django version 5.0.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Performing system checks...
+
+System check identified no issues (0 silenced).
+May 03, 2026 - 11:46:43
+Django version 5.0.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Performing system checks...
+
+System check identified no issues (0 silenced).
+May 03, 2026 - 11:46:49
+Django version 5.0.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Performing system checks...
+
+System check identified no issues (0 silenced).
+May 03, 2026 - 11:46:51
+Django version 5.0.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Performing system checks...
+
+System check identified no issues (0 silenced).
+May 03, 2026 - 11:46:55
+Django version 5.0.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Performing system checks...
+
+System check identified no issues (0 silenced).
+May 03, 2026 - 11:46:57
+Django version 5.0.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Performing system checks...
+
+System check identified no issues (0 silenced).
+May 03, 2026 - 11:47:01
+Django version 5.0.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Performing system checks...
+
+System check identified no issues (0 silenced).
+May 03, 2026 - 11:47:04
+Django version 5.0.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Performing system checks...
+
+System check identified no issues (0 silenced).
+May 03, 2026 - 11:47:08
+Django version 5.0.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Performing system checks...
+
+System check identified no issues (0 silenced).
+May 03, 2026 - 11:47:10
+Django version 5.0.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Performing system checks...
+
+System check identified no issues (0 silenced).
+May 03, 2026 - 11:47:14
+Django version 5.0.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Performing system checks...
+
+System check identified no issues (0 silenced).
+May 03, 2026 - 11:47:19
+Django version 5.0.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Performing system checks...
+
+System check identified no issues (0 silenced).
+May 03, 2026 - 11:47:37
+Django version 5.0.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Performing system checks...
+
+System check identified no issues (0 silenced).
+May 03, 2026 - 11:47:43
+Django version 5.0.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Performing system checks...
+
+System check identified no issues (0 silenced).
+May 03, 2026 - 11:47:45
+Django version 5.0.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Performing system checks...
+
+System check identified no issues (0 silenced).
+May 03, 2026 - 11:47:54
+Django version 5.0.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Performing system checks...
+
+System check identified no issues (0 silenced).
+May 03, 2026 - 11:48:00
+Django version 5.0.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Performing system checks...
+
+Performing system checks...
+
+System check identified no issues (0 silenced).
+May 03, 2026 - 11:48:05
+Django version 5.0.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Performing system checks...
+
+System check identified no issues (0 silenced).
+May 03, 2026 - 11:48:08
+Django version 5.0.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Performing system checks...
+
+System check identified no issues (0 silenced).
+May 03, 2026 - 11:48:10
+Django version 5.0.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Performing system checks...
+
+System check identified no issues (0 silenced).
+May 03, 2026 - 11:48:13
+Django version 5.0.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Performing system checks...
+
+System check identified no issues (0 silenced).
+May 03, 2026 - 11:48:15
+Django version 5.0.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Performing system checks...
+
+Performing system checks...
+
+System check identified no issues (0 silenced).
+May 03, 2026 - 11:48:19
+Django version 5.0.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Performing system checks...
+
+System check identified no issues (0 silenced).
+May 03, 2026 - 11:48:41
+Django version 5.0.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Performing system checks...
+
+System check identified no issues (0 silenced).
+May 03, 2026 - 11:48:53
+Django version 5.0.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Performing system checks...
+
+System check identified no issues (0 silenced).
+May 03, 2026 - 11:48:59
+Django version 5.0.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Performing system checks...
+
+System check identified no issues (0 silenced).
+May 03, 2026 - 11:49:04
+Django version 5.0.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Performing system checks...
+
+System check identified no issues (0 silenced).
+May 03, 2026 - 11:49:09
+Django version 5.0.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Performing system checks...
+
+System check identified no issues (0 silenced).
+May 03, 2026 - 11:49:12
+Django version 5.0.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Performing system checks...
+
+System check identified no issues (0 silenced).
+May 03, 2026 - 11:49:19
+Django version 5.0.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Performing system checks...
+
+System check identified no issues (0 silenced).
+May 03, 2026 - 11:49:24
+Django version 5.0.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+-----------------------------> raw title: Laura Betti Josephine Chaplin In 1972 Movie
+-----------------------------> cleaned title: Laura Betti Josephine Chaplin In   Movie
+###########################################################
+-----------------------------> raw title: THE TRAMP ( 1915) Charlie Chaplin, Edna Purviance
+-----------------------------> cleaned title: THE TRAMP Charlie Chaplin, Edna Purviance
+###########################################################
+-----------------------------> raw title: THE CHAMPION ( 1915) Charlie Chaplin, Edna Purviance
+-----------------------------> cleaned title: THE CHAMPION Charlie Chaplin, Edna Purviance
+###########################################################
+-----------------------------> raw title: The Floorwalker (Charlie Chaplin)
+-----------------------------> cleaned title: The Floorwalker
+###########################################################
+-----------------------------> raw title: Charlie Chaplin | O Grande Ditador (The Great Dictator) - 1940 - Legendado
+-----------------------------> cleaned title: Charlie Chaplin | O Grande Ditador       Legendado
+###########################################################
+-----------------------------> raw title: Shoulder Arms, Chaplin
+-----------------------------> cleaned title: Shoulder Arms, Chaplin
+###########################################################
+-----------------------------> raw title: The Pawnshop (1916) Charlie Chaplin
+-----------------------------> cleaned title: The Pawnshop Charlie Chaplin
+###########################################################
+-----------------------------> raw title: The Adventurer (1917) Charlie Chaplin
+-----------------------------> cleaned title: The Adventurer Charlie Chaplin
+###########################################################
+-----------------------------> raw title: Charlie Chaplin . A Night In The Show (1915, Classic, Silent, Short, Colorized Film noir)
+-----------------------------> cleaned title: Charlie Chaplin   A Night In The Show
+###########################################################
+-----------------------------> raw title: Charlie Chaplin . The Tramp (1915 Restored Silent Short Film Noir Comedy)
+-----------------------------> cleaned title: Charlie Chaplin   The Tramp
+###########################################################
+-----------------------------> raw title: Shanghaied (1916) Charlie Chaplin
+-----------------------------> cleaned title: Shanghaied Charlie Chaplin
+###########################################################
+-----------------------------> raw title: The Immigrant (1917) Charlie Chaplin
+-----------------------------> cleaned title: The Immigrant Charlie Chaplin
+###########################################################
+-----------------------------> raw title: Charlie Chaplin . The Immigrant (1917 Restored, Silent, Short, Film Noir, Comedy)
+-----------------------------> cleaned title: Charlie Chaplin   The Immigrant
+###########################################################
+-----------------------------> raw title: Unknown Chaplin: 3 -- Hidden Treasure
+-----------------------------> cleaned title: Unknown Chaplin: 3   Hidden Treasure
+###########################################################
+-----------------------------> raw title: THE FACE ON THE BARROOM FLOOR ( 1914) Charlie Chaplin
+-----------------------------> cleaned title: THE FACE ON THE BARROOM FLOOR Charlie Chaplin
+###########################################################
+-----------------------------> raw title: The Immigrant (1917) Charlie Chaplin
+-----------------------------> cleaned title: The Immigrant Charlie Chaplin
+###########################################################
+-----------------------------> raw title: The Fireman (1916) Charlie Chaplin
+-----------------------------> cleaned title: The Fireman Charlie Chaplin
+###########################################################
+-----------------------------> raw title: The Rink (1916) Charlie Chaplin
+-----------------------------> cleaned title: The Rink Charlie Chaplin
+###########################################################
+-----------------------------> raw title: The Vagabond (1915) Charlie Chaplin
+-----------------------------> cleaned title: The Vagabond Charlie Chaplin
+###########################################################
+-----------------------------> raw title: Laughing Gas (1914) Charlie Chaplin
+-----------------------------> cleaned title: Laughing Gas Charlie Chaplin
+###########################################################
+********* OMDb error for 'Laura Betti Josephine Chaplin In 1972 Movie': Movie not found!
+OMDb result for 'Laura Betti Josephine Chaplin In 1972 Movie': {}
+********* OMDb error for 'THE TRAMP ( 1915) Charlie Chaplin, Edna Purviance': Movie not found!
+OMDb result for 'THE TRAMP ( 1915) Charlie Chaplin, Edna Purviance': {}
+********* OMDb error for 'THE CHAMPION ( 1915) Charlie Chaplin, Edna Purviance': Movie not found!
+OMDb result for 'THE CHAMPION ( 1915) Charlie Chaplin, Edna Purviance': {}
+********* OMDb error for 'The Floorwalker (Charlie Chaplin)': Movie not found!
+OMDb result for 'The Floorwalker (Charlie Chaplin)': {}
+********* OMDb error for 'Charlie Chaplin | O Grande Ditador (The Great Dictator) - 1940 - Legendado': Movie not found!
+OMDb result for 'Charlie Chaplin | O Grande Ditador (The Great Dictator) - 1940 - Legendado': {}
+********* OMDb error for 'Shoulder Arms, Chaplin': Movie not found!
+OMDb result for 'Shoulder Arms, Chaplin': {}
+********* OMDb error for 'The Pawnshop (1916) Charlie Chaplin': Movie not found!
+OMDb result for 'The Pawnshop (1916) Charlie Chaplin': {}
+********* OMDb error for 'The Adventurer (1917) Charlie Chaplin': Movie not found!
+OMDb result for 'The Adventurer (1917) Charlie Chaplin': {}
+********* OMDb error for 'Charlie Chaplin . A Night In The Show (1915, Classic, Silent, Short, Colorized Film noir)': Movie not found!
+OMDb result for 'Charlie Chaplin . A Night In The Show (1915, Classic, Silent, Short, Colorized Film noir)': {}
+********* OMDb error for 'Charlie Chaplin . The Tramp (1915 Restored Silent Short Film Noir Comedy)': Movie not found!
+OMDb result for 'Charlie Chaplin . The Tramp (1915 Restored Silent Short Film Noir Comedy)': {}
+********* OMDb error for 'Shanghaied (1916) Charlie Chaplin': Movie not found!
+OMDb result for 'Shanghaied (1916) Charlie Chaplin': {}
+********* OMDb error for 'The Immigrant (1917) Charlie Chaplin': Movie not found!
+OMDb result for 'The Immigrant (1917) Charlie Chaplin': {}
+********* OMDb error for 'Charlie Chaplin . The Immigrant (1917 Restored, Silent, Short, Film Noir, Comedy)': Movie not found!
+OMDb result for 'Charlie Chaplin . The Immigrant (1917 Restored, Silent, Short, Film Noir, Comedy)': {}
+********* OMDb error for 'Unknown Chaplin: 3 -- Hidden Treasure': Movie not found!
+OMDb result for 'Unknown Chaplin: 3 -- Hidden Treasure': {}
+********* OMDb error for 'THE FACE ON THE BARROOM FLOOR ( 1914) Charlie Chaplin': Movie not found!
+OMDb result for 'THE FACE ON THE BARROOM FLOOR ( 1914) Charlie Chaplin': {}
+********* OMDb error for 'The Immigrant (1917) Charlie Chaplin': Movie not found!
+OMDb result for 'The Immigrant (1917) Charlie Chaplin': {}
+********* OMDb error for 'The Fireman (1916) Charlie Chaplin': Movie not found!
+OMDb result for 'The Fireman (1916) Charlie Chaplin': {}
+********* OMDb error for 'The Rink (1916) Charlie Chaplin': Movie not found!
+OMDb result for 'The Rink (1916) Charlie Chaplin': {}
+********* OMDb error for 'The Vagabond (1915) Charlie Chaplin': Movie not found!
+OMDb result for 'The Vagabond (1915) Charlie Chaplin': {}
+********* OMDb error for 'Laughing Gas (1914) Charlie Chaplin': Movie not found!
+OMDb result for 'Laughing Gas (1914) Charlie Chaplin': {}
+-----------------------------> raw title: Laura Betti Josephine Chaplin In 1972 Movie
+-----------------------------> cleaned title: Laura Betti Josephine Chaplin In   Movie
+###########################################################
+-----------------------------> raw title: THE TRAMP ( 1915) Charlie Chaplin, Edna Purviance
+-----------------------------> cleaned title: THE TRAMP Charlie Chaplin, Edna Purviance
+###########################################################
+-----------------------------> raw title: THE CHAMPION ( 1915) Charlie Chaplin, Edna Purviance
+-----------------------------> cleaned title: THE CHAMPION Charlie Chaplin, Edna Purviance
+###########################################################
+-----------------------------> raw title: The Floorwalker (Charlie Chaplin)
+-----------------------------> cleaned title: The Floorwalker
+###########################################################
+-----------------------------> raw title: Charlie Chaplin | O Grande Ditador (The Great Dictator) - 1940 - Legendado
+-----------------------------> cleaned title: Charlie Chaplin | O Grande Ditador       Legendado
+###########################################################
+-----------------------------> raw title: Shoulder Arms, Chaplin
+-----------------------------> cleaned title: Shoulder Arms, Chaplin
+###########################################################
+-----------------------------> raw title: The Pawnshop (1916) Charlie Chaplin
+-----------------------------> cleaned title: The Pawnshop Charlie Chaplin
+###########################################################
+-----------------------------> raw title: The Adventurer (1917) Charlie Chaplin
+-----------------------------> cleaned title: The Adventurer Charlie Chaplin
+###########################################################
+-----------------------------> raw title: Charlie Chaplin . A Night In The Show (1915, Classic, Silent, Short, Colorized Film noir)
+-----------------------------> cleaned title: Charlie Chaplin   A Night In The Show
+###########################################################
+-----------------------------> raw title: Charlie Chaplin . The Tramp (1915 Restored Silent Short Film Noir Comedy)
+-----------------------------> cleaned title: Charlie Chaplin   The Tramp
+###########################################################
+-----------------------------> raw title: Shanghaied (1916) Charlie Chaplin
+-----------------------------> cleaned title: Shanghaied Charlie Chaplin
+###########################################################
+-----------------------------> raw title: The Immigrant (1917) Charlie Chaplin
+-----------------------------> cleaned title: The Immigrant Charlie Chaplin
+###########################################################
+-----------------------------> raw title: Charlie Chaplin . The Immigrant (1917 Restored, Silent, Short, Film Noir, Comedy)
+-----------------------------> cleaned title: Charlie Chaplin   The Immigrant
+###########################################################
+-----------------------------> raw title: Unknown Chaplin: 3 -- Hidden Treasure
+-----------------------------> cleaned title: Unknown Chaplin: 3   Hidden Treasure
+###########################################################
+-----------------------------> raw title: THE FACE ON THE BARROOM FLOOR ( 1914) Charlie Chaplin
+-----------------------------> cleaned title: THE FACE ON THE BARROOM FLOOR Charlie Chaplin
+###########################################################
+-----------------------------> raw title: The Immigrant (1917) Charlie Chaplin
+-----------------------------> cleaned title: The Immigrant Charlie Chaplin
+###########################################################
+-----------------------------> raw title: The Fireman (1916) Charlie Chaplin
+-----------------------------> cleaned title: The Fireman Charlie Chaplin
+###########################################################
+-----------------------------> raw title: The Rink (1916) Charlie Chaplin
+-----------------------------> cleaned title: The Rink Charlie Chaplin
+###########################################################
+-----------------------------> raw title: The Vagabond (1915) Charlie Chaplin
+-----------------------------> cleaned title: The Vagabond Charlie Chaplin
+###########################################################
+-----------------------------> raw title: Laughing Gas (1914) Charlie Chaplin
+-----------------------------> cleaned title: Laughing Gas Charlie Chaplin
+###########################################################
+********* OMDb error for 'Laura Betti Josephine Chaplin In 1972 Movie': Movie not found!
+OMDb result for 'Laura Betti Josephine Chaplin In 1972 Movie': {}
+********* OMDb error for 'THE TRAMP ( 1915) Charlie Chaplin, Edna Purviance': Movie not found!
+OMDb result for 'THE TRAMP ( 1915) Charlie Chaplin, Edna Purviance': {}
+********* OMDb error for 'THE CHAMPION ( 1915) Charlie Chaplin, Edna Purviance': Movie not found!
+OMDb result for 'THE CHAMPION ( 1915) Charlie Chaplin, Edna Purviance': {}
+********* OMDb error for 'The Floorwalker (Charlie Chaplin)': Movie not found!
+OMDb result for 'The Floorwalker (Charlie Chaplin)': {}
+********* OMDb error for 'Charlie Chaplin | O Grande Ditador (The Great Dictator) - 1940 - Legendado': Movie not found!
+OMDb result for 'Charlie Chaplin | O Grande Ditador (The Great Dictator) - 1940 - Legendado': {}
+********* OMDb error for 'Shoulder Arms, Chaplin': Movie not found!
+OMDb result for 'Shoulder Arms, Chaplin': {}
+********* OMDb error for 'The Pawnshop (1916) Charlie Chaplin': Movie not found!
+OMDb result for 'The Pawnshop (1916) Charlie Chaplin': {}
+********* OMDb error for 'The Adventurer (1917) Charlie Chaplin': Movie not found!
+OMDb result for 'The Adventurer (1917) Charlie Chaplin': {}
+********* OMDb error for 'Charlie Chaplin . A Night In The Show (1915, Classic, Silent, Short, Colorized Film noir)': Movie not found!
+OMDb result for 'Charlie Chaplin . A Night In The Show (1915, Classic, Silent, Short, Colorized Film noir)': {}
+********* OMDb error for 'Charlie Chaplin . The Tramp (1915 Restored Silent Short Film Noir Comedy)': Movie not found!
+OMDb result for 'Charlie Chaplin . The Tramp (1915 Restored Silent Short Film Noir Comedy)': {}
+********* OMDb error for 'Shanghaied (1916) Charlie Chaplin': Movie not found!
+OMDb result for 'Shanghaied (1916) Charlie Chaplin': {}
+********* OMDb error for 'The Immigrant (1917) Charlie Chaplin': Movie not found!
+OMDb result for 'The Immigrant (1917) Charlie Chaplin': {}
+********* OMDb error for 'Charlie Chaplin . The Immigrant (1917 Restored, Silent, Short, Film Noir, Comedy)': Movie not found!
+OMDb result for 'Charlie Chaplin . The Immigrant (1917 Restored, Silent, Short, Film Noir, Comedy)': {}
+********* OMDb error for 'Unknown Chaplin: 3 -- Hidden Treasure': Movie not found!
+OMDb result for 'Unknown Chaplin: 3 -- Hidden Treasure': {}
+********* OMDb error for 'THE FACE ON THE BARROOM FLOOR ( 1914) Charlie Chaplin': Movie not found!
+OMDb result for 'THE FACE ON THE BARROOM FLOOR ( 1914) Charlie Chaplin': {}
+********* OMDb error for 'The Immigrant (1917) Charlie Chaplin': Movie not found!
+OMDb result for 'The Immigrant (1917) Charlie Chaplin': {}
+********* OMDb error for 'The Fireman (1916) Charlie Chaplin': Movie not found!
+OMDb result for 'The Fireman (1916) Charlie Chaplin': {}
+********* OMDb error for 'The Rink (1916) Charlie Chaplin': Movie not found!
+OMDb result for 'The Rink (1916) Charlie Chaplin': {}
+********* OMDb error for 'The Vagabond (1915) Charlie Chaplin': Movie not found!
+OMDb result for 'The Vagabond (1915) Charlie Chaplin': {}
+********* OMDb error for 'Laughing Gas (1914) Charlie Chaplin': Movie not found!
+OMDb result for 'Laughing Gas (1914) Charlie Chaplin': {}
+Performing system checks...
+
+System check identified no issues (0 silenced).
+May 03, 2026 - 11:50:31
+Django version 5.0.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Performing system checks...
+
+System check identified no issues (0 silenced).
+May 03, 2026 - 11:50:38
+Django version 5.0.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Performing system checks...
+
+System check identified no issues (0 silenced).
+May 03, 2026 - 11:50:42
+Django version 5.0.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Performing system checks...
+
+System check identified no issues (0 silenced).
+May 03, 2026 - 11:51:33
+Django version 5.0.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Performing system checks...
+
+System check identified no issues (0 silenced).
+May 03, 2026 - 11:53:16
+Django version 5.0.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Performing system checks...
+
+System check identified no issues (0 silenced).
+May 03, 2026 - 11:53:32
+Django version 5.0.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Performing system checks...
+
+System check identified no issues (0 silenced).
+May 03, 2026 - 11:53:42
+Django version 5.0.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Performing system checks...
+
+System check identified no issues (0 silenced).
+May 03, 2026 - 11:53:48
+Django version 5.0.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+-----------------------------> raw title: Laura Betti Josephine Chaplin In 1972 Movie
+-----------------------------> cleaned title: Laura Betti Josephine Chaplin In   Movie year: None
+###########################################################
+-----------------------------> raw title: THE TRAMP ( 1915) Charlie Chaplin, Edna Purviance
+-----------------------------> cleaned title: THE TRAMP Charlie Chaplin, Edna Purviance year: None
+###########################################################
+-----------------------------> raw title: THE CHAMPION ( 1915) Charlie Chaplin, Edna Purviance
+-----------------------------> cleaned title: THE CHAMPION Charlie Chaplin, Edna Purviance year: None
+###########################################################
+-----------------------------> raw title: The Floorwalker (Charlie Chaplin)
+-----------------------------> cleaned title: The Floorwalker year: None
+###########################################################
+-----------------------------> raw title: Charlie Chaplin | O Grande Ditador (The Great Dictator) - 1940 - Legendado
+-----------------------------> cleaned title: Charlie Chaplin | O Grande Ditador       Legendado year: None
+###########################################################
+-----------------------------> raw title: Shoulder Arms, Chaplin
+-----------------------------> cleaned title: Shoulder Arms, Chaplin year: None
+###########################################################
+-----------------------------> raw title: The Pawnshop (1916) Charlie Chaplin
+-----------------------------> cleaned title: The Pawnshop Charlie Chaplin year: 1916
+###########################################################
+-----------------------------> raw title: The Adventurer (1917) Charlie Chaplin
+-----------------------------> cleaned title: The Adventurer Charlie Chaplin year: 1917
+###########################################################
+-----------------------------> raw title: Charlie Chaplin . A Night In The Show (1915, Classic, Silent, Short, Colorized Film noir)
+-----------------------------> cleaned title: Charlie Chaplin   A Night In The Show year: None
+###########################################################
+-----------------------------> raw title: Charlie Chaplin . The Tramp (1915 Restored Silent Short Film Noir Comedy)
+-----------------------------> cleaned title: Charlie Chaplin   The Tramp year: None
+###########################################################
+-----------------------------> raw title: Shanghaied (1916) Charlie Chaplin
+-----------------------------> cleaned title: Shanghaied Charlie Chaplin year: 1916
+###########################################################
+-----------------------------> raw title: The Immigrant (1917) Charlie Chaplin
+-----------------------------> cleaned title: The Immigrant Charlie Chaplin year: 1917
+###########################################################
+-----------------------------> raw title: Charlie Chaplin . The Immigrant (1917 Restored, Silent, Short, Film Noir, Comedy)
+-----------------------------> cleaned title: Charlie Chaplin   The Immigrant year: None
+###########################################################
+-----------------------------> raw title: Unknown Chaplin: 3 -- Hidden Treasure
+-----------------------------> cleaned title: Unknown Chaplin: 3   Hidden Treasure year: None
+###########################################################
+-----------------------------> raw title: THE FACE ON THE BARROOM FLOOR ( 1914) Charlie Chaplin
+-----------------------------> cleaned title: THE FACE ON THE BARROOM FLOOR Charlie Chaplin year: None
+###########################################################
+-----------------------------> raw title: The Immigrant (1917) Charlie Chaplin
+-----------------------------> cleaned title: The Immigrant Charlie Chaplin year: 1917
+###########################################################
+-----------------------------> raw title: The Fireman (1916) Charlie Chaplin
+-----------------------------> cleaned title: The Fireman Charlie Chaplin year: 1916
+###########################################################
+-----------------------------> raw title: The Rink (1916) Charlie Chaplin
+-----------------------------> cleaned title: The Rink Charlie Chaplin year: 1916
+###########################################################
+-----------------------------> raw title: The Vagabond (1915) Charlie Chaplin
+-----------------------------> cleaned title: The Vagabond Charlie Chaplin year: 1915
+###########################################################
+-----------------------------> raw title: Laughing Gas (1914) Charlie Chaplin
+-----------------------------> cleaned title: Laughing Gas Charlie Chaplin year: 1914
+###########################################################
+********* OMDb error for 'Laura Betti Josephine Chaplin In 1972 Movie': Movie not found!
+OMDb result for 'Laura Betti Josephine Chaplin In 1972 Movie': {}
+********* OMDb error for 'THE TRAMP ( 1915) Charlie Chaplin, Edna Purviance': Movie not found!
+OMDb result for 'THE TRAMP ( 1915) Charlie Chaplin, Edna Purviance': {}
+********* OMDb error for 'THE CHAMPION ( 1915) Charlie Chaplin, Edna Purviance': Movie not found!
+OMDb result for 'THE CHAMPION ( 1915) Charlie Chaplin, Edna Purviance': {}
+********* OMDb error for 'The Floorwalker (Charlie Chaplin)': Movie not found!
+OMDb result for 'The Floorwalker (Charlie Chaplin)': {}
+********* OMDb error for 'Charlie Chaplin | O Grande Ditador (The Great Dictator) - 1940 - Legendado': Movie not found!
+OMDb result for 'Charlie Chaplin | O Grande Ditador (The Great Dictator) - 1940 - Legendado': {}
+********* OMDb error for 'Shoulder Arms, Chaplin': Movie not found!
+OMDb result for 'Shoulder Arms, Chaplin': {}
+********* OMDb error for 'The Pawnshop (1916) Charlie Chaplin': Movie not found!
+OMDb result for 'The Pawnshop (1916) Charlie Chaplin': {}
+********* OMDb error for 'The Adventurer (1917) Charlie Chaplin': Movie not found!
+OMDb result for 'The Adventurer (1917) Charlie Chaplin': {}
+********* OMDb error for 'Charlie Chaplin . A Night In The Show (1915, Classic, Silent, Short, Colorized Film noir)': Movie not found!
+OMDb result for 'Charlie Chaplin . A Night In The Show (1915, Classic, Silent, Short, Colorized Film noir)': {}
+********* OMDb error for 'Charlie Chaplin . The Tramp (1915 Restored Silent Short Film Noir Comedy)': Movie not found!
+OMDb result for 'Charlie Chaplin . The Tramp (1915 Restored Silent Short Film Noir Comedy)': {}
+********* OMDb error for 'Shanghaied (1916) Charlie Chaplin': Movie not found!
+OMDb result for 'Shanghaied (1916) Charlie Chaplin': {}
+********* OMDb error for 'The Immigrant (1917) Charlie Chaplin': Movie not found!
+OMDb result for 'The Immigrant (1917) Charlie Chaplin': {}
+********* OMDb error for 'Charlie Chaplin . The Immigrant (1917 Restored, Silent, Short, Film Noir, Comedy)': Movie not found!
+OMDb result for 'Charlie Chaplin . The Immigrant (1917 Restored, Silent, Short, Film Noir, Comedy)': {}
+********* OMDb error for 'Unknown Chaplin: 3 -- Hidden Treasure': Movie not found!
+OMDb result for 'Unknown Chaplin: 3 -- Hidden Treasure': {}
+********* OMDb error for 'THE FACE ON THE BARROOM FLOOR ( 1914) Charlie Chaplin': Movie not found!
+OMDb result for 'THE FACE ON THE BARROOM FLOOR ( 1914) Charlie Chaplin': {}
+********* OMDb error for 'The Immigrant (1917) Charlie Chaplin': Movie not found!
+OMDb result for 'The Immigrant (1917) Charlie Chaplin': {}
+********* OMDb error for 'The Fireman (1916) Charlie Chaplin': Movie not found!
+OMDb result for 'The Fireman (1916) Charlie Chaplin': {}
+********* OMDb error for 'The Rink (1916) Charlie Chaplin': Movie not found!
+OMDb result for 'The Rink (1916) Charlie Chaplin': {}
+********* OMDb error for 'The Vagabond (1915) Charlie Chaplin': Movie not found!
+OMDb result for 'The Vagabond (1915) Charlie Chaplin': {}
+********* OMDb error for 'Laughing Gas (1914) Charlie Chaplin': Movie not found!
+OMDb result for 'Laughing Gas (1914) Charlie Chaplin': {}
+-----------------------------> raw title: Laura Betti Josephine Chaplin In 1972 Movie
+-----------------------------> cleaned title: Laura Betti Josephine Chaplin In   Movie year: None
+###########################################################
+-----------------------------> raw title: THE TRAMP ( 1915) Charlie Chaplin, Edna Purviance
+-----------------------------> cleaned title: THE TRAMP Charlie Chaplin, Edna Purviance year: None
+###########################################################
+-----------------------------> raw title: THE CHAMPION ( 1915) Charlie Chaplin, Edna Purviance
+-----------------------------> cleaned title: THE CHAMPION Charlie Chaplin, Edna Purviance year: None
+###########################################################
+-----------------------------> raw title: The Floorwalker (Charlie Chaplin)
+-----------------------------> cleaned title: The Floorwalker year: None
+###########################################################
+-----------------------------> raw title: Charlie Chaplin | O Grande Ditador (The Great Dictator) - 1940 - Legendado
+-----------------------------> cleaned title: Charlie Chaplin | O Grande Ditador       Legendado year: None
+###########################################################
+-----------------------------> raw title: Shoulder Arms, Chaplin
+-----------------------------> cleaned title: Shoulder Arms, Chaplin year: None
+###########################################################
+-----------------------------> raw title: The Pawnshop (1916) Charlie Chaplin
+-----------------------------> cleaned title: The Pawnshop Charlie Chaplin year: 1916
+###########################################################
+-----------------------------> raw title: The Adventurer (1917) Charlie Chaplin
+-----------------------------> cleaned title: The Adventurer Charlie Chaplin year: 1917
+###########################################################
+-----------------------------> raw title: Charlie Chaplin . A Night In The Show (1915, Classic, Silent, Short, Colorized Film noir)
+-----------------------------> cleaned title: Charlie Chaplin   A Night In The Show year: None
+###########################################################
+-----------------------------> raw title: Charlie Chaplin . The Tramp (1915 Restored Silent Short Film Noir Comedy)
+-----------------------------> cleaned title: Charlie Chaplin   The Tramp year: None
+###########################################################
+-----------------------------> raw title: Shanghaied (1916) Charlie Chaplin
+-----------------------------> cleaned title: Shanghaied Charlie Chaplin year: 1916
+###########################################################
+-----------------------------> raw title: The Immigrant (1917) Charlie Chaplin
+-----------------------------> cleaned title: The Immigrant Charlie Chaplin year: 1917
+###########################################################
+-----------------------------> raw title: Charlie Chaplin . The Immigrant (1917 Restored, Silent, Short, Film Noir, Comedy)
+-----------------------------> cleaned title: Charlie Chaplin   The Immigrant year: None
+###########################################################
+-----------------------------> raw title: Unknown Chaplin: 3 -- Hidden Treasure
+-----------------------------> cleaned title: Unknown Chaplin: 3   Hidden Treasure year: None
+###########################################################
+-----------------------------> raw title: THE FACE ON THE BARROOM FLOOR ( 1914) Charlie Chaplin
+-----------------------------> cleaned title: THE FACE ON THE BARROOM FLOOR Charlie Chaplin year: None
+###########################################################
+-----------------------------> raw title: The Immigrant (1917) Charlie Chaplin
+-----------------------------> cleaned title: The Immigrant Charlie Chaplin year: 1917
+###########################################################
+-----------------------------> raw title: The Fireman (1916) Charlie Chaplin
+-----------------------------> cleaned title: The Fireman Charlie Chaplin year: 1916
+###########################################################
+-----------------------------> raw title: The Rink (1916) Charlie Chaplin
+-----------------------------> cleaned title: The Rink Charlie Chaplin year: 1916
+###########################################################
+-----------------------------> raw title: The Vagabond (1915) Charlie Chaplin
+-----------------------------> cleaned title: The Vagabond Charlie Chaplin year: 1915
+###########################################################
+-----------------------------> raw title: Laughing Gas (1914) Charlie Chaplin
+-----------------------------> cleaned title: Laughing Gas Charlie Chaplin year: 1914
+###########################################################
+********* OMDb error for 'Laura Betti Josephine Chaplin In 1972 Movie': Movie not found!
+OMDb result for 'Laura Betti Josephine Chaplin In 1972 Movie': {}
+********* OMDb error for 'THE TRAMP ( 1915) Charlie Chaplin, Edna Purviance': Movie not found!
+OMDb result for 'THE TRAMP ( 1915) Charlie Chaplin, Edna Purviance': {}
+********* OMDb error for 'THE CHAMPION ( 1915) Charlie Chaplin, Edna Purviance': Movie not found!
+OMDb result for 'THE CHAMPION ( 1915) Charlie Chaplin, Edna Purviance': {}
+********* OMDb error for 'The Floorwalker (Charlie Chaplin)': Movie not found!
+OMDb result for 'The Floorwalker (Charlie Chaplin)': {}
+********* OMDb error for 'Charlie Chaplin | O Grande Ditador (The Great Dictator) - 1940 - Legendado': Movie not found!
+OMDb result for 'Charlie Chaplin | O Grande Ditador (The Great Dictator) - 1940 - Legendado': {}
+********* OMDb error for 'Shoulder Arms, Chaplin': Movie not found!
+OMDb result for 'Shoulder Arms, Chaplin': {}
+********* OMDb error for 'The Pawnshop (1916) Charlie Chaplin': Movie not found!
+OMDb result for 'The Pawnshop (1916) Charlie Chaplin': {}
+********* OMDb error for 'The Adventurer (1917) Charlie Chaplin': Movie not found!
+OMDb result for 'The Adventurer (1917) Charlie Chaplin': {}
+********* OMDb error for 'Charlie Chaplin . A Night In The Show (1915, Classic, Silent, Short, Colorized Film noir)': Movie not found!
+OMDb result for 'Charlie Chaplin . A Night In The Show (1915, Classic, Silent, Short, Colorized Film noir)': {}
+********* OMDb error for 'Charlie Chaplin . The Tramp (1915 Restored Silent Short Film Noir Comedy)': Movie not found!
+OMDb result for 'Charlie Chaplin . The Tramp (1915 Restored Silent Short Film Noir Comedy)': {}
+********* OMDb error for 'Shanghaied (1916) Charlie Chaplin': Movie not found!
+OMDb result for 'Shanghaied (1916) Charlie Chaplin': {}
+********* OMDb error for 'The Immigrant (1917) Charlie Chaplin': Movie not found!
+OMDb result for 'The Immigrant (1917) Charlie Chaplin': {}
+********* OMDb error for 'Charlie Chaplin . The Immigrant (1917 Restored, Silent, Short, Film Noir, Comedy)': Movie not found!
+OMDb result for 'Charlie Chaplin . The Immigrant (1917 Restored, Silent, Short, Film Noir, Comedy)': {}
+********* OMDb error for 'Unknown Chaplin: 3 -- Hidden Treasure': Movie not found!
+OMDb result for 'Unknown Chaplin: 3 -- Hidden Treasure': {}
+********* OMDb error for 'THE FACE ON THE BARROOM FLOOR ( 1914) Charlie Chaplin': Movie not found!
+OMDb result for 'THE FACE ON THE BARROOM FLOOR ( 1914) Charlie Chaplin': {}
+********* OMDb error for 'The Immigrant (1917) Charlie Chaplin': Movie not found!
+OMDb result for 'The Immigrant (1917) Charlie Chaplin': {}
+********* OMDb error for 'The Fireman (1916) Charlie Chaplin': Movie not found!
+OMDb result for 'The Fireman (1916) Charlie Chaplin': {}
+********* OMDb error for 'The Rink (1916) Charlie Chaplin': Movie not found!
+OMDb result for 'The Rink (1916) Charlie Chaplin': {}
+********* OMDb error for 'The Vagabond (1915) Charlie Chaplin': Movie not found!
+OMDb result for 'The Vagabond (1915) Charlie Chaplin': {}
+********* OMDb error for 'Laughing Gas (1914) Charlie Chaplin': Movie not found!
+OMDb result for 'Laughing Gas (1914) Charlie Chaplin': {}
+Performing system checks...
+
+System check identified no issues (0 silenced).
+May 03, 2026 - 11:54:39
+Django version 5.0.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Performing system checks...
+
+Performing system checks...
+
+System check identified no issues (0 silenced).
+May 03, 2026 - 11:54:48
+Django version 5.0.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+-----------------------------> raw title: Laura Betti Josephine Chaplin In 1972 Movie
+-----------------------------> cleaned title: Laura Betti Josephine Chaplin In   Movie year: None
+###########################################################
+-----------------------------> raw title: THE TRAMP ( 1915) Charlie Chaplin, Edna Purviance
+-----------------------------> cleaned title: THE TRAMP Charlie Chaplin, Edna Purviance year: None
+###########################################################
+-----------------------------> raw title: THE CHAMPION ( 1915) Charlie Chaplin, Edna Purviance
+-----------------------------> cleaned title: THE CHAMPION Charlie Chaplin, Edna Purviance year: None
+###########################################################
+-----------------------------> raw title: The Floorwalker (Charlie Chaplin)
+-----------------------------> cleaned title: The Floorwalker year: None
+###########################################################
+-----------------------------> raw title: Charlie Chaplin | O Grande Ditador (The Great Dictator) - 1940 - Legendado
+-----------------------------> cleaned title: Charlie Chaplin | O Grande Ditador       Legendado year: None
+###########################################################
+-----------------------------> raw title: Shoulder Arms, Chaplin
+-----------------------------> cleaned title: Shoulder Arms, Chaplin year: None
+###########################################################
+-----------------------------> raw title: The Pawnshop (1916) Charlie Chaplin
+-----------------------------> cleaned title: The Pawnshop Charlie Chaplin year: 1916
+###########################################################
+-----------------------------> raw title: The Adventurer (1917) Charlie Chaplin
+-----------------------------> cleaned title: The Adventurer Charlie Chaplin year: 1917
+###########################################################
+-----------------------------> raw title: Charlie Chaplin . A Night In The Show (1915, Classic, Silent, Short, Colorized Film noir)
+-----------------------------> cleaned title: Charlie Chaplin   A Night In The Show year: None
+###########################################################
+-----------------------------> raw title: Charlie Chaplin . The Tramp (1915 Restored Silent Short Film Noir Comedy)
+-----------------------------> cleaned title: Charlie Chaplin   The Tramp year: None
+###########################################################
+-----------------------------> raw title: Shanghaied (1916) Charlie Chaplin
+-----------------------------> cleaned title: Shanghaied Charlie Chaplin year: 1916
+###########################################################
+-----------------------------> raw title: The Immigrant (1917) Charlie Chaplin
+-----------------------------> cleaned title: The Immigrant Charlie Chaplin year: 1917
+###########################################################
+-----------------------------> raw title: Charlie Chaplin . The Immigrant (1917 Restored, Silent, Short, Film Noir, Comedy)
+-----------------------------> cleaned title: Charlie Chaplin   The Immigrant year: None
+###########################################################
+-----------------------------> raw title: Unknown Chaplin: 3 -- Hidden Treasure
+-----------------------------> cleaned title: Unknown Chaplin: 3   Hidden Treasure year: None
+###########################################################
+-----------------------------> raw title: THE FACE ON THE BARROOM FLOOR ( 1914) Charlie Chaplin
+-----------------------------> cleaned title: THE FACE ON THE BARROOM FLOOR Charlie Chaplin year: None
+###########################################################
+-----------------------------> raw title: The Immigrant (1917) Charlie Chaplin
+-----------------------------> cleaned title: The Immigrant Charlie Chaplin year: 1917
+###########################################################
+-----------------------------> raw title: The Fireman (1916) Charlie Chaplin
+-----------------------------> cleaned title: The Fireman Charlie Chaplin year: 1916
+###########################################################
+-----------------------------> raw title: The Rink (1916) Charlie Chaplin
+-----------------------------> cleaned title: The Rink Charlie Chaplin year: 1916
+###########################################################
+-----------------------------> raw title: The Vagabond (1915) Charlie Chaplin
+-----------------------------> cleaned title: The Vagabond Charlie Chaplin year: 1915
+###########################################################
+-----------------------------> raw title: Laughing Gas (1914) Charlie Chaplin
+-----------------------------> cleaned title: Laughing Gas Charlie Chaplin year: 1914
+###########################################################
+********* OMDb error for 'Laura Betti Josephine Chaplin In   Movie': Movie not found!
+OMDb result for 'Laura Betti Josephine Chaplin In   Movie': {}
+********* OMDb error for 'THE TRAMP Charlie Chaplin, Edna Purviance': Movie not found!
+OMDb result for 'THE TRAMP Charlie Chaplin, Edna Purviance': {}
+********* OMDb error for 'THE CHAMPION Charlie Chaplin, Edna Purviance': Movie not found!
+OMDb result for 'THE CHAMPION Charlie Chaplin, Edna Purviance': {}
+OMDb result for 'The Floorwalker': {'imdb_rating': 6.6, 'genre': 'Short, Comedy', 'director': 'Charles Chaplin', 'cast': 'Charles Chaplin, Eric Campbell, Edna Purviance', 'summary': 'The Tramp is tricked into impersonating an embezzling floorwalker in a department store.', 'cover_image': 'https://m.media-amazon.com/images/M/MV5BZTVlZDc1YjYtMjhhMC00ZWE4LThiNWMtOTM5N2QwMzhhMGFiXkEyXkFqcGc@._V1_SX300.jpg', 'runtime': '29 min', 'year': 1916}
+********* OMDb error for 'Charlie Chaplin | O Grande Ditador       Legendado': Movie not found!
+OMDb result for 'Charlie Chaplin | O Grande Ditador       Legendado': {}
+********* OMDb error for 'Shoulder Arms, Chaplin': Movie not found!
+OMDb result for 'Shoulder Arms, Chaplin': {}
+********* OMDb error for 'The Pawnshop Charlie Chaplin': Movie not found!
+OMDb result for 'The Pawnshop Charlie Chaplin': {}
+********* OMDb error for 'The Adventurer Charlie Chaplin': Movie not found!
+OMDb result for 'The Adventurer Charlie Chaplin': {}
+********* OMDb error for 'Charlie Chaplin   A Night In The Show': Movie not found!
+OMDb result for 'Charlie Chaplin   A Night In The Show': {}
+********* OMDb error for 'Charlie Chaplin   The Tramp': Movie not found!
+OMDb result for 'Charlie Chaplin   The Tramp': {}
+********* OMDb error for 'Shanghaied Charlie Chaplin': Movie not found!
+OMDb result for 'Shanghaied Charlie Chaplin': {}
+********* OMDb error for 'The Immigrant Charlie Chaplin': Movie not found!
+OMDb result for 'The Immigrant Charlie Chaplin': {}
+********* OMDb error for 'Charlie Chaplin   The Immigrant': Movie not found!
+OMDb result for 'Charlie Chaplin   The Immigrant': {}
+********* OMDb error for 'Unknown Chaplin: 3   Hidden Treasure': Movie not found!
+OMDb result for 'Unknown Chaplin: 3   Hidden Treasure': {}
+********* OMDb error for 'THE FACE ON THE BARROOM FLOOR Charlie Chaplin': Movie not found!
+OMDb result for 'THE FACE ON THE BARROOM FLOOR Charlie Chaplin': {}
+********* OMDb error for 'The Immigrant Charlie Chaplin': Movie not found!
+OMDb result for 'The Immigrant Charlie Chaplin': {}
+********* OMDb error for 'The Fireman Charlie Chaplin': Movie not found!
+OMDb result for 'The Fireman Charlie Chaplin': {}
+********* OMDb error for 'The Rink Charlie Chaplin': Movie not found!
+OMDb result for 'The Rink Charlie Chaplin': {}
+********* OMDb error for 'The Vagabond Charlie Chaplin': Movie not found!
+OMDb result for 'The Vagabond Charlie Chaplin': {}
+********* OMDb error for 'Laughing Gas Charlie Chaplin': Movie not found!
+OMDb result for 'Laughing Gas Charlie Chaplin': {}
+-----------------------------> raw title: Laura Betti Josephine Chaplin In 1972 Movie
+-----------------------------> cleaned title: Laura Betti Josephine Chaplin In   Movie year: None
+###########################################################
+-----------------------------> raw title: THE TRAMP ( 1915) Charlie Chaplin, Edna Purviance
+-----------------------------> cleaned title: THE TRAMP Charlie Chaplin, Edna Purviance year: None
+###########################################################
+-----------------------------> raw title: THE CHAMPION ( 1915) Charlie Chaplin, Edna Purviance
+-----------------------------> cleaned title: THE CHAMPION Charlie Chaplin, Edna Purviance year: None
+###########################################################
+-----------------------------> raw title: The Floorwalker (Charlie Chaplin)
+-----------------------------> cleaned title: The Floorwalker year: None
+###########################################################
+-----------------------------> raw title: Charlie Chaplin | O Grande Ditador (The Great Dictator) - 1940 - Legendado
+-----------------------------> cleaned title: Charlie Chaplin | O Grande Ditador       Legendado year: None
+###########################################################
+-----------------------------> raw title: Shoulder Arms, Chaplin
+-----------------------------> cleaned title: Shoulder Arms, Chaplin year: None
+###########################################################
+-----------------------------> raw title: The Pawnshop (1916) Charlie Chaplin
+-----------------------------> cleaned title: The Pawnshop Charlie Chaplin year: 1916
+###########################################################
+-----------------------------> raw title: The Adventurer (1917) Charlie Chaplin
+-----------------------------> cleaned title: The Adventurer Charlie Chaplin year: 1917
+###########################################################
+-----------------------------> raw title: Charlie Chaplin . A Night In The Show (1915, Classic, Silent, Short, Colorized Film noir)
+-----------------------------> cleaned title: Charlie Chaplin   A Night In The Show year: None
+###########################################################
+-----------------------------> raw title: Charlie Chaplin . The Tramp (1915 Restored Silent Short Film Noir Comedy)
+-----------------------------> cleaned title: Charlie Chaplin   The Tramp year: None
+###########################################################
+-----------------------------> raw title: Shanghaied (1916) Charlie Chaplin
+-----------------------------> cleaned title: Shanghaied Charlie Chaplin year: 1916
+###########################################################
+-----------------------------> raw title: The Immigrant (1917) Charlie Chaplin
+-----------------------------> cleaned title: The Immigrant Charlie Chaplin year: 1917
+###########################################################
+-----------------------------> raw title: Charlie Chaplin . The Immigrant (1917 Restored, Silent, Short, Film Noir, Comedy)
+-----------------------------> cleaned title: Charlie Chaplin   The Immigrant year: None
+###########################################################
+-----------------------------> raw title: Unknown Chaplin: 3 -- Hidden Treasure
+-----------------------------> cleaned title: Unknown Chaplin: 3   Hidden Treasure year: None
+###########################################################
+-----------------------------> raw title: THE FACE ON THE BARROOM FLOOR ( 1914) Charlie Chaplin
+-----------------------------> cleaned title: THE FACE ON THE BARROOM FLOOR Charlie Chaplin year: None
+###########################################################
+-----------------------------> raw title: The Immigrant (1917) Charlie Chaplin
+-----------------------------> cleaned title: The Immigrant Charlie Chaplin year: 1917
+###########################################################
+-----------------------------> raw title: The Fireman (1916) Charlie Chaplin
+-----------------------------> cleaned title: The Fireman Charlie Chaplin year: 1916
+###########################################################
+-----------------------------> raw title: The Rink (1916) Charlie Chaplin
+-----------------------------> cleaned title: The Rink Charlie Chaplin year: 1916
+###########################################################
+-----------------------------> raw title: The Vagabond (1915) Charlie Chaplin
+-----------------------------> cleaned title: The Vagabond Charlie Chaplin year: 1915
+###########################################################
+-----------------------------> raw title: Laughing Gas (1914) Charlie Chaplin
+-----------------------------> cleaned title: Laughing Gas Charlie Chaplin year: 1914
+###########################################################
+********* OMDb error for 'Laura Betti Josephine Chaplin In   Movie': Movie not found!
+OMDb result for 'Laura Betti Josephine Chaplin In   Movie': {}
+********* OMDb error for 'THE TRAMP Charlie Chaplin, Edna Purviance': Movie not found!
+OMDb result for 'THE TRAMP Charlie Chaplin, Edna Purviance': {}
+********* OMDb error for 'THE CHAMPION Charlie Chaplin, Edna Purviance': Movie not found!
+OMDb result for 'THE CHAMPION Charlie Chaplin, Edna Purviance': {}
+OMDb result for 'The Floorwalker': {'imdb_rating': 6.6, 'genre': 'Short, Comedy', 'director': 'Charles Chaplin', 'cast': 'Charles Chaplin, Eric Campbell, Edna Purviance', 'summary': 'The Tramp is tricked into impersonating an embezzling floorwalker in a department store.', 'cover_image': 'https://m.media-amazon.com/images/M/MV5BZTVlZDc1YjYtMjhhMC00ZWE4LThiNWMtOTM5N2QwMzhhMGFiXkEyXkFqcGc@._V1_SX300.jpg', 'runtime': '29 min', 'year': 1916}
+********* OMDb error for 'Charlie Chaplin | O Grande Ditador       Legendado': Movie not found!
+OMDb result for 'Charlie Chaplin | O Grande Ditador       Legendado': {}
+********* OMDb error for 'Shoulder Arms, Chaplin': Movie not found!
+OMDb result for 'Shoulder Arms, Chaplin': {}
+********* OMDb error for 'The Pawnshop Charlie Chaplin': Movie not found!
+OMDb result for 'The Pawnshop Charlie Chaplin': {}
+********* OMDb error for 'The Adventurer Charlie Chaplin': Movie not found!
+OMDb result for 'The Adventurer Charlie Chaplin': {}
+********* OMDb error for 'Charlie Chaplin   A Night In The Show': Movie not found!
+OMDb result for 'Charlie Chaplin   A Night In The Show': {}
+********* OMDb error for 'Charlie Chaplin   The Tramp': Movie not found!
+OMDb result for 'Charlie Chaplin   The Tramp': {}
+********* OMDb error for 'Shanghaied Charlie Chaplin': Movie not found!
+OMDb result for 'Shanghaied Charlie Chaplin': {}
+********* OMDb error for 'The Immigrant Charlie Chaplin': Movie not found!
+OMDb result for 'The Immigrant Charlie Chaplin': {}
+********* OMDb error for 'Charlie Chaplin   The Immigrant': Movie not found!
+OMDb result for 'Charlie Chaplin   The Immigrant': {}
+********* OMDb error for 'Unknown Chaplin: 3   Hidden Treasure': Movie not found!
+OMDb result for 'Unknown Chaplin: 3   Hidden Treasure': {}
+********* OMDb error for 'THE FACE ON THE BARROOM FLOOR Charlie Chaplin': Movie not found!
+OMDb result for 'THE FACE ON THE BARROOM FLOOR Charlie Chaplin': {}
+********* OMDb error for 'The Immigrant Charlie Chaplin': Movie not found!
+OMDb result for 'The Immigrant Charlie Chaplin': {}
+********* OMDb error for 'The Fireman Charlie Chaplin': Movie not found!
+OMDb result for 'The Fireman Charlie Chaplin': {}
+********* OMDb error for 'The Rink Charlie Chaplin': Movie not found!
+OMDb result for 'The Rink Charlie Chaplin': {}
+********* OMDb error for 'The Vagabond Charlie Chaplin': Movie not found!
+OMDb result for 'The Vagabond Charlie Chaplin': {}
+********* OMDb error for 'Laughing Gas Charlie Chaplin': Movie not found!
+OMDb result for 'Laughing Gas Charlie Chaplin': {}
+Performing system checks...
+
+System check identified no issues (0 silenced).
+May 03, 2026 - 11:55:59
+Django version 5.0.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Performing system checks...
+
+System check identified no issues (0 silenced).
+May 03, 2026 - 11:56:12
+Django version 5.0.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+-----------------------------> raw title: Laura Betti Josephine Chaplin In 1972 Movie
+-----------------------------> cleaned title: Laura Betti Josephine Chaplin In   Movie year: None
+###########################################################
+-----------------------------> raw title: THE TRAMP ( 1915) Charlie Chaplin, Edna Purviance
+-----------------------------> cleaned title: THE TRAMP Charlie Chaplin, Edna Purviance year: None
+###########################################################
+-----------------------------> raw title: THE CHAMPION ( 1915) Charlie Chaplin, Edna Purviance
+-----------------------------> cleaned title: THE CHAMPION Charlie Chaplin, Edna Purviance year: None
+###########################################################
+-----------------------------> raw title: The Floorwalker (Charlie Chaplin)
+-----------------------------> cleaned title: The Floorwalker year: None
+###########################################################
+-----------------------------> raw title: Charlie Chaplin | O Grande Ditador (The Great Dictator) - 1940 - Legendado
+-----------------------------> cleaned title: Charlie Chaplin | O Grande Ditador       Legendado year: None
+###########################################################
+-----------------------------> raw title: Shoulder Arms, Chaplin
+-----------------------------> cleaned title: Shoulder Arms, Chaplin year: None
+###########################################################
+-----------------------------> raw title: The Pawnshop (1916) Charlie Chaplin
+-----------------------------> cleaned title: The Pawnshop Charlie Chaplin year: 1916
+###########################################################
+-----------------------------> raw title: The Adventurer (1917) Charlie Chaplin
+-----------------------------> cleaned title: The Adventurer Charlie Chaplin year: 1917
+###########################################################
+-----------------------------> raw title: Charlie Chaplin . A Night In The Show (1915, Classic, Silent, Short, Colorized Film noir)
+-----------------------------> cleaned title: Charlie Chaplin   A Night In The Show year: None
+###########################################################
+-----------------------------> raw title: Charlie Chaplin . The Tramp (1915 Restored Silent Short Film Noir Comedy)
+-----------------------------> cleaned title: Charlie Chaplin   The Tramp year: None
+###########################################################
+-----------------------------> raw title: Shanghaied (1916) Charlie Chaplin
+-----------------------------> cleaned title: Shanghaied Charlie Chaplin year: 1916
+###########################################################
+-----------------------------> raw title: The Immigrant (1917) Charlie Chaplin
+-----------------------------> cleaned title: The Immigrant Charlie Chaplin year: 1917
+###########################################################
+-----------------------------> raw title: Charlie Chaplin . The Immigrant (1917 Restored, Silent, Short, Film Noir, Comedy)
+-----------------------------> cleaned title: Charlie Chaplin   The Immigrant year: None
+###########################################################
+-----------------------------> raw title: Unknown Chaplin: 3 -- Hidden Treasure
+-----------------------------> cleaned title: Unknown Chaplin: 3   Hidden Treasure year: None
+###########################################################
+-----------------------------> raw title: THE FACE ON THE BARROOM FLOOR ( 1914) Charlie Chaplin
+-----------------------------> cleaned title: THE FACE ON THE BARROOM FLOOR Charlie Chaplin year: None
+###########################################################
+-----------------------------> raw title: The Immigrant (1917) Charlie Chaplin
+-----------------------------> cleaned title: The Immigrant Charlie Chaplin year: 1917
+###########################################################
+-----------------------------> raw title: The Fireman (1916) Charlie Chaplin
+-----------------------------> cleaned title: The Fireman Charlie Chaplin year: 1916
+###########################################################
+-----------------------------> raw title: The Rink (1916) Charlie Chaplin
+-----------------------------> cleaned title: The Rink Charlie Chaplin year: 1916
+###########################################################
+-----------------------------> raw title: The Vagabond (1915) Charlie Chaplin
+-----------------------------> cleaned title: The Vagabond Charlie Chaplin year: 1915
+###########################################################
+-----------------------------> raw title: Laughing Gas (1914) Charlie Chaplin
+-----------------------------> cleaned title: Laughing Gas Charlie Chaplin year: 1914
+###########################################################
+********* OMDb error for 'Laura Betti Josephine Chaplin In   Movie': Movie not found!
+OMDb result for 'Laura Betti Josephine Chaplin In   Movie': {}
+********* OMDb error for 'THE TRAMP Charlie Chaplin, Edna Purviance': Movie not found!
+OMDb result for 'THE TRAMP Charlie Chaplin, Edna Purviance': {}
+********* OMDb error for 'THE CHAMPION Charlie Chaplin, Edna Purviance': Movie not found!
+OMDb result for 'THE CHAMPION Charlie Chaplin, Edna Purviance': {}
+OMDb result for 'The Floorwalker': {'imdb_rating': 6.6, 'genre': 'Short, Comedy', 'director': 'Charles Chaplin', 'cast': 'Charles Chaplin, Eric Campbell, Edna Purviance', 'summary': 'The Tramp is tricked into impersonating an embezzling floorwalker in a department store.', 'cover_image': 'https://m.media-amazon.com/images/M/MV5BZTVlZDc1YjYtMjhhMC00ZWE4LThiNWMtOTM5N2QwMzhhMGFiXkEyXkFqcGc@._V1_SX300.jpg', 'runtime': '29 min', 'year': 1916}
+********* OMDb error for 'Charlie Chaplin | O Grande Ditador       Legendado': Movie not found!
+OMDb result for 'Charlie Chaplin | O Grande Ditador       Legendado': {}
+********* OMDb error for 'Shoulder Arms, Chaplin': Movie not found!
+OMDb result for 'Shoulder Arms, Chaplin': {}
+********* OMDb error for 'The Pawnshop Charlie Chaplin': Movie not found!
+OMDb result for 'The Pawnshop Charlie Chaplin': {}
+********* OMDb error for 'The Adventurer Charlie Chaplin': Movie not found!
+OMDb result for 'The Adventurer Charlie Chaplin': {}
+********* OMDb error for 'Charlie Chaplin   A Night In The Show': Movie not found!
+OMDb result for 'Charlie Chaplin   A Night In The Show': {}
+********* OMDb error for 'Charlie Chaplin   The Tramp': Movie not found!
+OMDb result for 'Charlie Chaplin   The Tramp': {}
+********* OMDb error for 'Shanghaied Charlie Chaplin': Movie not found!
+OMDb result for 'Shanghaied Charlie Chaplin': {}
+********* OMDb error for 'The Immigrant Charlie Chaplin': Movie not found!
+OMDb result for 'The Immigrant Charlie Chaplin': {}
+********* OMDb error for 'Charlie Chaplin   The Immigrant': Movie not found!
+OMDb result for 'Charlie Chaplin   The Immigrant': {}
+********* OMDb error for 'Unknown Chaplin: 3   Hidden Treasure': Movie not found!
+OMDb result for 'Unknown Chaplin: 3   Hidden Treasure': {}
+********* OMDb error for 'THE FACE ON THE BARROOM FLOOR Charlie Chaplin': Movie not found!
+OMDb result for 'THE FACE ON THE BARROOM FLOOR Charlie Chaplin': {}
+********* OMDb error for 'The Immigrant Charlie Chaplin': Movie not found!
+OMDb result for 'The Immigrant Charlie Chaplin': {}
+********* OMDb error for 'The Fireman Charlie Chaplin': Movie not found!
+OMDb result for 'The Fireman Charlie Chaplin': {}
+********* OMDb error for 'The Rink Charlie Chaplin': Movie not found!
+OMDb result for 'The Rink Charlie Chaplin': {}
+********* OMDb error for 'The Vagabond Charlie Chaplin': Movie not found!
+OMDb result for 'The Vagabond Charlie Chaplin': {}
+********* OMDb error for 'Laughing Gas Charlie Chaplin': Movie not found!
+OMDb result for 'Laughing Gas Charlie Chaplin': {}
+-----------------------------> raw title: Laura Betti Josephine Chaplin In 1972 Movie
+-----------------------------> cleaned title: Laura Betti Josephine Chaplin In   Movie year: None
+###########################################################
+-----------------------------> raw title: THE TRAMP ( 1915) Charlie Chaplin, Edna Purviance
+-----------------------------> cleaned title: THE TRAMP Charlie Chaplin, Edna Purviance year: None
+###########################################################
+-----------------------------> raw title: THE CHAMPION ( 1915) Charlie Chaplin, Edna Purviance
+-----------------------------> cleaned title: THE CHAMPION Charlie Chaplin, Edna Purviance year: None
+###########################################################
+-----------------------------> raw title: The Floorwalker (Charlie Chaplin)
+-----------------------------> cleaned title: The Floorwalker year: None
+###########################################################
+-----------------------------> raw title: Charlie Chaplin | O Grande Ditador (The Great Dictator) - 1940 - Legendado
+-----------------------------> cleaned title: Charlie Chaplin | O Grande Ditador       Legendado year: None
+###########################################################
+-----------------------------> raw title: Shoulder Arms, Chaplin
+-----------------------------> cleaned title: Shoulder Arms, Chaplin year: None
+###########################################################
+-----------------------------> raw title: The Pawnshop (1916) Charlie Chaplin
+-----------------------------> cleaned title: The Pawnshop Charlie Chaplin year: 1916
+###########################################################
+-----------------------------> raw title: The Adventurer (1917) Charlie Chaplin
+-----------------------------> cleaned title: The Adventurer Charlie Chaplin year: 1917
+###########################################################
+-----------------------------> raw title: Charlie Chaplin . A Night In The Show (1915, Classic, Silent, Short, Colorized Film noir)
+-----------------------------> cleaned title: Charlie Chaplin   A Night In The Show year: None
+###########################################################
+-----------------------------> raw title: Charlie Chaplin . The Tramp (1915 Restored Silent Short Film Noir Comedy)
+-----------------------------> cleaned title: Charlie Chaplin   The Tramp year: None
+###########################################################
+-----------------------------> raw title: Shanghaied (1916) Charlie Chaplin
+-----------------------------> cleaned title: Shanghaied Charlie Chaplin year: 1916
+###########################################################
+-----------------------------> raw title: The Immigrant (1917) Charlie Chaplin
+-----------------------------> cleaned title: The Immigrant Charlie Chaplin year: 1917
+###########################################################
+-----------------------------> raw title: Charlie Chaplin . The Immigrant (1917 Restored, Silent, Short, Film Noir, Comedy)
+-----------------------------> cleaned title: Charlie Chaplin   The Immigrant year: None
+###########################################################
+-----------------------------> raw title: Unknown Chaplin: 3 -- Hidden Treasure
+-----------------------------> cleaned title: Unknown Chaplin: 3   Hidden Treasure year: None
+###########################################################
+-----------------------------> raw title: THE FACE ON THE BARROOM FLOOR ( 1914) Charlie Chaplin
+-----------------------------> cleaned title: THE FACE ON THE BARROOM FLOOR Charlie Chaplin year: None
+###########################################################
+-----------------------------> raw title: The Immigrant (1917) Charlie Chaplin
+-----------------------------> cleaned title: The Immigrant Charlie Chaplin year: 1917
+###########################################################
+-----------------------------> raw title: The Fireman (1916) Charlie Chaplin
+-----------------------------> cleaned title: The Fireman Charlie Chaplin year: 1916
+###########################################################
+-----------------------------> raw title: The Rink (1916) Charlie Chaplin
+-----------------------------> cleaned title: The Rink Charlie Chaplin year: 1916
+###########################################################
+-----------------------------> raw title: The Vagabond (1915) Charlie Chaplin
+-----------------------------> cleaned title: The Vagabond Charlie Chaplin year: 1915
+###########################################################
+-----------------------------> raw title: Laughing Gas (1914) Charlie Chaplin
+-----------------------------> cleaned title: Laughing Gas Charlie Chaplin year: 1914
+###########################################################
+********* OMDb error for 'Laura Betti Josephine Chaplin In   Movie': Movie not found!
+OMDb result for 'Laura Betti Josephine Chaplin In   Movie': {}
+********* OMDb error for 'THE TRAMP Charlie Chaplin, Edna Purviance': Movie not found!
+OMDb result for 'THE TRAMP Charlie Chaplin, Edna Purviance': {}
+********* OMDb error for 'THE CHAMPION Charlie Chaplin, Edna Purviance': Movie not found!
+OMDb result for 'THE CHAMPION Charlie Chaplin, Edna Purviance': {}
+OMDb result for 'The Floorwalker': {'imdb_rating': 6.6, 'genre': 'Short, Comedy', 'director': 'Charles Chaplin', 'cast': 'Charles Chaplin, Eric Campbell, Edna Purviance', 'summary': 'The Tramp is tricked into impersonating an embezzling floorwalker in a department store.', 'cover_image': 'https://m.media-amazon.com/images/M/MV5BZTVlZDc1YjYtMjhhMC00ZWE4LThiNWMtOTM5N2QwMzhhMGFiXkEyXkFqcGc@._V1_SX300.jpg', 'runtime': '29 min', 'year': 1916}
+********* OMDb error for 'Charlie Chaplin | O Grande Ditador       Legendado': Movie not found!
+OMDb result for 'Charlie Chaplin | O Grande Ditador       Legendado': {}
+********* OMDb error for 'Shoulder Arms, Chaplin': Movie not found!
+OMDb result for 'Shoulder Arms, Chaplin': {}
+********* OMDb error for 'The Pawnshop Charlie Chaplin': Movie not found!
+OMDb result for 'The Pawnshop Charlie Chaplin': {}
+********* OMDb error for 'The Adventurer Charlie Chaplin': Movie not found!
+OMDb result for 'The Adventurer Charlie Chaplin': {}
+********* OMDb error for 'Charlie Chaplin   A Night In The Show': Movie not found!
+OMDb result for 'Charlie Chaplin   A Night In The Show': {}
+********* OMDb error for 'Charlie Chaplin   The Tramp': Movie not found!
+OMDb result for 'Charlie Chaplin   The Tramp': {}
+********* OMDb error for 'Shanghaied Charlie Chaplin': Movie not found!
+OMDb result for 'Shanghaied Charlie Chaplin': {}
+********* OMDb error for 'The Immigrant Charlie Chaplin': Movie not found!
+OMDb result for 'The Immigrant Charlie Chaplin': {}
+********* OMDb error for 'Charlie Chaplin   The Immigrant': Movie not found!
+OMDb result for 'Charlie Chaplin   The Immigrant': {}
+********* OMDb error for 'Unknown Chaplin: 3   Hidden Treasure': Movie not found!
+OMDb result for 'Unknown Chaplin: 3   Hidden Treasure': {}
+********* OMDb error for 'THE FACE ON THE BARROOM FLOOR Charlie Chaplin': Movie not found!
+OMDb result for 'THE FACE ON THE BARROOM FLOOR Charlie Chaplin': {}
+********* OMDb error for 'The Immigrant Charlie Chaplin': Movie not found!
+OMDb result for 'The Immigrant Charlie Chaplin': {}
+********* OMDb error for 'The Fireman Charlie Chaplin': Movie not found!
+OMDb result for 'The Fireman Charlie Chaplin': {}
+********* OMDb error for 'The Rink Charlie Chaplin': Movie not found!
+OMDb result for 'The Rink Charlie Chaplin': {}
+********* OMDb error for 'The Vagabond Charlie Chaplin': Movie not found!
+OMDb result for 'The Vagabond Charlie Chaplin': {}
+********* OMDb error for 'Laughing Gas Charlie Chaplin': Movie not found!
+OMDb result for 'Laughing Gas Charlie Chaplin': {}
+Waiting for database...
+Running migrations...
+
+0 static files copied to '/app/staticfiles', 196 unmodified.
+No changes detected
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, movies, sessions, token_blacklist, users
+Running migrations:
+  No migrations to apply.
+strating server...
+Performing system checks...
+
+System check identified no issues (0 silenced).
+May 03, 2026 - 12:07:27
+Django version 5.0.2, using settings 'config.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+-----------------------------> raw title: Laura Betti Josephine Chaplin In 1972 Movie
+-----------------------------> cleaned title: Laura Betti Josephine Chaplin In   Movie year: None
+###########################################################
+-----------------------------> raw title: THE TRAMP ( 1915) Charlie Chaplin, Edna Purviance
+-----------------------------> cleaned title: THE TRAMP Charlie Chaplin, Edna Purviance year: None
+###########################################################
+-----------------------------> raw title: THE CHAMPION ( 1915) Charlie Chaplin, Edna Purviance
+-----------------------------> cleaned title: THE CHAMPION Charlie Chaplin, Edna Purviance year: None
+###########################################################
+-----------------------------> raw title: The Floorwalker (Charlie Chaplin)
+-----------------------------> cleaned title: The Floorwalker year: None
+###########################################################
+-----------------------------> raw title: Charlie Chaplin | O Grande Ditador (The Great Dictator) - 1940 - Legendado
+-----------------------------> cleaned title: Charlie Chaplin | O Grande Ditador       Legendado year: None
+###########################################################
+-----------------------------> raw title: Shoulder Arms, Chaplin
+-----------------------------> cleaned title: Shoulder Arms, Chaplin year: None
+###########################################################
+-----------------------------> raw title: The Pawnshop (1916) Charlie Chaplin
+-----------------------------> cleaned title: The Pawnshop Charlie Chaplin year: 1916
+###########################################################
+-----------------------------> raw title: The Adventurer (1917) Charlie Chaplin
+-----------------------------> cleaned title: The Adventurer Charlie Chaplin year: 1917
+###########################################################
+-----------------------------> raw title: Charlie Chaplin . A Night In The Show (1915, Classic, Silent, Short, Colorized Film noir)
+-----------------------------> cleaned title: Charlie Chaplin   A Night In The Show year: None
+###########################################################
+-----------------------------> raw title: Charlie Chaplin . The Tramp (1915 Restored Silent Short Film Noir Comedy)
+-----------------------------> cleaned title: Charlie Chaplin   The Tramp year: None
+###########################################################
+-----------------------------> raw title: Shanghaied (1916) Charlie Chaplin
+-----------------------------> cleaned title: Shanghaied Charlie Chaplin year: 1916
+###########################################################
+-----------------------------> raw title: The Immigrant (1917) Charlie Chaplin
+-----------------------------> cleaned title: The Immigrant Charlie Chaplin year: 1917
+###########################################################
+-----------------------------> raw title: Charlie Chaplin . The Immigrant (1917 Restored, Silent, Short, Film Noir, Comedy)
+-----------------------------> cleaned title: Charlie Chaplin   The Immigrant year: None
+###########################################################
+-----------------------------> raw title: Unknown Chaplin: 3 -- Hidden Treasure
+-----------------------------> cleaned title: Unknown Chaplin: 3   Hidden Treasure year: None
+###########################################################
+-----------------------------> raw title: THE FACE ON THE BARROOM FLOOR ( 1914) Charlie Chaplin
+-----------------------------> cleaned title: THE FACE ON THE BARROOM FLOOR Charlie Chaplin year: None
+###########################################################
+-----------------------------> raw title: The Immigrant (1917) Charlie Chaplin
+-----------------------------> cleaned title: The Immigrant Charlie Chaplin year: 1917
+###########################################################
+-----------------------------> raw title: The Fireman (1916) Charlie Chaplin
+-----------------------------> cleaned title: The Fireman Charlie Chaplin year: 1916
+###########################################################
+-----------------------------> raw title: The Rink (1916) Charlie Chaplin
+-----------------------------> cleaned title: The Rink Charlie Chaplin year: 1916
+###########################################################
+-----------------------------> raw title: The Vagabond (1915) Charlie Chaplin
+-----------------------------> cleaned title: The Vagabond Charlie Chaplin year: 1915
+###########################################################
+-----------------------------> raw title: Laughing Gas (1914) Charlie Chaplin
+-----------------------------> cleaned title: Laughing Gas Charlie Chaplin year: 1914
+###########################################################
+********* OMDb error for 'Laura Betti Josephine Chaplin In   Movie': Movie not found!
+OMDb result for 'Laura Betti Josephine Chaplin In   Movie': {}
+********* OMDb error for 'THE TRAMP Charlie Chaplin, Edna Purviance': Movie not found!
+OMDb result for 'THE TRAMP Charlie Chaplin, Edna Purviance': {}
+********* OMDb error for 'THE CHAMPION Charlie Chaplin, Edna Purviance': Movie not found!
+OMDb result for 'THE CHAMPION Charlie Chaplin, Edna Purviance': {}
+OMDb result for 'The Floorwalker': {'imdb_rating': 6.6, 'genre': 'Short, Comedy', 'director': 'Charles Chaplin', 'cast': 'Charles Chaplin, Eric Campbell, Edna Purviance', 'summary': 'The Tramp is tricked into impersonating an embezzling floorwalker in a department store.', 'cover_image': 'https://m.media-amazon.com/images/M/MV5BZTVlZDc1YjYtMjhhMC00ZWE4LThiNWMtOTM5N2QwMzhhMGFiXkEyXkFqcGc@._V1_SX300.jpg', 'runtime': '29 min', 'year': 1916}
+********* OMDb error for 'Charlie Chaplin | O Grande Ditador       Legendado': Movie not found!
+OMDb result for 'Charlie Chaplin | O Grande Ditador       Legendado': {}
+********* OMDb error for 'Shoulder Arms, Chaplin': Movie not found!
+OMDb result for 'Shoulder Arms, Chaplin': {}
+********* OMDb error for 'The Pawnshop Charlie Chaplin': Movie not found!
+OMDb result for 'The Pawnshop Charlie Chaplin': {}
+********* OMDb error for 'The Adventurer Charlie Chaplin': Movie not found!
+OMDb result for 'The Adventurer Charlie Chaplin': {}
+********* OMDb error for 'Charlie Chaplin   A Night In The Show': Movie not found!
+OMDb result for 'Charlie Chaplin   A Night In The Show': {}
+********* OMDb error for 'Charlie Chaplin   The Tramp': Movie not found!
+OMDb result for 'Charlie Chaplin   The Tramp': {}
+********* OMDb error for 'Shanghaied Charlie Chaplin': Movie not found!
+OMDb result for 'Shanghaied Charlie Chaplin': {}
+********* OMDb error for 'The Immigrant Charlie Chaplin': Movie not found!
+OMDb result for 'The Immigrant Charlie Chaplin': {}
+********* OMDb error for 'Charlie Chaplin   The Immigrant': Movie not found!
+OMDb result for 'Charlie Chaplin   The Immigrant': {}
+********* OMDb error for 'Unknown Chaplin: 3   Hidden Treasure': Movie not found!
+OMDb result for 'Unknown Chaplin: 3   Hidden Treasure': {}
+********* OMDb error for 'THE FACE ON THE BARROOM FLOOR Charlie Chaplin': Movie not found!
+OMDb result for 'THE FACE ON THE BARROOM FLOOR Charlie Chaplin': {}
+********* OMDb error for 'The Immigrant Charlie Chaplin': Movie not found!
+OMDb result for 'The Immigrant Charlie Chaplin': {}
+********* OMDb error for 'The Fireman Charlie Chaplin': Movie not found!
+OMDb result for 'The Fireman Charlie Chaplin': {}
+********* OMDb error for 'The Rink Charlie Chaplin': Movie not found!
+OMDb result for 'The Rink Charlie Chaplin': {}
+********* OMDb error for 'The Vagabond Charlie Chaplin': Movie not found!
+OMDb result for 'The Vagabond Charlie Chaplin': {}
+********* OMDb error for 'Laughing Gas Charlie Chaplin': Movie not found!
+OMDb result for 'Laughing Gas Charlie Chaplin': {}
+-----------------------------> raw title: Laura Betti Josephine Chaplin In 1972 Movie
+-----------------------------> cleaned title: Laura Betti Josephine Chaplin In   Movie year: None
+###########################################################
+-----------------------------> raw title: THE TRAMP ( 1915) Charlie Chaplin, Edna Purviance
+-----------------------------> cleaned title: THE TRAMP Charlie Chaplin, Edna Purviance year: None
+###########################################################
+-----------------------------> raw title: THE CHAMPION ( 1915) Charlie Chaplin, Edna Purviance
+-----------------------------> cleaned title: THE CHAMPION Charlie Chaplin, Edna Purviance year: None
+###########################################################
+-----------------------------> raw title: The Floorwalker (Charlie Chaplin)
+-----------------------------> cleaned title: The Floorwalker year: None
+###########################################################
+-----------------------------> raw title: Charlie Chaplin | O Grande Ditador (The Great Dictator) - 1940 - Legendado
+-----------------------------> cleaned title: Charlie Chaplin | O Grande Ditador       Legendado year: None
+###########################################################
+-----------------------------> raw title: Shoulder Arms, Chaplin
+-----------------------------> cleaned title: Shoulder Arms, Chaplin year: None
+###########################################################
+-----------------------------> raw title: The Pawnshop (1916) Charlie Chaplin
+-----------------------------> cleaned title: The Pawnshop Charlie Chaplin year: 1916
+###########################################################
+-----------------------------> raw title: The Adventurer (1917) Charlie Chaplin
+-----------------------------> cleaned title: The Adventurer Charlie Chaplin year: 1917
+###########################################################
+-----------------------------> raw title: Charlie Chaplin . A Night In The Show (1915, Classic, Silent, Short, Colorized Film noir)
+-----------------------------> cleaned title: Charlie Chaplin   A Night In The Show year: None
+###########################################################
+-----------------------------> raw title: Charlie Chaplin . The Tramp (1915 Restored Silent Short Film Noir Comedy)
+-----------------------------> cleaned title: Charlie Chaplin   The Tramp year: None
+###########################################################
+-----------------------------> raw title: Shanghaied (1916) Charlie Chaplin
+-----------------------------> cleaned title: Shanghaied Charlie Chaplin year: 1916
+###########################################################
+-----------------------------> raw title: The Immigrant (1917) Charlie Chaplin
+-----------------------------> cleaned title: The Immigrant Charlie Chaplin year: 1917
+###########################################################
+-----------------------------> raw title: Charlie Chaplin . The Immigrant (1917 Restored, Silent, Short, Film Noir, Comedy)
+-----------------------------> cleaned title: Charlie Chaplin   The Immigrant year: None
+###########################################################
+-----------------------------> raw title: Unknown Chaplin: 3 -- Hidden Treasure
+-----------------------------> cleaned title: Unknown Chaplin: 3   Hidden Treasure year: None
+###########################################################
+-----------------------------> raw title: THE FACE ON THE BARROOM FLOOR ( 1914) Charlie Chaplin
+-----------------------------> cleaned title: THE FACE ON THE BARROOM FLOOR Charlie Chaplin year: None
+###########################################################
+-----------------------------> raw title: The Immigrant (1917) Charlie Chaplin
+-----------------------------> cleaned title: The Immigrant Charlie Chaplin year: 1917
+###########################################################
+-----------------------------> raw title: The Fireman (1916) Charlie Chaplin
+-----------------------------> cleaned title: The Fireman Charlie Chaplin year: 1916
+###########################################################
+-----------------------------> raw title: The Rink (1916) Charlie Chaplin
+-----------------------------> cleaned title: The Rink Charlie Chaplin year: 1916
+###########################################################
+-----------------------------> raw title: The Vagabond (1915) Charlie Chaplin
+-----------------------------> cleaned title: The Vagabond Charlie Chaplin year: 1915
+###########################################################
+-----------------------------> raw title: Laughing Gas (1914) Charlie Chaplin
+-----------------------------> cleaned title: Laughing Gas Charlie Chaplin year: 1914
+###########################################################
+********* OMDb error for 'Laura Betti Josephine Chaplin In   Movie': Movie not found!
+OMDb result for 'Laura Betti Josephine Chaplin In   Movie': {}
+********* OMDb error for 'THE TRAMP Charlie Chaplin, Edna Purviance': Movie not found!
+OMDb result for 'THE TRAMP Charlie Chaplin, Edna Purviance': {}
+********* OMDb error for 'THE CHAMPION Charlie Chaplin, Edna Purviance': Movie not found!
+OMDb result for 'THE CHAMPION Charlie Chaplin, Edna Purviance': {}
+OMDb result for 'The Floorwalker': {'imdb_rating': 6.6, 'genre': 'Short, Comedy', 'director': 'Charles Chaplin', 'cast': 'Charles Chaplin, Eric Campbell, Edna Purviance', 'summary': 'The Tramp is tricked into impersonating an embezzling floorwalker in a department store.', 'cover_image': 'https://m.media-amazon.com/images/M/MV5BZTVlZDc1YjYtMjhhMC00ZWE4LThiNWMtOTM5N2QwMzhhMGFiXkEyXkFqcGc@._V1_SX300.jpg', 'runtime': '29 min', 'year': 1916}
+********* OMDb error for 'Charlie Chaplin | O Grande Ditador       Legendado': Movie not found!
+OMDb result for 'Charlie Chaplin | O Grande Ditador       Legendado': {}
+********* OMDb error for 'Shoulder Arms, Chaplin': Movie not found!
+OMDb result for 'Shoulder Arms, Chaplin': {}
+********* OMDb error for 'The Pawnshop Charlie Chaplin': Movie not found!
+OMDb result for 'The Pawnshop Charlie Chaplin': {}
+********* OMDb error for 'The Adventurer Charlie Chaplin': Movie not found!
+OMDb result for 'The Adventurer Charlie Chaplin': {}
+********* OMDb error for 'Charlie Chaplin   A Night In The Show': Movie not found!
+OMDb result for 'Charlie Chaplin   A Night In The Show': {}
+********* OMDb error for 'Charlie Chaplin   The Tramp': Movie not found!
+OMDb result for 'Charlie Chaplin   The Tramp': {}
+********* OMDb error for 'Shanghaied Charlie Chaplin': Movie not found!
+OMDb result for 'Shanghaied Charlie Chaplin': {}
+********* OMDb error for 'The Immigrant Charlie Chaplin': Movie not found!
+OMDb result for 'The Immigrant Charlie Chaplin': {}
+********* OMDb error for 'Charlie Chaplin   The Immigrant': Movie not found!
+OMDb result for 'Charlie Chaplin   The Immigrant': {}
+********* OMDb error for 'Unknown Chaplin: 3   Hidden Treasure': Movie not found!
+OMDb result for 'Unknown Chaplin: 3   Hidden Treasure': {}
+********* OMDb error for 'THE FACE ON THE BARROOM FLOOR Charlie Chaplin': Movie not found!
+OMDb result for 'THE FACE ON THE BARROOM FLOOR Charlie Chaplin': {}
+********* OMDb error for 'The Immigrant Charlie Chaplin': Movie not found!
+OMDb result for 'The Immigrant Charlie Chaplin': {}
+********* OMDb error for 'The Fireman Charlie Chaplin': Movie not found!
+OMDb result for 'The Fireman Charlie Chaplin': {}
+********* OMDb error for 'The Rink Charlie Chaplin': Movie not found!
+OMDb result for 'The Rink Charlie Chaplin': {}
+********* OMDb error for 'The Vagabond Charlie Chaplin': Movie not found!
+OMDb result for 'The Vagabond Charlie Chaplin': {}
+********* OMDb error for 'Laughing Gas Charlie Chaplin': Movie not found!
+OMDb result for 'Laughing Gas Charlie Chaplin': {}

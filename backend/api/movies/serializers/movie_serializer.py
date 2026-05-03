@@ -12,7 +12,8 @@ class MovieSerializer(serializers.ModelSerializer):
         fields = [
             "id", "title", "year", "imdb_rating", "genre",
             "director", "cast", "summary", "cover_image",
-            "runtime", "view_count", "is_watched", "is_favorited"
+            "runtime", "torrent_url", "source",
+            "view_count", "is_watched", "is_favorited"
         ]
 
     def get_is_watched(self, obj):

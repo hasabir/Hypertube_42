@@ -7,6 +7,7 @@ class Movie(models.Model):
     title       = models.CharField(max_length=255)
     imdb_id     = models.CharField(max_length=20, blank=True, null=True)  # nullable — not all films are on IMDb
     torrent_hash = models.CharField(max_length=255, blank=True, null=True) # nullable — archive.org uses URLs sometimes
+    torrent_url  = models.URLField(max_length=500, blank=True, default="")  # direct .torrent link
 
     # metadata from OMDb
     summary      = models.TextField(blank=True, default="")
