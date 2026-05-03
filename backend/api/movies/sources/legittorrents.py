@@ -94,8 +94,7 @@ from bs4 import BeautifulSoup
 
 
 
-# def search_public_domain_torrents(query):
-def search_legittorrents(query):
+def search_public_domain_torrents(query):
     try:
         res = requests.get(
             "https://www.publicdomaintorrents.info/nshowcat.html",

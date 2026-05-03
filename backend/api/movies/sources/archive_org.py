@@ -5,15 +5,14 @@ import requests
 import re
 
 
-
-
 def search_archive_org(query):
     try:
         res = requests.get(
             "https://archive.org/advancedsearch.php",
             params={
                 # restrict to feature films and short films only
-                "q":      f'title:({query}) AND mediatype:movies AND subject:(film OR "silent film" OR "feature film" OR "short film" OR cinema)',
+                # "q":      f'title:({query}) AND mediatype:movies AND subject:(film OR "silent film" OR "feature film" OR "short film" OR cinema)',
+                "q":      f'{query}) AND mediatype:movies',
                 "fl[]":   ["identifier", "title", "year", "description"],
                 "rows":   50,
                 "output": "json",
@@ -67,5 +66,44 @@ def search_archive_org(query):
 
         if len(results) >= 20:
             break
-
     return results
+
+
+
+
+
+
+def search_archive_org_feature_films(query=""):
+    try:
+        q = f'title:({query}) AND collection:feature_films' if query else 'collection:feature_films'
+        res = requests.get(
+            "https://archive.org/advancedsearch.php",
+            params={
+                "q":      q,
+                "fl[]":   ["identifier", "title", "year"],
+                "rows":   20,
+                "output": "json",
+                "sort[]": "downloads desc",
+            },
+            timeout=10
+        )
+        res.raise_for_status()
+        items = res.json().get("response", {}).get("docs", [])
+    except requests.RequestException:
+        return []
+
+    results = []
+    for item in items:
+        title = item.get("title", "") or ""
+        if not title or len(title) > 100:
+            continue
+        identifier = item.get("identifier", "")
+        results.append({
+            "title":        title,
+            "year":         item.get("year"),
+            "torrent_url":  f"https://archive.org/download/{identifier}/{identifier}_archive.torrent",
+            "torrent_hash": None,
+            "source":       "archive.org/feature_films",
+        })
+    return results
+
