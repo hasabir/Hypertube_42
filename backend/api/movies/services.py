@@ -10,10 +10,13 @@ def search_and_save_movies(query):
     Query external sources, enrich with OMDb, save to DB.
     Returns a queryset of Movie objects.
     """
-    # 1. fetch from both sources
-    results =  search_public_domain_torrents(query) + search_archive_org(query) + search_archive_org_feature_films(query)
+    # fetch from both sources
+    results = search_archive_org(query)
+    results += search_public_domain_torrents(query)
+    results += search_archive_org_feature_films(query)
     metadata = []
-    # 2. for each result, save to DB if not already there
+    
+    # for each result, save to DB if not already there
     for data in results:
         title = data["title"]
         if not title:
@@ -81,13 +84,14 @@ def get_popular_movies():
 #     """
 #     print("Fetching popular movies...")
 #     if Movie.objects.count() == 0:
-#         results = search_public_domain_torrents("")
+#         # results = search_public_domain_torrents("")
 #         # results = search_archive_org("") # + search_public_domain_torrents("")
-#         for data in results:
-#             Movie.objects.get_or_create(
-#                 title=data["title"],
-#                 defaults={"torrent_hash": data.get("torrent_hash", "")}
-#             )
+#         # for data in results:
+#         #     Movie.objects.get_or_create(
+#         #         title=data["title"],
+#         #         defaults={"torrent_hash": data.get("torrent_hash", "")}
+#         #     )
+#         ...
 
 #     return Movie.objects.all().order_by("-view_count")
 
