@@ -10,7 +10,7 @@ class MovieListView(generics.ListAPIView):
     # permission_classes = (IsAuthenticated,)
 
     def get_queryset(self):
-        query = self.request.query_params.get("q", None)
+        query = self.request.query_params.get("movie", None)
 
         if query:
             return search_and_save_movies(query)

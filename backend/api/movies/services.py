@@ -36,9 +36,9 @@ def search_and_save_movies(query):
 
         # 3. enrich with OMDb metadata only when not yet enriched
         if created or not movie.imdb_rating:
-            print(f"🤬🤬🤬 Enriching '{title} | {data.get('year')}' with OMDb...")
+            # print(f"🤬🤬🤬 Enriching '{title} | {data.get('year')}' with OMDb...")
             meta = enrich_with_omdb(title, data.get("year"))
-            print(f"OMDb result for '{title}': {meta}")
+            # print(f"OMDb result for '{title}': {meta}")
             if meta:
                 for field, value in meta.items():
                     setattr(movie, field, value)
