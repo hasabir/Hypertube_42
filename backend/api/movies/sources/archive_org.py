@@ -68,34 +68,34 @@ import requests
 
 import re
 
-def clean_title(raw):
-    year = None
+# def clean_title(raw):
+#     year = None
 
-    # Extract year from parentheses and drop everything after the closing paren
-    # e.g. "The Fireman (1916) Charlie Chaplin" -> title="The Fireman", year="1916"
-    m = re.search(r'\((\d{4})\)', raw)
-    if m:
-        year = m.group(1)
-        raw = raw[:m.start()]  # keep only what's before the opening paren
+#     # Extract year from parentheses and drop everything after the closing paren
+#     # e.g. "The Fireman (1916) Charlie Chaplin" -> title="The Fireman", year="1916"
+#     m = re.search(r'\((\d{4})\)', raw)
+#     if m:
+#         year = m.group(1)
+#         raw = raw[:m.start()]  # keep only what's before the opening paren
 
-    # Remove anything still in parentheses or brackets
-    raw = re.sub(r'\(.*?\)', ' ', raw)
-    raw = re.sub(r'\[.*?\]', ' ', raw)
+#     # Remove anything still in parentheses or brackets
+#     raw = re.sub(r'\(.*?\)', ' ', raw)
+#     raw = re.sub(r'\[.*?\]', ' ', raw)
 
-    # Cut at separator characters that split title from extra info
-    raw = re.split(r'[:\-|]', raw)[0]
+#     # Cut at separator characters that split title from extra info
+#     raw = re.split(r'[:\-|]', raw)[0]
 
-    # Remove common non-title noise words
-    noise = r'\b(full\s+movie|hd|sd|720p|1080p|2160p|4k|hdr|webrip|bluray|dvdrip|hdtv|xvid|x264|x265|hevc|aac|mp4|avi|mkv)\b'
-    raw = re.sub(noise, ' ', raw, flags=re.IGNORECASE)
+#     # Remove common non-title noise words
+#     noise = r'\b(full\s+movie|hd|sd|720p|1080p|2160p|4k|hdr|webrip|bluray|dvdrip|hdtv|xvid|x264|x265|hevc|aac|mp4|avi|mkv)\b'
+#     raw = re.sub(noise, ' ', raw, flags=re.IGNORECASE)
 
-    # Normalize whitespace
-    raw = re.sub(r'\s+', ' ', raw).strip()
+#     # Normalize whitespace
+#     raw = re.sub(r'\s+', ' ', raw).strip()
 
-    # Strip leading/trailing non-alphanumeric characters
-    raw = re.sub(r'^[^a-zA-Z0-9]+|[^a-zA-Z0-9]+$', '', raw)
+#     # Strip leading/trailing non-alphanumeric characters
+#     raw = re.sub(r'^[^a-zA-Z0-9]+|[^a-zA-Z0-9]+$', '', raw)
 
-    return raw, year
+#     return raw, year
 
 
 def search_archive_org(query):
@@ -148,17 +148,17 @@ def search_archive_org(query):
 
 
         print(f"-----------------------------> raw title: {title}")
-        clean, year = clean_title(title)
+        # clean, year = clean_title(title)
         # clean_title = re.sub(r'\s*\(.*?\)\s*', '', title).strip()  
-        print("-----------------------------> cleaned title:", clean, "year:", year)
+        # print("-----------------------------> cleaned title:", clean, "year:", year)
         print("###########################################################")        
         # if not clean_title:
         #     continue
         
         
         results.append({
-            "title":       clean,
-            "year":        item.get("year") if item.get("year") and str(item.get("year")).isdigit() else year,
+            "title":       title,
+            "year":        item.get("year"),
             "torrent_url": torrent_url,
             "torrent_hash": None,
             "source":      "archive.org",
