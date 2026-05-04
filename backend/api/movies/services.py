@@ -22,8 +22,15 @@ def search_and_save_movies(query):
         if not title:
             continue
 
-        movie, created = Movie.objects.get_or_create(title=title)
-
+        # movie, created = Movie.objects.get_or_create(title=title)
+        movie, created = Movie.objects.get_or_create(
+            title=title,
+            source=data.get("source", ""),
+            defaults={
+                "torrent_url": data.get("torrent_url", ""),
+                "year":        data.get("year") or data.get("year") or None,
+            }
+        )
         # always write source-level fields so they stay fresh
         movie.torrent_hash = data.get("torrent_hash") or movie.torrent_hash
         movie.torrent_url = data.get("torrent_url", "") or movie.torrent_url

@@ -11,6 +11,7 @@ WORKDIR /app
 
 # Install Python dependencies
 COPY build/requirements.txt /app/requirements.txt
+RUN pip install --upgrade pip
 RUN pip3 install --no-cache-dir -r /app/requirements.txt
 
 EXPOSE 8000

@@ -20,3 +20,4 @@ gunicorn
 requests
 decouple
 beautifulsoup4
+django-filter
