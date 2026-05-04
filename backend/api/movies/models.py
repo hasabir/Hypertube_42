@@ -59,7 +59,7 @@ class WatchHistory(models.Model):
 
 
 class Favorite(models.Model):
-    user = models.ForeignKey('users.User', on_delete=models.CASCADE)
+    user  = models.ForeignKey('users.User', on_delete=models.CASCADE)
     movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
 
     class Meta:
@@ -67,3 +67,4 @@ class Favorite(models.Model):
 
     def __str__(self):
         return f"{self.user.username} favorited {self.movie.title}"
+# class

@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'django_filters',
 
     'api.users.apps.UsersConfig',
+    'api.comments.apps.CommentsConfig',
     'api.movies.apps.MoviesConfig',
 ]
 

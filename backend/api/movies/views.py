@@ -3,8 +3,8 @@ from rest_framework import generics
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.filters import OrderingFilter
 from django_filters.rest_framework import DjangoFilterBackend
-from .models import Movie
-from .serializers import MovieSerializer
+from .models import Movie, Favorite
+from .serializers import MovieSerializer, FavoriteSerializer
 from .services import search_and_save_movies, get_popular_movies
 from .pagination import MoviePagination
 from .filters import MovieFilter
@@ -24,6 +24,7 @@ from .filters import MovieFilter
 from django.db.models import F
 from rest_framework.filters import OrderingFilter
 from django_filters.rest_framework import DjangoFilterBackend
+
 
 class MovieListView(generics.ListAPIView):
     serializer_class = MovieSerializer
@@ -54,3 +55,41 @@ class MovieListView(generics.ListAPIView):
                     queryset = queryset.order_by(F(field).asc(nulls_last=True))
 
         return queryset
+
+from rest_framework.views import APIView
+from rest_framework import status
+from rest_framework.response import Response
+from django.shortcuts import get_object_or_404
+
+
+class FavoriteListView(generics.ListAPIView):
+    """GET /api/movies/favorites/ — list current user's favorited movies"""
+    serializer_class   = MovieSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        return Movie.objects.filter(
+            favorite__user=self.request.user
+        ).order_by(F("imdb_rating").desc(nulls_last=True))
+
+
+class FavoriteToggleView(APIView):
+    """POST /api/movies/:id/favorite/ — toggle favorite on/off"""
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request, movie_id):
+        movie    = get_object_or_404(Movie, id=movie_id)
+        favorite = Favorite.objects.filter(user=request.user, movie=movie)
+
+        if favorite.exists():
+            favorite.delete()
+            return Response(
+                {"favorited": False, "message": f"Removed '{movie.title}' from favorites"},
+                status=status.HTTP_200_OK
+            )
+        else:
+            Favorite.objects.create(user=request.user, movie=movie)
+            return Response(
+                {"favorited": True, "message": f"Added '{movie.title}' to favorites"},
+                status=status.HTTP_201_CREATED
+            )

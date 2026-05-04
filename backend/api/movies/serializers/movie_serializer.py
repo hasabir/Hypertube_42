@@ -1,7 +1,7 @@
     
     
 from rest_framework import serializers
-from ..models import Movie
+from ..models import Movie, Favorite
 
 class MovieSerializer(serializers.ModelSerializer):
     is_watched   = serializers.SerializerMethodField()
@@ -28,4 +28,8 @@ class MovieSerializer(serializers.ModelSerializer):
             return obj.favorite_set.filter(user=request.user).exists()
         return False
     
+
+
+
+        
     

@@ -1,6 +1,7 @@
 from django.urls import path, include
 from api.views import HomeView
 from api.users import views as user_views
+from api.comments import views as comment_views
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView,
@@ -42,11 +43,17 @@ urlpatterns = [
         ] )),
     
     
-    # Movies API),
+    # Movies API
     path('movies/', include([
-        path('', movie_views.MovieListView.as_view(), name='movie-list'),
+        path('',                                      movie_views.MovieListView.as_view(),      name='movie-list'),
+        path('favorites/',                            movie_views.FavoriteListView.as_view(),   name='favorite-list'),
+        path('<int:movie_id>/favorite/',              movie_views.FavoriteToggleView.as_view(), name='favorite-toggle'),
+        path('<int:movie_id>/comments/',              comment_views.CommentListCreateView.as_view(), name='movie-comments'),
     ])),
-]
 
-# path('movies/', include('api.movies.urls')),
-# path('comments/', include('api.comments.urls')),
+    # Comments API
+    path('comments/', include([
+            path("", comment_views.CommentListCreateView.as_view(), name="comment-list-create"),
+            path("<int:pk>/", comment_views.CommentDetailView.as_view(),  name="comment-detail"),
+        ])),
+]
