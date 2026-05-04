@@ -12,8 +12,11 @@ def search_and_save_movies(query):
     """
     # fetch from both sources
     results = search_archive_org(query)
-    results += search_public_domain_torrents(query)
     results += search_archive_org_feature_films(query)
+    try:
+        results += search_public_domain_torrents(query)
+    except Exception as e:
+        print(f"Error fetching from public domain torrents: {e}")
     metadata = []
     
     # for each result, save to DB if not already there
