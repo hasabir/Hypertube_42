@@ -1,18 +1,51 @@
 "use client";
 
-import Image from "next/image";
+import axios from "axios";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { ProtectedPage } from "@/components/ProtectedPage";
+import { NavUserToolbar } from "@/components/NavUserToolbar";
 import { LIBRARY_MOVIES, LIBRARY_SOURCE_LABELS, type LibraryMovie } from "@/lib/library-movies";
 import { getLibraryMovies, type SortKey, type SourceFilter, type WatchedFilter } from "@/lib/library-api";
 import { isApiConfigured } from "@/lib/api";
 import { useAuth } from "@/providers/AuthProvider";
-import { resolveAvatarSrc } from "@/lib/avatar";
+import { useLanguage } from "@/providers/LanguageProvider";
+import { normalizeMoviePosterUrl, POSTER_FALLBACK_SRC } from "@/lib/poster-url";
+
+const SEARCH_DEBOUNCE_MS = 320;
+
+function isListRequestCanceled(err: unknown): boolean {
+  if (axios.isCancel(err)) return true;
+  if (axios.isAxiosError(err) && err.code === "ERR_CANCELED") return true;
+  return err instanceof DOMException && err.name === "AbortError";
+}
 
 const PAGE_SIZE = 8;
 const DEFAULT_SORT: SortKey = "popularity";
+
+/** One row per id (API or double fetch can repeat ids). */
+function dedupeMoviesById(items: LibraryMovie[]): LibraryMovie[] {
+  const seen = new Set<string>();
+  const out: LibraryMovie[] = [];
+  for (const m of items) {
+    if (seen.has(m.id)) continue;
+    seen.add(m.id);
+    out.push(m);
+  }
+  return out;
+}
+
+function appendMoviesUnique(existing: LibraryMovie[], incoming: LibraryMovie[]): LibraryMovie[] {
+  const seen = new Set(existing.map((m) => m.id));
+  const out = [...existing];
+  for (const m of incoming) {
+    if (seen.has(m.id)) continue;
+    seen.add(m.id);
+    out.push(m);
+  }
+  return out;
+}
 
 function trBadgeClass(style: "violet" | "neutral" | "new") {
   if (style === "violet") {
@@ -36,7 +69,47 @@ function sourceLabel(source: SourceFilter): string {
   return LIBRARY_SOURCE_LABELS[source];
 }
 
-function LibraryMovieCard({ movie, layout }: { movie: LibraryMovie; layout: "grid" | "list" }) {
+function LibraryPosterImage({
+  posterUrl,
+  alt,
+  className,
+  priority,
+}: {
+  posterUrl: string;
+  alt: string;
+  className: string;
+  /** First above-the-fold posters: improves LCP and silences Next.js LCP hints. */
+  priority?: boolean;
+}) {
+  const canonicalSrc = useMemo(() => normalizeMoviePosterUrl(posterUrl), [posterUrl]);
+  const [brokenCanonical, setBrokenCanonical] = useState<string | null>(null);
+  const src = brokenCanonical === canonicalSrc ? POSTER_FALLBACK_SRC : canonicalSrc;
+
+  return (
+    // Native <img> so poster CDNs receive Referrer Policy correctly and onError behaves predictably with remote URLs.
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src={src}
+      alt={alt}
+      loading={priority ? "eager" : "lazy"}
+      {...(priority ? { fetchPriority: "high" as const } : {})}
+      decoding="async"
+      referrerPolicy="no-referrer"
+      className={`absolute inset-0 h-full w-full object-cover ${className}`.trim()}
+      onError={() => setBrokenCanonical(canonicalSrc)}
+    />
+  );
+}
+
+function LibraryMovieCard({
+  movie,
+  layout,
+  posterPriority,
+}: {
+  movie: LibraryMovie;
+  layout: "grid" | "list";
+  posterPriority?: boolean;
+}) {
   const imageFrame =
     layout === "grid" ? "aspect-[2/3] w-full" : "h-40 w-28 shrink-0 sm:h-48 sm:w-32";
   const titleMeta = `${movie.genre} • ${movie.year} • ${movie.imdbRating.toFixed(1)}`;
@@ -56,18 +129,17 @@ function LibraryMovieCard({ movie, layout }: { movie: LibraryMovie; layout: "gri
         .join(" ")}
     >
       <div className={`relative ${imageFrame}`}>
-        <Image
-          src={movie.image}
+        <LibraryPosterImage
+          key={`${movie.id}-${movie.image}`}
+          posterUrl={movie.image}
           alt={movie.imageAlt}
-          fill
-          unoptimized
+          priority={posterPriority}
           className={[
             "object-cover",
             movie.highlightPlay ? "grayscale-[30%] group-hover:grayscale-0" : "",
           ]
             .filter(Boolean)
             .join(" ")}
-          sizes={layout === "grid" ? "(min-width: 1280px) 16vw, 20vw" : "128px"}
         />
       </div>
       <div
@@ -140,6 +212,7 @@ function LibraryMovieCard({ movie, layout }: { movie: LibraryMovie; layout: "gri
 function LibraryContent() {
   const router = useRouter();
   const { user } = useAuth();
+  const { t } = useLanguage();
   const [view, setView] = useState<"grid" | "list">("grid");
   const [query, setQuery] = useState("");
   const [sortBy, setSortBy] = useState<SortKey>(DEFAULT_SORT);
@@ -157,26 +230,34 @@ function LibraryContent() {
   const loaderRef = useRef<HTMLDivElement | null>(null);
   const filtersSectionRef = useRef<HTMLElement | null>(null);
   const requestIdRef = useRef(0);
+  const listAbortRef = useRef<AbortController | null>(null);
+  const appendInFlightRef = useRef(false);
   /** Mobile / tablet: collapsible filters; lg+ ignores false and always shows the panel. */
   const [filtersOpen, setFiltersOpen] = useState(false);
 
-  const displayName = user?.username ? user.username : "User";
-  const avatarSrc = resolveAvatarSrc(user?.avatarUrl);
+  const [debouncedQuery, setDebouncedQuery] = useState("");
+  useEffect(() => {
+    const delayMs = query.trim() === "" ? 0 : SEARCH_DEBOUNCE_MS;
+    const t = window.setTimeout(() => setDebouncedQuery(query), delayMs);
+    return () => window.clearTimeout(t);
+  }, [query]);
+
   const normalizedQuery = query.trim().toLowerCase();
   /** Spec: search hits both mock sources — results locked to alphabetical order. */
   const searchActive = query.trim().length > 0;
   const effectiveSortDisplay: SortKey = searchActive ? "name" : sortBy;
 
-  const [apiGenres, setApiGenres] = useState<string[]>([]);
-  useEffect(() => {
+  const apiGenres = useMemo(() => {
     if (!isApiConfigured) {
-      return;
+      return [];
     }
-    setApiGenres((prev) => {
-      const next = new Set([...prev, ...movies.map((m) => m.genre).filter(Boolean)]);
-      return Array.from(next).sort((a, b) => a.localeCompare(b));
-    });
+    const next = new Set<string>();
+    for (const m of movies) {
+      if (m.genre) next.add(m.genre);
+    }
+    return Array.from(next).sort((a, b) => a.localeCompare(b));
   }, [movies]);
+
   const genres = useMemo(() => {
     if (isApiConfigured) {
       return apiGenres;
@@ -194,31 +275,49 @@ function LibraryContent() {
     (normalizedQuery ? 1 : 0);
 
   const fetchPage = useCallback(async (targetPage: number, append: boolean) => {
+    if (append && appendInFlightRef.current) {
+      return;
+    }
+    if (append) {
+      appendInFlightRef.current = true;
+    }
+
     const requestId = ++requestIdRef.current;
     if (!append) {
+      appendInFlightRef.current = false;
+      listAbortRef.current?.abort();
+      const controller = new AbortController();
+      listAbortRef.current = controller;
       setLoadingInitial(true);
       setError(null);
     } else {
       setLoadingMore(true);
     }
 
+    const signal = listAbortRef.current?.signal;
+
     try {
-      const result = await getLibraryMovies({
-        page: targetPage,
-        pageSize: PAGE_SIZE,
-        query,
-        sortBy,
-        genreFilter,
-        sourceFilter,
-        watchedFilter,
-        minRating,
-      });
+      const result = await getLibraryMovies(
+        {
+          page: targetPage,
+          pageSize: PAGE_SIZE,
+          query: debouncedQuery,
+          sortBy,
+          genreFilter,
+          sourceFilter,
+          watchedFilter,
+          minRating,
+        },
+        signal ? { signal } : undefined,
+      );
 
       if (requestId !== requestIdRef.current) {
         return;
       }
 
-      setMovies((current) => (append ? [...current, ...result.items] : result.items));
+      const pageItems = dedupeMoviesById(result.items);
+
+      setMovies((current) => (append ? appendMoviesUnique(current, pageItems) : pageItems));
       setTotalCount(result.total);
       setHasMore(result.hasMore);
       setPage(targetPage);
@@ -227,22 +326,34 @@ function LibraryContent() {
       if (requestId !== requestIdRef.current) {
         return;
       }
+      if (isListRequestCanceled(err)) {
+        return;
+      }
       const message = err instanceof Error ? err.message : "Could not load library data.";
       setError(message);
     } finally {
+      if (append) {
+        appendInFlightRef.current = false;
+      }
       if (requestId === requestIdRef.current) {
         setLoadingInitial(false);
         setLoadingMore(false);
       }
     }
-  }, [genreFilter, minRating, query, sortBy, sourceFilter, watchedFilter]);
+  }, [debouncedQuery, genreFilter, minRating, sortBy, sourceFilter, watchedFilter]);
 
   useEffect(() => {
-    const timer = window.setTimeout(() => {
+    const id = window.setTimeout(() => {
       void fetchPage(1, false);
     }, 0);
-    return () => window.clearTimeout(timer);
+    return () => window.clearTimeout(id);
   }, [fetchPage]);
+
+  useEffect(() => {
+    return () => {
+      listAbortRef.current?.abort();
+    };
+  }, []);
 
   useEffect(() => {
     const loader = loaderRef.current;
@@ -251,7 +362,7 @@ function LibraryContent() {
     const observer = new IntersectionObserver(
       (entries) => {
         const [entry] = entries;
-        if (!entry?.isIntersecting || loadingMore || loadingInitial || error) return;
+        if (!entry?.isIntersecting || loadingMore || loadingInitial || error || appendInFlightRef.current) return;
         void fetchPage(page + 1, true);
       },
       { rootMargin: "260px" },
@@ -263,8 +374,8 @@ function LibraryContent() {
 
   return (
     <div className="min-h-screen bg-[#131313] text-[#e5e2e1] selection:bg-[#7c3aed] selection:text-white">
-      <nav className="fixed top-0 z-50 flex h-20 w-full items-center justify-between bg-[#131313]/60 px-4 shadow-[0_40px_60px_-10px_rgba(0,0,0,0.4)] backdrop-blur-xl sm:px-8">
-        <div className="flex min-w-0 items-center gap-6 sm:gap-12">
+      <nav className="fixed top-0 z-50 flex h-20 w-full items-center gap-3 bg-[#131313]/60 px-4 shadow-[0_40px_60px_-10px_rgba(0,0,0,0.4)] backdrop-blur-xl sm:gap-4 sm:px-8">
+        <div className="flex min-w-0 shrink-0 items-center gap-6 sm:gap-12">
           <Link href="/" className="shrink-0 text-2xl font-black tracking-tighter text-[#d2bbff]">
             HYPERTUBE
           </Link>
@@ -274,7 +385,7 @@ function LibraryContent() {
               href="/library"
               aria-current="page"
             >
-              Movies
+              Library
             </Link>
           </div>
         </div>
@@ -297,33 +408,16 @@ function LibraryContent() {
             />
           </label>
         </div>
-        <div className="flex items-center gap-3 sm:gap-6">
-          <Link
-            href="/settings/profile"
-            className="rounded-full p-2 text-[#ccc3d8] transition-all hover:bg-[#2a2a2a] active:scale-95"
-            title="Settings"
-          >
-            <span className="material-symbols-outlined">settings</span>
-          </Link>
-          <div className="flex min-w-0 max-w-[40%] items-center gap-2 border-l border-white/10 pl-3 sm:max-w-none sm:gap-3 sm:pl-4">
-            <div className="min-w-0 max-w-[8rem] truncate text-right text-xs font-bold leading-none sm:max-w-none sm:text-sm lg:block">
-              {displayName}
-            </div>
-            <Image
-              src={avatarSrc}
-              alt=""
-              width={40}
-              height={40}
-              className="h-10 w-10 rounded-lg object-cover ring-2 ring-[#d2bbff]/20"
+        <div className="ml-auto flex shrink-0 items-center gap-2 sm:gap-4">
+          {user ? (
+            <NavUserToolbar
+              username={user.username}
+              avatarUrl={user.avatarUrl}
+              logoutLabel={t("logout")}
+              settingsAriaLabel={t("settings")}
+              logoutClassName="text-xs sm:text-sm"
             />
-            <Link
-              href="/logout"
-              className="ml-1 inline-flex items-center gap-1.5 rounded-md border border-[#ffb4ab]/35 bg-[#93000a]/15 px-2.5 py-1.5 text-xs font-semibold text-[#ffdad6] transition-all hover:border-[#ffb4ab]/60 hover:bg-[#93000a]/25"
-            >
-              <span className="material-symbols-outlined text-sm">logout</span>
-              Sign out
-            </Link>
-          </div>
+          ) : null}
         </div>
       </nav>
 
@@ -562,7 +656,7 @@ function LibraryContent() {
           </div>
         ) : view === "grid" ? (
           <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
-            {movies.map((m) => (
+            {movies.map((m, index) => (
               <div
                 key={m.id}
                 role="link"
@@ -577,13 +671,13 @@ function LibraryContent() {
                 className="cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-[#d2bbff] focus-visible:ring-offset-2 focus-visible:ring-offset-[#131313]"
                 aria-label={`Open ${m.title}`}
               >
-                <LibraryMovieCard movie={m} layout="grid" />
+                <LibraryMovieCard movie={m} layout="grid" posterPriority={index < 8} />
               </div>
             ))}
           </div>
         ) : (
           <div className="mx-auto flex w-full max-w-4xl flex-col gap-6">
-            {movies.map((m) => (
+            {movies.map((m, index) => (
               <div
                 key={m.id}
                 role="link"
@@ -598,7 +692,7 @@ function LibraryContent() {
                 className="cursor-pointer border-b border-white/5 pb-6 outline-none last:border-0 last:pb-0 focus-visible:ring-2 focus-visible:ring-[#d2bbff] focus-visible:ring-offset-2 focus-visible:ring-offset-[#131313]"
                 aria-label={`Open ${m.title}`}
               >
-                <LibraryMovieCard movie={m} layout="list" />
+                <LibraryMovieCard movie={m} layout="list" posterPriority={index < 6} />
               </div>
             ))}
           </div>

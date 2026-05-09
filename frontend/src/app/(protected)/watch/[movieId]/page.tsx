@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 import { ProtectedPage } from "@/components/ProtectedPage";
+import { NavUserToolbar } from "@/components/NavUserToolbar";
 import {
   addVideoComment,
   getVideoDetails,
@@ -18,6 +19,7 @@ import {
 } from "@/lib/video-api-mock";
 import { resolveAvatarSrc } from "@/lib/avatar";
 import { useAuth } from "@/providers/AuthProvider";
+import { useLanguage } from "@/providers/LanguageProvider";
 
 function meterLabel(value: number): string {
   return `${Math.max(0, Math.min(100, value))}%`;
@@ -41,6 +43,7 @@ function formatTimeAgo(iso: string): string {
 export default function WatchPage() {
   const params = useParams<{ movieId: string }>();
   const { user } = useAuth();
+  const { t } = useLanguage();
   const [details, setDetails] = useState<VideoDetails | null>(null);
   const [stream, setStream] = useState<VideoStreamState | null>(null);
   const [comments, setComments] = useState<VideoComment[]>([]);
@@ -138,23 +141,24 @@ export default function WatchPage() {
   return (
     <ProtectedPage>
       <div className="min-h-screen overflow-x-hidden bg-[#131313] text-[#e5e2e1]">
-        <nav className="fixed top-0 z-50 flex h-20 w-full items-center justify-between bg-[#131313]/60 px-8 backdrop-blur-xl">
-          <Link href="/" className="text-2xl font-black tracking-tighter text-[#d2bbff]">
-            HYPERTUBE
-          </Link>
-          <div className="flex items-center gap-8">
-            <Link href="/library" className="font-medium text-gray-400 transition-colors hover:text-white">
+        <nav className="fixed top-0 z-50 flex h-20 w-full items-center gap-4 bg-[#131313]/60 px-8 backdrop-blur-xl">
+          <div className="flex shrink-0 items-center gap-6 sm:gap-12">
+            <Link href="/" className="text-2xl font-black tracking-tighter text-[#d2bbff]">
+              HYPERTUBE
+            </Link>
+            <Link href="/library" className="hidden font-medium text-gray-400 transition-colors hover:text-white sm:inline">
               Library
             </Link>
-            <div className="flex items-center gap-4">
-              <Link href="/logout" className="font-medium text-gray-400 transition-colors hover:text-white">
-                Logout
-              </Link>
-              <div className="h-10 w-10 overflow-hidden rounded-full bg-[#2a2a2a]">
-                <Image src={avatarSrc} alt="" width={40} height={40} className="h-full w-full object-cover" />
-              </div>
-            </div>
           </div>
+          <span className="min-w-[1rem] flex-1" aria-hidden />
+          {user ? (
+            <NavUserToolbar
+              username={user.username}
+              avatarUrl={user.avatarUrl}
+              logoutLabel={t("logout")}
+              settingsAriaLabel={t("settings")}
+            />
+          ) : null}
         </nav>
 
         <main className="min-h-screen pt-20">
@@ -320,7 +324,16 @@ export default function WatchPage() {
                       ) : null}
                     </video>
                   ) : (
-                    <Image src={details.coverImage} alt="" fill className="object-cover opacity-80" />
+                    <>
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={details.coverImage}
+                        alt=""
+                        referrerPolicy="no-referrer"
+                        decoding="async"
+                        className="absolute inset-0 h-full w-full object-cover opacity-80"
+                      />
+                    </>
                   )}
 
                   {!stream.readyToStream ? (
@@ -531,7 +544,14 @@ export default function WatchPage() {
                       <div className="space-y-4">
                         <Link href="/library" className="group flex gap-4">
                           <div className="h-32 w-24 flex-shrink-0 overflow-hidden rounded-lg bg-[#2a2a2a]">
-                            <Image src={details.coverImage} alt="" width={96} height={128} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                            <img
+                              src={details.coverImage}
+                              alt=""
+                              referrerPolicy="no-referrer"
+                              decoding="async"
+                              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                            />
                           </div>
                           <div className="flex flex-col justify-center">
                             <span className="mb-1 text-xs font-bold text-white transition-colors group-hover:text-[#d2bbff]">{details.title.toUpperCase()}</span>

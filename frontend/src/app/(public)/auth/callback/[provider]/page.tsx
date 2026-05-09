@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useRouter, useSearchParams, useParams } from "next/navigation";
 import Link from "next/link";
 import { useAuth } from "@/providers/AuthProvider";
-import { exchangeOAuthCode, isApiConfigured } from "@/lib/api";
+import { exchangeOAuthCode, isApiConfigured, saveAuthTokens } from "@/lib/api";
 
 export default function OAuthCallbackPage() {
   const router = useRouter();
@@ -25,6 +25,16 @@ export default function OAuthCallbackPage() {
     if (!isApiConfigured) {
       setError("API URL is not configured. Set NEXT_PUBLIC_API_URL.");
       setMessage("");
+      return;
+    }
+
+    const access = searchParams.get("access");
+    const refreshToken = searchParams.get("refresh");
+    if (access && refreshToken) {
+      saveAuthTokens({ access, refresh: refreshToken });
+      void refresh().then(() => {
+        router.replace("/library");
+      });
       return;
     }
 

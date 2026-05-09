@@ -109,7 +109,7 @@ function ResetPasswordContent() {
         </Link>
         <div className="hidden items-center gap-8 md:flex">
           <Link href="/library" className="font-medium tracking-tight text-gray-400 transition-colors hover:text-white">
-            Movies
+            Library
           </Link>
         </div>
         <div className="flex items-center gap-6">

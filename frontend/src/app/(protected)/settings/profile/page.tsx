@@ -9,6 +9,7 @@ import { changePasswordSchema, updateProfileSchema } from "@/lib/validation";
 import { api } from "@/lib/api";
 import { DEFAULT_AVATAR_URL, isDefaultAvatarRef, resolveAvatarSrc } from "@/lib/avatar";
 import { ProtectedPage } from "@/components/ProtectedPage";
+import { NavUserToolbar } from "@/components/NavUserToolbar";
 import { useAuth } from "@/providers/AuthProvider";
 import { useLanguage } from "@/providers/LanguageProvider";
 import type { z } from "zod";
@@ -222,42 +223,27 @@ export default function SettingsProfilePage() {
     <ProtectedPage>
       {user ? (
         <div className="flex min-h-screen flex-col bg-[#131313] text-[#e5e2e1]">
-          <nav className="fixed top-0 z-50 w-full bg-[#131313]/60 backdrop-blur-xl">
-            <div className="mx-auto flex w-full max-w-screen-2xl items-center justify-between px-8 py-4">
-              <div className="flex items-center gap-12">
-                <Link href="/" className="text-2xl font-black uppercase tracking-tighter text-[#d2bbff]">
-                  HYPERTUBE
-                </Link>
-                <div className="hidden gap-8 md:flex">
-                  <Link
-                    className="text-sm font-medium tracking-tight text-gray-400 transition-colors hover:text-white"
-                    href="/library"
-                  >
-                    {copy.library}
-                  </Link>
-                </div>
-              </div>
-              <div className="flex items-center gap-6">
+          <nav className="fixed top-0 z-50 flex h-20 w-full items-center justify-between gap-4 bg-[#131313]/60 px-8 shadow-[0_40px_60px_-10px_rgba(0,0,0,0.4)] backdrop-blur-xl">
+            <div className="flex min-w-0 shrink-0 items-center gap-12">
+              <Link href="/" className="text-2xl font-black uppercase tracking-tighter text-[#d2bbff]">
+                HYPERTUBE
+              </Link>
+              <div className="hidden gap-8 md:flex">
                 <Link
-                  href={`/profile/${user.username}`}
-                  className="group flex cursor-pointer items-center gap-4"
+                  className="text-sm font-medium tracking-tight text-gray-400 transition-colors hover:text-white"
+                  href="/library"
                 >
-                  <Image
-                    alt=""
-                    className="h-8 w-8 rounded-full border-2 border-transparent object-cover transition-all group-hover:border-[#d2bbff]"
-                    height={32}
-                    src={avatarPreview}
-                    unoptimized
-                    width={32}
-                  />
-                  <span className="border-b-2 border-[#7c3aed] pb-1 text-sm font-bold tracking-tight text-[#d2bbff]">
-                    {copy.profile}
-                  </span>
-                </Link>
-                <Link className="text-sm font-medium text-gray-400 transition-colors hover:text-white" href="/logout">
-                  {copy.logout}
+                  {copy.library}
                 </Link>
               </div>
+            </div>
+            <div className="flex shrink-0 items-center">
+              <NavUserToolbar
+                username={user.username}
+                avatarUrl={watchedAvatar}
+                logoutLabel={copy.logout}
+                settingsAriaLabel={copy.settings}
+              />
             </div>
           </nav>
 

@@ -5,6 +5,7 @@ import {
   isApiConfigured,
   type BackendMovieRow,
 } from "@/lib/api";
+import { normalizeMoviePosterUrl } from "@/lib/poster-url";
 
 const STREAM_SESSION_KEY = "hypertube.video.stream-sessions";
 const COMMENTS_KEY = "hypertube.video.comments";
@@ -192,7 +193,7 @@ function mapBackendMovieToVideoDetails(
     imdbRating: movie.imdb_rating ?? 0,
     genre: movie.genre || "—",
     source: sourceLabel,
-    coverImage: movie.cover_image?.trim() || "/window.svg",
+    coverImage: normalizeMoviePosterUrl(movie.cover_image),
     summary: movie.summary?.trim() || "—",
     producer: movie.director?.trim() || "—",
     director: movie.director?.trim() || "—",

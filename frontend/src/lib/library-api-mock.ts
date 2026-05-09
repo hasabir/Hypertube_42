@@ -21,9 +21,18 @@ export type LibraryQueryResult = {
   hasMore: boolean;
 };
 
-function delay(ms: number) {
-  return new Promise((resolve) => {
-    setTimeout(resolve, ms);
+function sleep(ms: number, signal?: AbortSignal): Promise<void> {
+  return new Promise((resolve, reject) => {
+    if (signal?.aborted) {
+      reject(new DOMException("Aborted", "AbortError"));
+      return;
+    }
+    const id = window.setTimeout(resolve, ms);
+    const onAbort = () => {
+      window.clearTimeout(id);
+      reject(new DOMException("Aborted", "AbortError"));
+    };
+    signal?.addEventListener("abort", onAbort, { once: true });
   });
 }
 
@@ -77,9 +86,12 @@ function applyFilters(params: LibraryQueryParams): LibraryMovie[] {
   return movies;
 }
 
-export async function getLibraryMovies(params: LibraryQueryParams): Promise<LibraryQueryResult> {
+export async function getLibraryMovies(
+  params: LibraryQueryParams,
+  options?: { signal?: AbortSignal },
+): Promise<LibraryQueryResult> {
   // Simulate network/API roundtrip.
-  await delay(420);
+  await sleep(420, options?.signal);
 
   // Debug trigger to test error UI quickly from search box.
   if (params.query.trim().toLowerCase() === "fail") {

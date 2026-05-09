@@ -9,10 +9,12 @@ const messages = {
   en: {
     appName: "Hypertube",
     logout: "Logout",
+    settings: "Settings",
   },
   fr: {
     appName: "Hypertube",
     logout: "Se deconnecter",
+    settings: "Paramètres",
   },
 } as const;
 

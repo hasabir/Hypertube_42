@@ -8,6 +8,7 @@ import {
   type WatchedFilter,
 } from "@/lib/library-api-mock";
 import { apiClient, isApiConfigured } from "@/lib/api";
+import { normalizeMoviePosterUrl } from "@/lib/poster-url";
 
 export type {
   LibraryQueryParams,
@@ -45,7 +46,7 @@ function mapSourceString(source: string): LibrarySource {
 }
 
 function mapRow(m: BackendMovieRow): LibraryMovie {
-  const cover = m.cover_image?.trim() || "/window.svg";
+  const cover = normalizeMoviePosterUrl(m.cover_image);
   return {
     id: String(m.id),
     title: m.title,
@@ -98,7 +99,12 @@ function applyClientFilters(
   return next;
 }
 
-async function fetchMoviesListPage(params: LibraryQueryParams): Promise<LibraryQueryResult> {
+const MOVIES_LIST_TIMEOUT_MS = 45_000;
+
+async function fetchMoviesListPage(
+  params: LibraryQueryParams,
+  options?: { signal?: AbortSignal },
+): Promise<LibraryQueryResult> {
   const searchActive = params.query.trim().length > 0;
   const offset = (params.page - 1) * params.pageSize;
 
@@ -125,6 +131,8 @@ async function fetchMoviesListPage(params: LibraryQueryParams): Promise<LibraryQ
 
   const { data } = await apiClient.get<PaginatedMovies>("/api/movies/", {
     params: qp,
+    signal: options?.signal,
+    timeout: MOVIES_LIST_TIMEOUT_MS,
   });
 
   let items = data.results.map(mapRow);
@@ -139,9 +147,10 @@ async function fetchMoviesListPage(params: LibraryQueryParams): Promise<LibraryQ
 
 export async function getLibraryMovies(
   params: LibraryQueryParams,
+  options?: { signal?: AbortSignal },
 ): Promise<LibraryQueryResult> {
   if (!isApiConfigured) {
-    return getMockLibraryMovies(params);
+    return getMockLibraryMovies(params, options);
   }
-  return fetchMoviesListPage(params);
+  return fetchMoviesListPage(params, options);
 }

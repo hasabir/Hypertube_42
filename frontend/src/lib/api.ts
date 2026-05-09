@@ -1,7 +1,7 @@
 import axios, { type AxiosError } from "axios";
 import type { AuthResponse, LoginPayload, RegisterPayload } from "@/types/auth";
 import type { PublicUser, User } from "@/types/user";
-import { DEFAULT_AVATAR_URL, normalizeUserAvatar } from "@/lib/avatar";
+import { DEFAULT_AVATAR_URL, isDefaultAvatarRef, normalizeUserAvatar } from "@/lib/avatar";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
@@ -20,6 +20,19 @@ const STORAGE_KEYS = {
   user: "hypertube.user",
   users: "hypertube.users",
 };
+
+/** Embedded images must be sent as multipart file; Django ImageField cannot parse base64 inside application/json. */
+function isEmbeddedImageAvatarUrl(url: string): boolean {
+  return url.startsWith("data:image/") || url.startsWith("blob:");
+}
+
+function guessImageExtension(mime: string): string {
+  if (mime.includes("jpeg")) return "jpg";
+  if (mime.includes("png")) return "png";
+  if (mime.includes("webp")) return "webp";
+  if (mime.includes("gif")) return "gif";
+  return "jpg";
+}
 
 const hasApi = isApiConfigured;
 
@@ -427,15 +440,49 @@ export const api = {
 
   async updateMe(payload: Partial<User>): Promise<User> {
     if (hasApi) {
-      const response = await client.patch<BackendUser>("/api/users/me/", {
-        email: payload.email,
-        username: payload.username,
-        first_name: payload.firstName,
-        last_name: payload.lastName,
-        profile_picture: payload.avatarUrl,
-        preferred_language: payload.language,
-      });
-      const updated = mapBackendUser(response.data);
+      const avatarRaw = payload.avatarUrl?.trim();
+      const hasAvatarField = payload.avatarUrl !== undefined;
+
+      if (hasAvatarField && avatarRaw && isEmbeddedImageAvatarUrl(avatarRaw)) {
+        const form = new FormData();
+        if (payload.email !== undefined) form.append("email", payload.email);
+        if (payload.username !== undefined) form.append("username", payload.username);
+        if (payload.firstName !== undefined) form.append("first_name", payload.firstName);
+        if (payload.lastName !== undefined) form.append("last_name", payload.lastName);
+        if (payload.language !== undefined) form.append("preferred_language", payload.language);
+
+        const blob = await fetch(avatarRaw).then((r) => r.blob());
+        const ext = guessImageExtension(blob.type || "image/jpeg");
+        form.append("profile_picture", blob, `avatar.${ext}`);
+
+        const response = await client.patch<BackendUser>("/api/users/me/", form);
+        let updated = mapBackendUser(response.data);
+        if (payload.bio !== undefined) {
+          updated = { ...updated, bio: payload.bio };
+        }
+        localStorage.setItem(STORAGE_KEYS.user, JSON.stringify(updated));
+        return updated;
+      }
+
+      const body: Record<string, string | null> = {};
+      if (payload.email !== undefined) body.email = payload.email;
+      if (payload.username !== undefined) body.username = payload.username;
+      if (payload.firstName !== undefined) body.first_name = payload.firstName;
+      if (payload.lastName !== undefined) body.last_name = payload.lastName;
+      if (payload.language !== undefined) body.preferred_language = payload.language;
+      if (hasAvatarField) {
+        if (!avatarRaw || isDefaultAvatarRef(avatarRaw)) {
+          body.profile_picture = null;
+        } else {
+          body.profile_picture = avatarRaw;
+        }
+      }
+
+      const response = await client.patch<BackendUser>("/api/users/me/", body);
+      let updated = mapBackendUser(response.data);
+      if (payload.bio !== undefined) {
+        updated = { ...updated, bio: payload.bio };
+      }
       localStorage.setItem(STORAGE_KEYS.user, JSON.stringify(updated));
       return updated;
     }

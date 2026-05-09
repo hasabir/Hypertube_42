@@ -19,6 +19,8 @@ from rest_framework import status
 from rest_framework.permissions import IsAuthenticated
 from django.shortcuts import redirect as django_redirect
 from rest_framework_simplejwt.exceptions import TokenError, InvalidToken
+from urllib.parse import urlencode
+import os
 
 from .utils import Utils
 # register, login, logout, profile CRUD, password reset
@@ -263,6 +265,16 @@ class OAuthCallbackView(APIView):
     """Receives the code from the provider, returns JWT tokens."""
     permission_classes = (AllowAny,)
 
+    @staticmethod
+    def _frontend_callback_url(provider):
+        frontend_url = os.getenv("FRONTEND_URL", "http://localhost:3000").rstrip("/")
+        return f"{frontend_url}/auth/callback/{provider}"
+
+    @staticmethod
+    def _wants_html_response(request):
+        accept = request.headers.get("Accept", "")
+        return "text/html" in accept
+
     def get(self, request, provider):
         backend = PROVIDERS.get(provider)
         if not backend:
@@ -270,17 +282,31 @@ class OAuthCallbackView(APIView):
 
         code = request.query_params.get("code")
         if not code:
+            if self._wants_html_response(request):
+                query = urlencode({"error": "Missing code"})
+                return django_redirect(f"{self._frontend_callback_url(provider)}?{query}")
             return Response({"error": "Missing code"}, status=status.HTTP_400_BAD_REQUEST)
             # return django_redirect("http://localhost:3000/auth/error?reason=missing_code")
 
         try:
             access_token = backend.exchange_code(code)
             if not access_token:
+                if self._wants_html_response(request):
+                    query = urlencode({"error": "Token exchange failed"})
+                    return django_redirect(f"{self._frontend_callback_url(provider)}?{query}")
                 return Response({"error": "Token exchange failed"}, status=status.HTTP_400_BAD_REQUEST)
 
             profile = backend.get_user_profile(access_token)
             user    = get_or_create_oauth_user(profile)
             tokens  = get_tokens_for_user(user)
+            if self._wants_html_response(request):
+                query = urlencode(
+                    {
+                        "access": tokens["access"],
+                        "refresh": tokens["refresh"],
+                    }
+                )
+                return django_redirect(f"{self._frontend_callback_url(provider)}?{query}")
             return Response(tokens, status=status.HTTP_200_OK)
             
             
@@ -293,6 +319,9 @@ class OAuthCallbackView(APIView):
             # return django_redirect(frontend_url)
 
         except Exception as e:
+            if self._wants_html_response(request):
+                query = urlencode({"error": str(e)})
+                return django_redirect(f"{self._frontend_callback_url(provider)}?{query}")
             return Response({"error": str(e)}, status=status.HTTP_400_BAD_REQUEST)
             # return django_redirect(f"http://localhost:3000/auth/error?reason={str(e)}")
 
