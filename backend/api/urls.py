@@ -50,6 +50,7 @@ urlpatterns = [
         path('favorites/',                            movie_views.FavoriteListView.as_view(),   name='favorite-list'),
         path('<int:movie_id>/favorite/',              movie_views.FavoriteToggleView.as_view(), name='favorite-toggle'),
         path('<int:movie_id>/comments/',              comment_views.CommentListCreateView.as_view(), name='movie-comments'),
+        path('<int:id>/',                            movie_views.MovieDetailView.as_view(),    name='movie-detail'),
     ])),
 
     # Comments API

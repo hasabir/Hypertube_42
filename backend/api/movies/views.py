@@ -56,6 +56,13 @@ class MovieListView(generics.ListAPIView):
 
         return queryset
 
+
+class MovieDetailView(generics.RetrieveAPIView):
+    queryset = Movie.objects.all()
+    serializer_class = MovieSerializer
+    lookup_field = 'id'
+
+
 from rest_framework.views import APIView
 from rest_framework import status
 from rest_framework.response import Response

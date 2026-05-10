@@ -85,23 +85,3 @@ def get_popular_movies():
     return Movie.objects.all().order_by("-view_count")
 
 
-
-
-# def get_popular_movies():
-#     """
-#     No search query — return most popular from DB.
-#     If DB is empty, fetch from sources first.
-#     """
-#     print("Fetching popular movies...")
-#     if Movie.objects.count() == 0:
-#         # results = search_public_domain_torrents("")
-#         # results = search_archive_org("") # + search_public_domain_torrents("")
-#         # for data in results:
-#         #     Movie.objects.get_or_create(
-#         #         title=data["title"],
-#         #         defaults={"torrent_hash": data.get("torrent_hash", "")}
-#         #     )
-#         ...
-
-#     return Movie.objects.all().order_by("-view_count")
-
