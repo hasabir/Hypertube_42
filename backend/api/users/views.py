@@ -2,24 +2,20 @@ from django.contrib.auth import get_user_model
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework.permissions import AllowAny
-from rest_framework import status
+from rest_framework.permissions import AllowAny, IsAuthenticated
+from rest_framework import status, generics
+from django.shortcuts import redirect as django_redirect
+from rest_framework_simplejwt.exceptions import TokenError, InvalidToken
+from django.core.files.base import ContentFile
+import requests
+
 from .oauth import GoogleOAuth, GitHubOAuth, FortyTwoOAuth
-from rest_framework import generics
-from rest_framework.permissions import AllowAny
 from .models import User
 from .serializers import (RegisterSerializer, ProfileSerializer,
                             PublicProfileSerializer, RequestPasswordResetSerializer,
                             PasswordResetConfirmSerializer,
-                            ChangePasswordSerializer)
-from rest_framework_simplejwt.tokens import RefreshToken
-from rest_framework.views import APIView
-from rest_framework.response import Response
-from rest_framework import status
-from rest_framework.permissions import IsAuthenticated
-from django.shortcuts import redirect as django_redirect
-from rest_framework_simplejwt.exceptions import TokenError, InvalidToken
-
+                            ChangePasswordSerializer, UserListSerializer,
+                            UserDetailSerializer, UserUpdateSerializer)
 from .utils import Utils
 # register, login, logout, profile CRUD, password reset
 
@@ -103,7 +99,40 @@ class UserProfileView(generics.RetrieveAPIView):
     permission_classes = (IsAuthenticated,)
     queryset = User.objects.all()
     lookup_field = "username"
+
+
+# GET /api/users/  — list all users (id, username)
+class UserListView(generics.ListAPIView):
+    """List all users with their id and username"""
+    queryset = User.objects.all()
+    serializer_class = UserListSerializer
+    permission_classes = (IsAuthenticated,)
+
+
+# GET /api/users/<int:id>/  — get user details (username, email, profile picture URL)
+# PATCH /api/users/<int:id>/  — update user (username, email, password, profile picture)
+class UserDetailView(generics.RetrieveUpdateAPIView):
+    """Get or update a specific user by ID"""
+    queryset = User.objects.all()
+    permission_classes = (IsAuthenticated,)
+    lookup_field = "id"
     
+    def get_serializer_class(self):
+        if self.request.method == 'GET':
+            return UserDetailSerializer
+        return UserUpdateSerializer
+    
+    def update(self, request, *args, **kwargs):
+        user = self.get_object()
+        
+        # Check if user is updating their own profile or is an admin
+        if user.id != request.user.id and not request.user.is_staff:
+            return Response(
+                {"error": "You can only update your own profile"}, 
+                status=status.HTTP_403_FORBIDDEN
+            )
+        
+        return super().update(request, *args, **kwargs)
 
 
 # Change password API view
@@ -206,6 +235,36 @@ def get_tokens_for_user(user):
         "access":  str(refresh.access_token),
     }
 
+def save_profile_picture_from_url(user, picture_url):
+    """Download and save profile picture from a URL."""
+    if not picture_url:
+        return False
+    
+    try:
+        response = requests.get(picture_url, timeout=10)
+        response.raise_for_status()
+        
+        # Get the image filename from URL or use a default
+        filename = picture_url.split('/')[-1].split('?')[0]
+        if not filename or '.' not in filename:
+            filename = f"avatar_{user.id}.jpg"
+        
+        # Save the image
+        image_file = ContentFile(response.content, name=filename)
+        user.profile_picture.save(filename, image_file, save=True)
+        return True
+    except Exception as e:
+        # Log error but don't fail the user creation
+        print(f"Error saving profile picture for user {user.id}: {str(e)}")
+        return False
+
+def get_tokens_for_user(user):
+    refresh = RefreshToken.for_user(user)
+    return {
+        "refresh": str(refresh),
+        "access":  str(refresh.access_token),
+    }
+
 def get_or_create_oauth_user(profile):
     """
     Find existing user by provider+uid.
@@ -218,6 +277,9 @@ def get_or_create_oauth_user(profile):
         oauth_uid=profile["uid"]
     ).first()
     if user:
+        # Try to save profile picture if not already set
+        if not user.profile_picture and profile.get("picture_url"):
+            save_profile_picture_from_url(user, profile["picture_url"])
         return user
 
     # same email exists — link the account
@@ -226,6 +288,9 @@ def get_or_create_oauth_user(profile):
         user.oauth_provider = profile["provider"]
         user.oauth_uid      = profile["uid"]
         user.save()
+        # Try to save profile picture if not already set
+        if not user.profile_picture and profile.get("picture_url"):
+            save_profile_picture_from_url(user, profile["picture_url"])
         return user
 
     # brand new user
@@ -245,6 +310,11 @@ def get_or_create_oauth_user(profile):
         oauth_provider=profile["provider"],
         oauth_uid=profile["uid"],
     )
+    
+    # Save profile picture for new user
+    if profile.get("picture_url"):
+        save_profile_picture_from_url(user, profile["picture_url"])
+    
     return user
 
 

@@ -42,6 +42,7 @@ class FortyTwoOAuth:
             "email":      data["email"],
             "first_name": data["first_name"],
             "last_name":  data["last_name"],
+            "picture_url": data.get("image", {}).get("link"),
         }
 
 
@@ -89,6 +90,7 @@ class GitHubOAuth:
             "email":      email,
             "first_name": name_parts[0],
             "last_name":  name_parts[1] if len(name_parts) > 1 else "",
+            "picture_url": data.get("avatar_url"),
         }
 
 
@@ -134,4 +136,5 @@ class GoogleOAuth:
             "email":      data["email"],
             "first_name": data.get("given_name", ""),
             "last_name":  data.get("family_name", ""),
+            "picture_url": data.get("picture"),
         }

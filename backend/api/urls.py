@@ -28,7 +28,6 @@ urlpatterns = [
     
     # Users API
     path('users/', include([
-
             path('register/', user_views.CreateUserView.as_view(), name='register'),
             path('login/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
             path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
@@ -38,8 +37,10 @@ urlpatterns = [
             path('me/', user_views.MyProfileView.as_view(), name='profile'),
             path('request-password-reset/', user_views.RequestPasswordResetView.as_view(), name='password-reset-request'),
             path('password-reset/<uidb64>/<token>/', user_views.PasswordResetConfirmView.as_view(), name='password-reset-confirm'),
-            path('profile/<str:username>/', user_views.UserProfileView.as_view(), name='profile-detail'),\
+            path('profile/<str:username>/', user_views.UserProfileView.as_view(), name='profile-detail'),
             path('change-password/', user_views.ChangePasswordView.as_view(), name='change-password'),
+            path('', user_views.UserListView.as_view(), name='user-list'),
+            path('<int:id>/', user_views.UserDetailView.as_view(), name='user-detail'),
         ] )),
     
     

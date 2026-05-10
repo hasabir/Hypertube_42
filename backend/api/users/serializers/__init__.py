@@ -5,4 +5,10 @@ from .user_serializer import (
     ChangePasswordSerializer
 )
 from .register_serializer import RegisterSerializer
-from .profile_serializer import ProfileSerializer, PublicProfileSerializer
+from .profile_serializer import (
+    ProfileSerializer, 
+    PublicProfileSerializer,
+    UserListSerializer,
+    UserDetailSerializer,
+    UserUpdateSerializer,
+)
