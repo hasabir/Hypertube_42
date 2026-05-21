@@ -1,0 +1,24 @@
+TRUNCATE TABLE movies_movie RESTART IDENTITY CASCADE;
+
+if a movie has the same ombd_id as an existing one no need to create a new movie row but add the new torrent url for that move
+
+
+
+a new db table needs to be created for the torrent urls with a foreign key to the movies table and a unique constraint on the torrent url to avoid duplicates
+
+search for the move with the full title first.
+if not found clean title
+clean title function returns a tuple of (list of possible clean_title, year)
+test each clean title with the year if it exists
+
+
+if not found create a new movie row with the first clean title and year
+but before creating the new movie row 
+    check if there is a movie with the same ombd_id as the one we are trying to create
+    if no :
+        create the new movie row with the first clean title and year
+        add the torrent url to the new torrent urls table with a foreign key to the new movie row
+    if yes:
+        check if the 
+        add the new torrent url to torrent urls with a foreign key to the existing movie row with the same ombd_id 
+        and change the title to the shortest title between the existing one and the new one if the new one is shorter than the existing one
