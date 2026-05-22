@@ -1,9 +1,10 @@
 import os
 import logging
 
-from django.http import StreamingHttpResponse
+from django.http import HttpResponse, StreamingHttpResponse
 from django.core.cache import cache
 from django.utils import timezone
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
@@ -38,13 +39,11 @@ class StreamingVideoView(APIView):
 
         if not movie.is_downloaded:
             cache_key = f"torrent_started_{movie_id}"
-            if not cache.get(cache_key) and movie.torrent_hash:
+            if not cache.get(cache_key) and movie.torrent_url:
                 start_torrent_download.delay(movie_id)
                 cache.set(cache_key, True, timeout=3600)
 
-            percent = 0
-            if movie.torrent_hash:
-                percent = torrent_client.get_status(movie.torrent_hash).get("percent", 0)
+            percent = torrent_client.get_status(movie_id).get("percent", 0)
 
             return Response(
                 {"status": "downloading", "percent": percent},
@@ -97,10 +96,37 @@ class DownloadStatusView(APIView):
         if movie.is_downloaded:
             return Response({"status": "complete", "percent": 100.0, "ready_to_stream": True})
 
-        torrent_hash = movie.torrent_hash or ""
-        ts = torrent_client.get_status(torrent_hash)
+        ts = torrent_client.get_status(movie_id)
         percent = ts.get("percent", 0)
-        ready = torrent_client.is_ready_to_stream(torrent_hash)
+        ready = torrent_client.is_ready_to_stream(movie_id)
 
         download_status = "ready" if ready else "downloading"
         return Response({"status": download_status, "percent": percent, "ready_to_stream": ready})
+
+
+class SubtitleView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request, movie_id, lang):
+        try:
+            movie = Movie.objects.get(id=movie_id)
+        except Movie.DoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+
+        from api.movies.models import Subtitle
+
+        try:
+            subtitle = Subtitle.objects.get(movie=movie, language=lang)
+        except Subtitle.DoesNotExist:
+            return Response({"error": "Subtitle not available"}, status=status.HTTP_404_NOT_FOUND)
+
+        if not os.path.exists(subtitle.file_path):
+            return Response({"error": "Subtitle file not found on disk"}, status=status.HTTP_404_NOT_FOUND)
+
+        with open(subtitle.file_path, "r", encoding="utf-8") as f:
+            srt_content = f.read()
+
+        from api.streaming.subtitles import srt_to_vtt
+        vtt_content = srt_to_vtt(srt_content)
+
+        return HttpResponse(vtt_content, content_type="text/vtt")

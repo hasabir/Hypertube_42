@@ -1,10 +1,14 @@
 from unittest.mock import MagicMock, patch
 
 from django.test import TestCase, Client
+from django.contrib.auth import get_user_model
 
-from api.movies.models import Movie
+from api.movies.models import Movie, Subtitle
 from api.streaming.transcoder import needs_transcoding
+from api.streaming.subtitles import srt_to_vtt
 from api.streaming import torrent_client
+
+User = get_user_model()
 
 
 class TestTorrentClient(TestCase):
@@ -95,3 +99,75 @@ class TestStreamingView(TestCase):
     def test_stream_not_found(self):
         response = self.client.get('/api/stream/99999/')
         self.assertEqual(response.status_code, 404)
+
+
+class TestSrtToVtt(TestCase):
+    def test_timestamp_comma_replaced(self):
+        srt = "00:00:01,000 --> 00:00:02,500\nHello"
+        vtt = srt_to_vtt(srt)
+        self.assertIn("00:00:01.000 --> 00:00:02.500", vtt)
+
+    def test_starts_with_webvtt(self):
+        vtt = srt_to_vtt("1\n00:00:01,000 --> 00:00:02,000\nHi\n")
+        self.assertTrue(vtt.startswith("WEBVTT"))
+
+    def test_non_timestamp_comma_unchanged(self):
+        srt = "Hello, world\n00:00:01,000 --> 00:00:02,000\nLine"
+        vtt = srt_to_vtt(srt)
+        self.assertIn("Hello, world", vtt)
+
+    def test_multiple_cues(self):
+        srt = (
+            "1\n00:00:01,000 --> 00:00:02,500\nFirst\n\n"
+            "2\n00:00:03,000 --> 00:00:04,750\nSecond\n"
+        )
+        vtt = srt_to_vtt(srt)
+        self.assertIn("00:00:01.000 --> 00:00:02.500", vtt)
+        self.assertIn("00:00:03.000 --> 00:00:04.750", vtt)
+
+
+class TestSubtitleView(TestCase):
+    def setUp(self):
+        self.client = Client()
+
+    def test_subtitle_movie_not_found(self):
+        response = self.client.get('/api/stream/999/subtitles/en/')
+        # 401/403 from auth OR 404 — both are acceptable depending on auth order
+        self.assertIn(response.status_code, [401, 403, 404])
+
+    def test_unauthenticated_request_rejected(self):
+        movie = Movie.objects.create(title="Auth Test Movie")
+        response = self.client.get(f'/api/stream/{movie.id}/subtitles/en/')
+        self.assertIn(response.status_code, [401, 403])
+
+    def test_authenticated_no_subtitle(self):
+        user = User.objects.create_user(username="subtest", password="pass1234")
+        movie = Movie.objects.create(title="No Subtitle Movie")
+        self.client.force_login(user)
+        response = self.client.get(f'/api/stream/{movie.id}/subtitles/en/')
+        self.assertEqual(response.status_code, 404)
+
+    def test_authenticated_subtitle_served_as_vtt(self):
+        import tempfile, os
+
+        user = User.objects.create_user(username="subtest2", password="pass1234")
+        movie = Movie.objects.create(title="Subtitle Movie")
+
+        # Write a real .srt file
+        srt_content = "1\n00:00:01,000 --> 00:00:02,000\nHello\n"
+        with tempfile.NamedTemporaryFile(
+            mode="w", suffix=".srt", delete=False, encoding="utf-8"
+        ) as tmp:
+            tmp.write(srt_content)
+            srt_path = tmp.name
+
+        Subtitle.objects.create(movie=movie, language="en", file_path=srt_path)
+
+        self.client.force_login(user)
+        response = self.client.get(f'/api/stream/{movie.id}/subtitles/en/')
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response["Content-Type"], "text/vtt")
+        self.assertIn(b"WEBVTT", response.content)
+        self.assertIn(b"00:00:01.000", response.content)
+
+        os.unlink(srt_path)

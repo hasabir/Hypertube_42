@@ -68,3 +68,8 @@ class Favorite(models.Model):
     def __str__(self):
         return f"{self.user.username} favorited {self.movie.title}"
 # class
+
+
+# from api.streaming.tasks import start_torrent_download
+# result = start_torrent_download.delay(m.id)
+# print(result.id)  # task id — confirms it was queued

@@ -1,5 +1,6 @@
 import logging
 import libtorrent as lt
+import os
 
 logger = logging.getLogger(__name__)
 
@@ -9,34 +10,45 @@ _session = lt.session({'listen_interfaces': '0.0.0.0:6881'})
 _handles: dict = {}
 
 
-def start_download(torrent_hash: str, save_path: str) -> None:
-    if torrent_hash in _handles:
+def start_download(movie_id: int, torrent_url: str, save_path: str) -> None:
+    key = str(movie_id)
+    if key in _handles:
         return
 
-    magnet_uri = f"magnet:?xt=urn:btih:{torrent_hash}"
-    params = lt.parse_magnet_uri(magnet_uri)
+    os.makedirs(save_path, exist_ok=True)
+
+    # download the .torrent file
+    import requests as req
+    response = req.get(torrent_url, timeout=30)
+    response.raise_for_status()
+
+    # parse it and add to session
+    torrent_info = lt.torrent_info(lt.bdecode(response.content))
+    params = lt.add_torrent_params()
+    params.ti = torrent_info
     params.save_path = save_path
 
     handle = _session.add_torrent(params)
     handle.set_sequential_download(True)
-    _handles[torrent_hash] = handle
-    logger.info("Started download for %s -> %s", torrent_hash, save_path)
+    _handles[key] = handle
+    logger.info("Started download for movie %s -> %s", movie_id, save_path)
 
 
-def get_status(torrent_hash: str) -> dict:
-    if torrent_hash not in _handles:
+def get_status(movie_id: int) -> dict:
+    handle = _handles.get(str(movie_id))
+    if not handle:
         return {"percent": 0, "state": "not_found"}
-
-    s = _handles[torrent_hash].status()
+    s = handle.status()
     return {
-        "percent": s.progress * 100,
+        "percent": round(s.progress * 100, 2),
         "download_rate": s.download_rate,
         "num_peers": s.num_peers,
         "state": str(s.state),
     }
 
 
-def is_ready_to_stream(torrent_hash: str) -> bool:
-    if torrent_hash not in _handles:
+def is_ready_to_stream(movie_id: int) -> bool:
+    handle = _handles.get(str(movie_id))
+    if not handle:
         return False
-    return _handles[torrent_hash].status().progress >= 0.05
+    return handle.status().progress >= 0.05
