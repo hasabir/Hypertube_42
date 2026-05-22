@@ -4,7 +4,12 @@ ENV PYTHONUNBUFFERED=1
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
     postgresql-client \
+    ffmpeg python3-libtorrent \
     && rm -rf /var/lib/apt/lists/*
+
+    # RUN apt-get update && apt-get install -y \
+    # python3-libtorrent \
+    # ffmpeg
 
 RUN mkdir -p /app
 WORKDIR /app

@@ -9,7 +9,8 @@ psycopg2-binary==2.9.9
 python-dotenv==1.0.0
 django-cors-headers==4.3.1
 djangorestframework-simplejwt==5.3.1
-celery==5.3.6
+celery[redis]==5.3.6
+django-celery-beat==2.6.0
 Pillow==10.2.0
 drf_spectacular
 dj-rest-auth
@@ -21,3 +22,4 @@ requests
 decouple
 beautifulsoup4
 django-filter
+libtorrent

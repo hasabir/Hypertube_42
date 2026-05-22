@@ -61,6 +61,7 @@ def enrich_with_omdb(title, year=None):
         "cover_image": data.get("Poster", ""),
         "runtime":     data.get("Runtime", ""),
         "year":        year_val,
+        "imdb_id":     data.get("imdbID", ""),
     }
     
 

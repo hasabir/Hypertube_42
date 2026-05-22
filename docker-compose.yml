@@ -85,6 +85,50 @@ services:
   #   networks:
   #     - hypertube_network
 
+  celery_worker:
+    image: backend
+    container_name: celery_worker
+    command: celery -A config worker -l info
+    volumes:
+      - ./backend:/app
+    networks:
+      - hypertube_network
+    env_file:
+      - .env
+    environment:
+      DEBUG: ${DEBUG}
+      DB_HOST: db
+      REDIS_HOST: redis
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      backend:
+        condition: service_started
+
+  celery_beat:
+    image: backend
+    container_name: celery_beat
+    command: celery -A config beat -l info --scheduler django_celery_beat.schedulers:DatabaseScheduler
+    volumes:
+      - ./backend:/app
+    networks:
+      - hypertube_network
+    env_file:
+      - .env
+    environment:
+      DEBUG: ${DEBUG}
+      DB_HOST: db
+      REDIS_HOST: redis
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      backend:
+        condition: service_started
+
   pgadmin:
     image: dpage/pgadmin4
     container_name: pgadmin_container

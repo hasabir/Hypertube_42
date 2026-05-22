@@ -58,6 +58,8 @@ INSTALLED_APPS = [
     'api.users.apps.UsersConfig',
     'api.comments.apps.CommentsConfig',
     'api.movies.apps.MoviesConfig',
+    'api.streaming.apps.StreamingConfig',
+    'django_celery_beat',
 ]
 
 APPEND_SLASH=False
@@ -302,3 +304,18 @@ EMAIL_SUBJECT_PREFIX='[Hypertube] '
 # DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 # SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+# Celery
+from celery.schedules import crontab
+
+CELERY_BROKER_URL = f"redis://{os.getenv('REDIS_HOST', 'redis')}:6379/0"
+CELERY_RESULT_BACKEND = f"redis://{os.getenv('REDIS_HOST', 'redis')}:6379/0"
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_TASK_SERIALIZER = 'json'
+
+CELERY_BEAT_SCHEDULE = {
+    'cleanup-old-movies': {
+        'task': 'api.streaming.tasks.cleanup_old_movies',
+        'schedule': crontab(hour=3, minute=0),
+    },
+}

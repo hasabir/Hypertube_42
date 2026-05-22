@@ -53,6 +53,9 @@ urlpatterns = [
         path('<int:id>/',                            movie_views.MovieDetailView.as_view(),    name='movie-detail'),
     ])),
 
+    # Streaming API
+    path('', include('api.streaming.urls')),
+
     # Comments API
     path('comments/', include([
             path("", comment_views.CommentListCreateView.as_view(), name="comment-list-create"),
