@@ -87,6 +87,24 @@ class StreamingVideoView(APIView):
         total = os.path.getsize(file_path)
         content_type = "video/webm" if file_path.lower().endswith(".webm") else "video/mp4"
 
+        # Determine the byte frontier — the largest offset that is safe to read.
+        # libtorrent pre-allocates the full file on disk (sparse zeros), so
+        # os.path.getsize returns the final size even when download is partial.
+        # Serving zeros to the browser corrupts the H.264 stream and causes
+        # AbortError.  We gate every range request against the frontier so only
+        # real, downloaded bytes are ever sent.
+        fully_downloaded = movie.is_downloaded
+        if fully_downloaded:
+            frontier = total
+        else:
+            # tasks.py writes frontier (sequential bytes from start) every 3 s.
+            # Fall back to percent estimate if the key predates this change.
+            prog = cache.get(f"torrent_progress_{movie_id}") or {}
+            if "frontier" in prog:
+                frontier = int(prog["frontier"])
+            else:
+                frontier = int(prog.get("percent", 0) / 100 * total)
+
         range_header = request.META.get("HTTP_RANGE", "")
         if range_header:
             range_spec = range_header.replace("bytes=", "")
@@ -98,6 +116,33 @@ class StreamingVideoView(APIView):
             end = min(_INITIAL_CHUNK, total) - 1
 
         end = min(end, total - 1)
+
+        logger.debug(
+            "Movie %d range request bytes=%d-%d total=%d frontier=%d (%.1f%%)",
+            movie_id, start, end, total, frontier,
+            (frontier / total * 100) if total else 0,
+        )
+
+        if not fully_downloaded:
+            if start >= frontier:
+                # Entire requested range is beyond downloaded data.  Tell the
+                # client to retry in a moment; do NOT serve zeros.
+                logger.warning(
+                    "Movie %d: range start %d >= frontier %d — returning 503",
+                    movie_id, start, frontier,
+                )
+                err = HttpResponse(status=503)
+                err["Retry-After"] = "3"
+                return err
+
+            if end >= frontier:
+                # Range straddles the frontier — clip to avoid serving zeros.
+                logger.info(
+                    "Movie %d: range end clipped %d -> %d (frontier)",
+                    movie_id, end, frontier - 1,
+                )
+                end = frontier - 1
+
         length = end - start + 1
 
         f = open(file_path, "rb")  # noqa: SIM115 — kept open for streaming generator

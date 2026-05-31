@@ -51,9 +51,12 @@ def start_torrent_download(movie_id: int) -> None:
             ts = torrent_client.get_status(movie_id)
             percent = ts.get("percent", 0)
             ready = torrent_client.is_ready_to_stream(movie_id)
-            # Write live progress to Redis so the web process can read it
-            cache.set(progress_key, {"percent": percent, "ready": ready}, timeout=7200)
-            logger.info("Movie %d torrent progress: %.1f%% ready=%s", movie_id, percent, ready)
+            frontier = torrent_client.get_sequential_frontier(movie_id)
+            # Write live progress to Redis so the web process can read it.
+            # frontier = sequential bytes available from the start of the file,
+            # used by StreamingVideoView to gate range requests against undownloaded data.
+            cache.set(progress_key, {"percent": percent, "ready": ready, "frontier": frontier}, timeout=7200)
+            logger.info("Movie %d torrent progress: %.1f%% ready=%s frontier=%d", movie_id, percent, ready, frontier)
             if percent >= 100:
                 break
             time.sleep(3)

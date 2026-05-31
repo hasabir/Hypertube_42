@@ -61,3 +61,49 @@ def is_ready_to_stream(movie_id: int) -> bool:
     if not handle:
         return False
     return handle.status().progress >= 0.05
+
+
+def get_sequential_frontier(movie_id: int) -> int:
+    """Return bytes sequentially available from the start of the torrent file.
+
+    With sequential download enabled, pieces arrive in order.  The frontier is
+    the byte offset of the first missing piece — everything before it is safe to
+    serve to the browser.
+    """
+    handle = _handles.get(str(movie_id))
+    if not handle:
+        return 0
+    try:
+        info = handle.torrent_file()
+        if not info:
+            return 0
+        s = handle.status()
+        pieces = list(s.pieces)
+        if not pieces:
+            return 0
+        piece_length = info.piece_length()
+        total_size = info.total_size()
+        num_pieces = info.num_pieces()
+
+        count = 0
+        for have in pieces:
+            if have:
+                count += 1
+            else:
+                break
+
+        if count == 0:
+            return 0
+        if count >= num_pieces:
+            return total_size
+        return count * piece_length
+    except Exception:
+        logger.warning("get_sequential_frontier(%d) failed, using progress fallback", movie_id)
+        try:
+            s = handle.status()
+            info = handle.torrent_file()
+            if info:
+                return int(s.progress * info.total_size())
+        except Exception:
+            pass
+        return 0
