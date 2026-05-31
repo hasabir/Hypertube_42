@@ -5,6 +5,7 @@ from pathlib import Path
 
 from celery import shared_task
 from django.conf import settings
+from django.core.cache import cache
 from django.utils import timezone
 from datetime import timedelta
 
@@ -45,9 +46,15 @@ def start_torrent_download(movie_id: int) -> None:
 
         MAX_WAIT = 60 * 60 * 3  # 3 hours
         waited = 0
+        progress_key = f"torrent_progress_{movie_id}"
         while True:
-            status = torrent_client.get_status(movie_id)
-            if status.get("percent", 0) >= 100:
+            ts = torrent_client.get_status(movie_id)
+            percent = ts.get("percent", 0)
+            ready = torrent_client.is_ready_to_stream(movie_id)
+            # Write live progress to Redis so the web process can read it
+            cache.set(progress_key, {"percent": percent, "ready": ready}, timeout=7200)
+            logger.info("Movie %d torrent progress: %.1f%% ready=%s", movie_id, percent, ready)
+            if percent >= 100:
                 break
             time.sleep(3)
             waited += 3
@@ -59,6 +66,7 @@ def start_torrent_download(movie_id: int) -> None:
         movie.is_downloaded = True
         movie.file_path = file_path
         movie.save()
+        cache.set(progress_key, {"percent": 100, "ready": True}, timeout=7200)
         logger.info("Movie %d downloaded to %s", movie_id, file_path)
 
         check_and_transcode.delay(movie_id)

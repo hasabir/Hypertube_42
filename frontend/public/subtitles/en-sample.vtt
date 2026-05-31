@@ -1,0 +1,10 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:04.000
+Hypertube demo subtitles (English).
+
+00:00:04.500 --> 00:00:08.500
+Streaming begins when enough data is buffered.
+
+00:00:09.000 --> 00:00:13.000
+If needed, video is transcoded in the background.

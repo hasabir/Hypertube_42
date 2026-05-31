@@ -1,6 +1,7 @@
 import os
 import logging
 
+from django.conf import settings
 from django.http import HttpResponse, StreamingHttpResponse
 from django.core.cache import cache
 from django.utils import timezone
@@ -16,6 +17,24 @@ from api.streaming import torrent_client
 logger = logging.getLogger(__name__)
 
 _INITIAL_CHUNK = 2 * 1024 * 1024  # 2 MB
+_VIDEO_EXTENSIONS = ('.mp4', '.mkv', '.webm', '.avi', '.ogv', '.mov')
+
+
+def _find_video_file(directory: str) -> str:
+    """Return the path of the largest video file under directory, or '' if none."""
+    best = ("", 0)
+    for root, _dirs, files in os.walk(directory):
+        for fname in files:
+            if not fname.lower().endswith(_VIDEO_EXTENSIONS):
+                continue
+            full = os.path.join(root, fname)
+            try:
+                size = os.path.getsize(full)
+                if size > best[1]:
+                    best = (full, size)
+            except OSError:
+                pass
+    return best[0]
 
 
 def _iter_file(f, start: int, length: int):
@@ -37,14 +56,25 @@ class StreamingVideoView(APIView):
         except Movie.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
 
-        if not movie.is_downloaded:
-            cache_key = f"torrent_started_{movie_id}"
-            if not cache.get(cache_key) and movie.torrent_url:
-                start_torrent_download.delay(movie_id)
-                cache.set(cache_key, True, timeout=3600)
+        # Always ensure the torrent is kicked off (idempotent via cache key)
+        cache_key = f"torrent_started_{movie_id}"
+        if not movie.is_downloaded and not cache.get(cache_key) and movie.torrent_url:
+            start_torrent_download.delay(movie_id)
+            cache.set(cache_key, True, timeout=3600)
 
+        # Resolve the file path: prefer the DB field, fall back to scanning the
+        # download directory when the torrent has enough data to start streaming.
+        # torrent_client._handles only lives in the Celery worker process, so
+        # read readiness from the Redis cache the worker writes to instead.
+        progress = cache.get(f"torrent_progress_{movie_id}") or {"percent": 0, "ready": False}
+        file_path = movie.file_path or ""
+        if not file_path or not os.path.exists(file_path):
+            if progress.get("ready"):
+                save_path = os.path.join(settings.MEDIA_ROOT, "movies", str(movie_id))
+                file_path = _find_video_file(save_path)
+
+        if not file_path or not os.path.exists(file_path):
             percent = torrent_client.get_status(movie_id).get("percent", 0)
-
             return Response(
                 {"status": "downloading", "percent": percent},
                 status=status.HTTP_202_ACCEPTED,
@@ -53,10 +83,6 @@ class StreamingVideoView(APIView):
         # Update watch timestamp
         movie.last_watched_at = timezone.now()
         movie.save(update_fields=["last_watched_at"])
-
-        file_path = movie.file_path or ""
-        if not os.path.exists(file_path):
-            return Response({"error": "file not found on disk"}, status=status.HTTP_404_NOT_FOUND)
 
         total = os.path.getsize(file_path)
         content_type = "video/webm" if file_path.lower().endswith(".webm") else "video/mp4"
@@ -96,9 +122,19 @@ class DownloadStatusView(APIView):
         if movie.is_downloaded:
             return Response({"status": "complete", "percent": 100.0, "ready_to_stream": True})
 
-        ts = torrent_client.get_status(movie_id)
-        percent = ts.get("percent", 0)
-        ready = torrent_client.is_ready_to_stream(movie_id)
+        # Kick off the torrent on the first status poll — this breaks the
+        # chicken-and-egg: the stream endpoint is never called until readyToStream
+        # is true, but readyToStream only becomes true after the torrent starts.
+        cache_key = f"torrent_started_{movie_id}"
+        if not cache.get(cache_key) and movie.torrent_url:
+            start_torrent_download.delay(movie_id)
+            cache.set(cache_key, True, timeout=3600)
+
+        # torrent_client._handles only exists in the Celery worker process.
+        # Read progress from the Redis cache that the worker writes to.
+        progress = cache.get(f"torrent_progress_{movie_id}") or {"percent": 0, "ready": False}
+        percent = progress["percent"]
+        ready = progress["ready"]
 
         download_status = "ready" if ready else "downloading"
         return Response({"status": download_status, "percent": percent, "ready_to_stream": ready})

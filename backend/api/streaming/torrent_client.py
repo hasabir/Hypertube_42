@@ -4,10 +4,21 @@ import os
 
 logger = logging.getLogger(__name__)
 
-_session = lt.session({'listen_interfaces': '0.0.0.0:6881'})
+# Session is initialized lazily so that Celery's prefork worker subprocesses
+# each create their own session after fork (libtorrent's internal threads do not
+# survive fork, so a session pre-created in the parent process is invalid in
+# children and causes add_torrent() to hang).
+_session: lt.session | None = None
 
-# Maps torrent_hash -> lt.torrent_handle
+# Maps str(movie_id) -> lt.torrent_handle
 _handles: dict = {}
+
+
+def _get_session() -> lt.session:
+    global _session
+    if _session is None:
+        _session = lt.session({'listen_interfaces': '0.0.0.0:6881'})
+    return _session
 
 
 def start_download(movie_id: int, torrent_url: str, save_path: str) -> None:
@@ -17,18 +28,16 @@ def start_download(movie_id: int, torrent_url: str, save_path: str) -> None:
 
     os.makedirs(save_path, exist_ok=True)
 
-    # download the .torrent file
     import requests as req
     response = req.get(torrent_url, timeout=30)
     response.raise_for_status()
 
-    # parse it and add to session
     torrent_info = lt.torrent_info(lt.bdecode(response.content))
     params = lt.add_torrent_params()
     params.ti = torrent_info
     params.save_path = save_path
 
-    handle = _session.add_torrent(params)
+    handle = _get_session().add_torrent(params)
     handle.set_sequential_download(True)
     _handles[key] = handle
     logger.info("Started download for movie %s -> %s", movie_id, save_path)
